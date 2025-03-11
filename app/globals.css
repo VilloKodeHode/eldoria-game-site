@@ -1,26 +1,17 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  --potion-shop-mystical-violet: #8A2BE2;
+  --potion-shop-celestial-blue: #5D9CEC;
+  --potion-shop-enchanted-gold: #FFD700;
+  --potion-shop-ethereal-silver: #C0C0C0;
+  --potion-shop-obsidian-black: #2C2C2C;
+  --potion-shop-obsidian-black-translucent: #2c2c2c9a;
+  --potion-shop-lunar-pearl: #F0E68C;
+  --potion-shop-lunar-pearl-translucent: #f0e68c9a;
+  --potion-shop-forest-emerald: #2be23a;
+  --potion-shop-crimson-flame: #ec5d70;
+  --potion-shop-enchanted-wood: #8B5A2B;
 }
