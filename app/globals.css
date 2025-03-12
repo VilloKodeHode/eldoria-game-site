@@ -1,17 +1,15 @@
 @import "tailwindcss";
 
-
-
-@theme inline {
-  --potion-shop-mystical-violet: #8A2BE2;
-  --potion-shop-celestial-blue: #5D9CEC;
-  --potion-shop-enchanted-gold: #FFD700;
-  --potion-shop-ethereal-silver: #C0C0C0;
-  --potion-shop-obsidian-black: #2C2C2C;
-  --potion-shop-obsidian-black-translucent: #2c2c2c9a;
-  --potion-shop-lunar-pearl: #F0E68C;
-  --potion-shop-lunar-pearl-translucent: #f0e68c9a;
-  --potion-shop-forest-emerald: #2be23a;
-  --potion-shop-crimson-flame: #ec5d70;
-  --potion-shop-enchanted-wood: #8B5A2B;
+@theme {
+  --color-potion-shop-mystical-violet: #8a2be2;
+  --color-potion-shop-celestial-blue: #5d9cec;
+  --color-potion-shop-enchanted-gold: #ffd700;
+  --color-potion-shop-ethereal-silver: #c0c0c0;
+  --color-potion-shop-obsidian-black: #2c2c2c;
+  --color-potion-shop-obsidian-black-translucent: #2c2c2c9a;
+  --color-potion-shop-lunar-pearl: #f0e68c;
+  --color-potion-shop-lunar-pearl-translucent: #f0e68c9a;
+  --color-potion-shop-forest-emerald: #2be23a;
+  --color-potion-shop-crimson-flame: #ec5d70;
+  --color-potion-shop-enchanted-wood: #8b5a2b;
 }
