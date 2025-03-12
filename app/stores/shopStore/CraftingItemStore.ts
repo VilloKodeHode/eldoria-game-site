@@ -6,36 +6,36 @@ import { create } from "zustand";
 //   data: { [key: string]: { [item: string]: { amount: number } } };
 // }
 
-export const createShopStore = (initialData: StoreItem[]) =>
+export const createCraftingItemsStore = (initialData: StoreItem[]) =>
   create<ShopStore>((set) => ({
-    data: initialData,
+    craftingItemData: initialData,
 
-    getItemAmount: (id) =>
+    getCraftingItemAmount: (id) =>
     (state: {data: StoreItem[]})=>
       state.data.find((item)=> item.id === id)?.amount ?? 0,
 
-    increaseItemAmount: (id) =>
+    increaseCraftingItemAmount: (id) =>
       set((state) => ({
-        data: state.data.map((item) =>
+        craftingItemData: state.craftingItemData.map((item) =>
           item.id === id
             ? { ...item, amount: Math.min(item.amount + 1, 10) }
             : item
         ),
       })),
 
-    decreaseItemAmount: (id) =>
+    decreaseCraftingItemAmount: (id) =>
       set((state) => ({
-        data: state.data.map((item) =>
+        craftingItemData: state.craftingItemData.map((item) =>
           item.id === id
             ? { ...item, amount: Math.max(item.amount - 1, 0) }
             : item
         ),
       })),
 
-    resetItems: () =>
+    resetCraftingItems: () =>
       set((state) => ({
-        data: state.data.map((item) => ({ ...item, amount: 0 })),
+        craftingItemData: state.craftingItemData.map((item) => ({ ...item, amount: 0 })),
       })),
   }));
 
-export const useShopStore = (items: StoreItem[]) => useMemo(() => createShopStore(items), [items]);
+export const useShopStore = (items: StoreItem[]) => useMemo(() => createCraftingItemsStore(items), [items]);

@@ -4,30 +4,31 @@ export const basePotionImageUrl = (potion) => {
   };
   
   // Function that can be called to get the potion object
-  export function getPotion(potion) {
-    return potions[potion];
+  export function getPotion(potionToGet) {
+    return potions.filter((potion) => potion.id === potionToGet);
   }
   
   // Function that can be called to check the ingredients for a potion:
-  export function checkPotionIngredients(potion) {
-    return Object.entries(potions[potion])
-      .filter(([key]) => key !== "image" && key !== "name")
-      .map(([, value]) => value);
+  export function checkPotionIngredients(potionToCheck) {
+    // return potions.filter((potion)=> )
   }
   
   // All potions, created as objects (for easier reference)
-  export const potions = {
-    healingPotion: {
+  export const potions = [
+    {
+      name: "Healing Potion",
+      id: "healingPotion",
       herbs: 2,
       berries: 1,
       water: 1,
       mushrooms: 0,
       flowers: 0,
       crystals: 1,
-      image: basePotionImageUrl("healing"), // returns: ./public/images/potions/healing-potion.webp
-      name: "Healing Potion",
+      image: basePotionImageUrl("healing"), // returns: /images/potions/healing-potion.webp
     },
-    strengthPotion: {
+    {
+      name: "Strength Potion",
+      id: "strengthPotion",
       herbs: 0,
       berries: 1,
       water: 1,
@@ -35,99 +36,108 @@ export const basePotionImageUrl = (potion) => {
       flowers: 0,
       crystals: 2,
       image: basePotionImageUrl("strength"),
-      name: "Strength Potion",
     },
-    manaPotion: {
+    {
+      name: "Mana Potion",
+      id: "manaPotion",
       herbs: 0,
       berries: 0,
       water: 3,
       mushrooms: 0,
       flowers: 1,
       crystals: 2,
-      name: "Mana Potion",
       image: basePotionImageUrl("mana"),
     },
-    speedPotion: {
+    {
+      name: "Speed Potion",
+      id: "speedPotion",
       herbs: 2,
       berries: 0,
       water: 2,
       mushrooms: 1,
       flowers: 1,
       crystals: 0,
-      name: "Speed Potion",
       image: basePotionImageUrl("speed"),
     },
-    stealthPotion: {
+    {
+      name: "Stealth Potion",
+      id: "stealthPotion",
       herbs: 0,
       berries: 0,
       water: 1,
       mushrooms: 0,
       flowers: 2,
       crystals: 2,
-      name: "Stealth Potion",
       image: basePotionImageUrl("stealth"),
     },
-    antidote: {
+    {
+      name: "Antidote",
+      id: "antidote",
       herbs: 1,
       berries: 3,
       water: 2,
       mushrooms: 0,
       flowers: 0,
       crystals: 0,
-      name: "Antidote",
       image: basePotionImageUrl("antidote"),
     },
-    lovePotion: {
+    {
+      name: "Love Potion",
+      id: "lovePotion",
       herbs: 0,
       berries: 0,
       water: 2,
       mushrooms: 0,
       flowers: 2,
       crystals: 2,
-      name: "Love Potion",
       image: basePotionImageUrl("love"),
     },
-    nightVisionPotion: {
+    {
+      name: "Night Vision Potion",
+      id: "nightvisionPotion",
       herbs: 1,
       berries: 0,
       water: 1,
       mushrooms: 0,
       flowers: 2,
       crystals: 1,
-      name: "Night Vision Potion",
       image: basePotionImageUrl("nightvision"),
     },
-    fireResistancePotion: {
+    {
+      id: "fireResistancePotion",
+      name: "Fire Resistance Potion",
       herbs: 1,
       berries: 1,
       water: 3,
       mushrooms: 0,
       flowers: 1,
       crystals: 2,
-      name: "Fire Resistance Potion",
       image: basePotionImageUrl("fire-resistance"),
     },
-    frostResistancePotion: {
+    {
+      name: "Frost Resistance Potion",
+      id: "frostResistancePotion",
       herbs: 1,
       berries: 2,
       water: 1,
       mushrooms: 1,
       flowers: 1,
       crystals: 2,
-      name: "Frost Resistance Potion",
       image: basePotionImageUrl("frost-resistance"),
     },
-    lightningResistancePotion: {
+    {
+      name: "Lightning Resistance Potion",
+      id: "lightningResistancePotion",
       herbs: 1,
       berries: 1,
       water: 1,
       mushrooms: 3,
       flowers: 0,
       crystals: 2,
-      name: "Lightning Resistance Potion",
       image: basePotionImageUrl("lightning-resistance"),
     },
-    energyPotion: {
+    {
+      id: "energyPotion",
       herbs: 4,
       berries: 2,
       water: 1,
@@ -137,15 +147,16 @@ export const basePotionImageUrl = (potion) => {
       name: "Energy Potion",
       image: basePotionImageUrl("energy"),
     },
-    focusPotion: {
+    {
+      id: "focusPotion",
+      name: "Focus Potion",
       herbs: 1,
       berries: 0,
       water: 1,
       mushrooms: 0,
       flowers: 4,
       crystals: 2,
-      name: "Focus Potion",
       image: basePotionImageUrl("focus"),
     },
-  };
+  ];
   

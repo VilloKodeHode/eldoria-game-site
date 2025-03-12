@@ -1,7 +1,7 @@
 "use client";
 
 import { StoreItem } from "@/app/interfaces/shopTypes";
-import { useShopStore } from "@/app/stores/shopStore/shopStore";
+import { useShopStore } from "@/app/stores/shopStore/CraftingItemStore";
 import Image from "next/image";
 
 interface CraftSectionProps {
@@ -9,13 +9,13 @@ interface CraftSectionProps {
 }
 
 export const CraftSection: React.FC<CraftSectionProps> = ({ items }) => {
-  const { data, increaseItemAmount, decreaseItemAmount } = useShopStore(items)();
+  const { craftingItemData, increaseCraftingItemAmount, decreaseCraftingItemAmount } = useShopStore(items)();
 
   return (
     <>
       <div className="flex flex-wrap gap-16 justify-center">
         {
-          data.map((item) => {
+          craftingItemData.map((item) => {
             
             return (
               <div
@@ -35,13 +35,13 @@ export const CraftSection: React.FC<CraftSectionProps> = ({ items }) => {
                   <div className="flex justify-between">
                     <button
                       className="text-2xl active:scale-95"
-                      onClick={() => increaseItemAmount(item.id)}
+                      onClick={() => increaseCraftingItemAmount(item.id)}
                     >
                       +
                     </button>
                     <button
                       className="text-2xl active:scale-95"
-                      onClick={() => decreaseItemAmount(item.id)}
+                      onClick={() => decreaseCraftingItemAmount(item.id)}
                     >
                       -
                     </button>
