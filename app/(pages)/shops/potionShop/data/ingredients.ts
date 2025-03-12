@@ -1,42 +1,42 @@
 // creating an object for the ingredients:
-export const ingredients = {
-  herbs: {
-    name: "herbs",
+export const ingredients = [
+  {
+    name: "Herbs",
     amount: 0,
-    id: "addHerbs",
+    id: "herbs",
     src: "/images/potionShop/ingredients/herbs-ingredient.webp",
   },
-  berries: {
-    name: "berries",
+  {
+    name: "Berries",
     amount: 0,
-    id: "addBerries",
+    id: "berries",
     src: "/images/potionShop/ingredients/berries-ingredient.webp",
   },
-  water: {
-    name: "water",
+  {
+    name: "Water",
     amount: 0,
-    id: "addWater",
+    id: "water",
     src: "/images/potionShop/ingredients/water-ingredient.webp",
   },
-  mushrooms: {
-    name: "mushrooms",
+  {
+    name: "Mushrooms",
     amount: 0,
-    id: "addMushrooms",
+    id: "mushrooms",
     src: "/images/potionShop/ingredients/mushrooms-ingredient.webp",
   },
-  flowers: {
-    name: "flowers",
+  {
+    name: "Flowers",
     amount: 0,
-    id: "addFlowers",
+    id: "flowers",
     src: "/images/potionShop/ingredients/flowers-ingredient.webp",
   },
-  crystals: {
-    name: "crystals",
+  {
+    name: "Crystals",
     amount: 0,
-    id: "addCrystals",
+    id: "crystals",
     src: "/images/potionShop/ingredients/crystals-ingredient.webp",
   },
-};
+];
 
 // Function that can be called to get the amount of an ingredient
 export default function ingredientAmount(ingredient) {

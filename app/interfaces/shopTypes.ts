@@ -1,4 +1,4 @@
-export interface MaterialType {
+export interface StoreItem {
   name: string;
   amount: number;
   id: string;
@@ -6,11 +6,8 @@ export interface MaterialType {
 }
 
 export interface ShopStore {
-  data: {
-    ingredients?: Record<string, MaterialType>; // Dictionary of materials
-  };
-  setData: (key: string, values: Record<string, MaterialType>) => void;
-  increaseMaterialAmount: (key: string, item: string, max?: number) => void;
-  decreaseMaterialAmount: (key: string, item: string) => void;
-  resetMaterials: (key: string) => void;
+  data: StoreItem[];
+  increaseItemAmount: (id: string) => void
+  decreaseItemAmount: (id: string) => void
+  resetItems: () => void;
 }
