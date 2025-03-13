@@ -1,40 +1,41 @@
 // creating an object for the ingredients:
+
 export const ingredients = [
   {
     name: "Herbs",
     amount: 0,
     id: "herbs",
-    src: "/images/potionShop/ingredients/herbs-ingredient.webp",
+    src: "/images/ingredients/herbs-ingredient.webp",
   },
   {
     name: "Berries",
     amount: 0,
     id: "berries",
-    src: "/images/potionShop/ingredients/berries-ingredient.webp",
+    src: "/images/ingredients/berries-ingredient.webp",
   },
   {
     name: "Water",
     amount: 0,
     id: "water",
-    src: "/images/potionShop/ingredients/water-ingredient.webp",
+    src: "/images/ingredients/water-ingredient.webp",
   },
   {
     name: "Mushrooms",
     amount: 0,
     id: "mushrooms",
-    src: "/images/potionShop/ingredients/mushrooms-ingredient.webp",
+    src: "/images/ingredients/mushrooms-ingredient.webp",
   },
   {
     name: "Flowers",
     amount: 0,
     id: "flowers",
-    src: "/images/potionShop/ingredients/flowers-ingredient.webp",
+    src: "/images/ingredients/flowers-ingredient.webp",
   },
   {
     name: "Crystals",
     amount: 0,
     id: "crystals",
-    src: "/images/potionShop/ingredients/crystals-ingredient.webp",
+    src: "/images/ingredients/crystals-ingredient.webp",
   },
 ];
 

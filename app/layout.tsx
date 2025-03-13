@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
-import { Figtree } from "next/font/google";
 import "./globals.css";
-
-const figtree = Figtree({
-  subsets: ["latin"],
-});
+import { CharacterInventory } from "./components/character/CharacterInventory";
+import { astloch } from "./fonts/fonts";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,7 +15,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${figtree.className} bg- antialiased`}>{children}</body>
+      <body
+        className={`${astloch.className} bg-[#1f2326] antialiased overflow-x-hidden`}>
+        <CharacterInventory />
+        <main className="min-h-screen text-potion-shop-lunar-pearl flex flex-col px-2 md:px-8 lg:px-16">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }

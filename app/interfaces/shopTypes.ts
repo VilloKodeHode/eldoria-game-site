@@ -7,7 +7,7 @@ export interface StoreItem {
 
 export interface ShopStore {
   craftingItemData: StoreItem[];
-  increaseCraftingItemAmount: (id: string) => void
-  decreaseCraftingItemAmount: (id: string) => void
+  increaseCraftingItemAmount: (id: string) => void;
+  decreaseCraftingItemAmount: (id: string) => void;
   resetCraftingItems: () => void;
 }
