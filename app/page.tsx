@@ -1,12 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { astloch } from "./fonts/fonts";
 
 export default function Home() {
   return (
     <>
       <section
-        className={`flex flex-col items-center min-h-screen justify-center ${astloch.className} `}>
+        className={`flex flex-col items-center min-h-screen justify-center `}>
         <h1 className={`text-9xl`}>Eldoria game</h1>
         <Link
           className="h-32 w-32"
