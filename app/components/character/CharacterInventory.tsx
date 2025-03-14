@@ -1,6 +1,5 @@
 "use client";
 
-import { figtree } from "@/app/fonts/fonts";
 import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore";
 import Image from "next/image";
 import { useState } from "react";
@@ -17,7 +16,7 @@ export const CharacterInventory = () => {
         📜
       </button>
       <div
-        className={`${figtree.className} ${
+        className={` ${
           open ? "translate-x-0" : "translate-x-full"
         } transition duration-1000 z-99 bg-potion-shop-obsidian-black text-potion-shop-lunar-pearl  grid gap-8 w-fit p-8 absolute right-0`}
       >

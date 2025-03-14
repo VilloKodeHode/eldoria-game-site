@@ -1,7 +1,18 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { CharacterInventory } from "./components/character/CharacterInventory";
-import { astloch } from "./fonts/fonts";
+import { Astloch, Figtree } from "next/font/google";
+
+
+export const figtree = Figtree({
+  subsets: ["latin"],
+});
+
+export const astloch = Astloch({
+  weight: "700",
+});
+
+
 
 export const metadata: Metadata = {
   title: "Create Next App",

@@ -1,12 +1,12 @@
 "use client";
 
-import { StoreItem } from "@/app/interfaces/shopTypes";
-import { useShopStore } from "@/app/stores/shopStore/CraftingItemStore";
+// import { StoreItem } from "@/app/interfaces/shopTypes";
+// import { useShopStore } from "@/app/stores/shopStore/CraftingItemStore";
 import Image from "next/image";
 
-interface CraftSectionProps {
-  items: StoreItem[];
-}
+// interface CraftSectionProps {
+//   items: StoreItem[];
+// }
 
 export const CraftSection = ({ items }) => {
 
@@ -34,7 +34,8 @@ export const CraftSection = ({ items }) => {
                   <div className="border-r-4 flex-1/3 border-potion-shop-lunar-pearl/50">
                     <button
                       className="text-4xl active:scale-95 p-2 text-potion-shop-enchanted-gold"
-                      onClick={() => increaseCraftingItemAmount(item.id)}>
+                      // onClick={() => increaseCraftingItemAmount(item.id)}
+                      >
                       +
                     </button>
                   </div>
@@ -49,7 +50,8 @@ export const CraftSection = ({ items }) => {
                   <div className="border-l-4 border-potion-shop-lunar-pearl/50 flex-1/3">
                     <button
                       className="text-4xl p-2 active:scale-95 text-potion-shop-enchanted-gold"
-                      onClick={() => decreaseCraftingItemAmount(item.id)}>
+                      // onClick={() => decreaseCraftingItemAmount(item.id)}
+                      >
                       -
                     </button>
                   </div>
