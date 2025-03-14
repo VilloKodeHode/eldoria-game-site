@@ -33,17 +33,24 @@ export const CharacterInventory = () => {
                   <ul className="grid gap-4">
                     {items.map((item) => (
                       <li key={item.id} className="flex gap-2">
+                        <div className="flex justify-end relative w-12 h-12">
+                        
                         <Image
+                          className="w-full -z-10 h-full absolute top-0"
                           src={item.src}
                           alt={item.name}
                           width={50}
                           height={50}
                         />
+                        <div className="bg-potion-shop-lunar-pearl rounded-full text-potion-shop-obsidian-black h-3.5 relative z-10 p-1 w-3.5">
+                        <span className=" text-sm absolute -translate-y-1/2 top-1/2">{item.amount}</span>
+                        </div>
+                        </div>
                         <div className="text-xs flex flex-col justify-center gap-2">
                           <span>
                             {item.name}
                           </span>
-                          <button onClick={() => sellItem(item.id,
+                          <button className="cursor-pointer hover:scale-105 transition border-b-2 border-b-potion-shop-enchanted-gold" onClick={() => sellItem(item.id,
                             // @ts-expect-error Type 'string | undefined' is not assignable to type 'string'.
                             category)}>(Sell: {item.sellPrice} Gold)</button>
                         </div>
