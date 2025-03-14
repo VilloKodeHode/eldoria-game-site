@@ -9,6 +9,7 @@ export const figtree = Figtree({
 });
 
 export const astloch = Astloch({
+  subsets: ["latin"],
   weight: "700",
 });
 
