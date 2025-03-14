@@ -1,58 +1,36 @@
 import {
-  ConsumableItem,
-  playerInventory,
+  InventoryItem,
+  Item,
   PlayerInventory,
+  PlayerInventoryStore,
 } from "@/app/data/inventory";
 import { create } from "zustand";
+import itemsData from "@/app/data/items.json";
 
-export interface PlayerInventoryStore {
-  playerInventory: PlayerInventory;
-  viewInventory: () => void;
-  addItem: (
-    id: string,
-    itemName: string,
-    category: keyof PlayerInventory["items"],
-    buyPrice?: number,
-    sellPrice?: number
-  ) => void;
-  removeItem: (
-    id: string,
-    itemName: string,
-    category: keyof PlayerInventory["items"]
-  ) => void;
-  addGold: (amount: number) => void;
-  removeGold: (amount: number) => void;
-  addGems: (amount: number) => void;
-  removeGems: (amount: number) => void;
-  equipItem: (
-    id: string,
-    itemName: string,
-    category: "weapons" | "armour"
-  ) => void;
-  unequipItem: (
-    id: string,
-    itemName: string,
-    category: "weapons" | "armour"
-  ) => void;
-  useItem: (
-    id: string,
-    itemName: string,
-    category: "potions" | "foods"
-  ) => void;
-  sellItem: (
-    id: string,
-    itemName: string,
-    category: keyof PlayerInventory["items"]
-  ) => void;
-  viewItem: (
-    id: string,
-    itemName: string,
-    category: keyof PlayerInventory["items"]
-  ) => void;
-}
+
+const addItemToInventory = (id: string, amount: number = 1): InventoryItem => {
+  const item = itemsData.find((item) => item.id === id) as Item;
+  if (!item) throw new Error(`Item with ID ${id} not found`);
+  return { ...item, amount };
+};
 
 export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
-  playerInventory: playerInventory,
+  
+  playerInventory: {
+    currency: { gold: 0, gems: 0 },
+    items: {
+      weapons: [addItemToInventory("rustyDagger")],
+      armour: [
+        addItemToInventory("peasantBoots"),
+        addItemToInventory("peasantShirt"),
+        addItemToInventory("peasantHat"),
+      ],
+      potions: [addItemToInventory("healingPotion"),],
+      foods: [],
+      ingredients: [],
+      materials: [],
+    },
+  },
 
   viewInventory: () => {
     set((state) => {
@@ -61,25 +39,26 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
     });
   },
 
-  addItem: (id, itemName, category, buyPrice = 0, sellPrice = 0) =>
-    set((state) => ({
-      playerInventory: {
-        ...state.playerInventory,
-        items: {
-          ...state.playerInventory.items,
-          [category]: state.playerInventory.items[category].some(
-            (item) => item.id === id
-          )
-            ? state.playerInventory.items[category].map((item) =>
-                item.id === id ? { ...item, amount: item.amount + 1 } : item
-              )
-            : [
-                ...state.playerInventory.items[category],
-                { id, itemName, amount: 1, buyPrice, sellPrice },
-              ],
+  addItem: (id, category) =>
+    set((state) => {
+      const existingItem = state.playerInventory.items[category].find(
+        (item) => item.id === id
+      );
+
+      return {
+        playerInventory: {
+          ...state.playerInventory,
+          items: {
+            ...state.playerInventory.items,
+            [category]: existingItem
+              ? state.playerInventory.items[category].map((item) =>
+                  item.id === id ? { ...item, amount: item.amount + 1 } : item
+                )
+              : [...state.playerInventory.items[category], addItemToInventory(id, 1)],
+          },
         },
-      },
-    })),
+      };
+    }),
 
   removeItem: (id, category) =>
     set((state) => ({
@@ -146,12 +125,12 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
     set((state) => ({
       playerInventory: {
         ...state.playerInventory,
-      },
-      items: {
-        ...state.playerInventory.items,
-        [category]: state.playerInventory.items[category].map((item) =>
-          item.id === id ? { ...item, equipped: true } : item
-        ),
+        items: {
+          ...state.playerInventory.items,
+          [category]: state.playerInventory.items[category].map((item) =>
+            item.id === id ? { ...item, equipped: true } : item
+          ),
+        },
       },
     })),
 
@@ -175,9 +154,9 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
       );
       if (!item) return state;
       console.log(
-        `Used ${item.itemName}! Effect Type: ${
-          (item as ConsumableItem).effectType
-        }, Amount: ${(item as ConsumableItem).effectAmount}`
+        `Used ${item.name}! Effect Type: ${
+          (item).consumable?.effectType
+        }, Amount: ${item.consumable?.effectAmount}`
       );
 
       return {
@@ -231,4 +210,30 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
       console.log("Item Details:", item);
       return state;
     }),
+
+    updateInventory: (shopItems) =>
+      set((state) => {
+        const updatedItems = { ...state.playerInventory.items };
+  
+        Object.entries(shopItems).forEach(([category, items]) => {
+          items.forEach((newItem) => {
+            const inventoryItem = newItem as InventoryItem
+            const amountToadd = inventoryItem.amount ?? 1
+            const itemToAdd = addItemToInventory(inventoryItem.id, amountToadd)
+            const existingItem = updatedItems[category as keyof PlayerInventory["items"]].find(
+              (i) => i.id === newItem.id
+            );
+  
+            if (existingItem) {
+              existingItem.amount += itemToAdd.amount;
+            } else {
+              updatedItems[category as keyof PlayerInventory["items"]].push(itemToAdd);
+            }
+          });
+        });
+  
+        return {
+          playerInventory: { ...state.playerInventory, items: updatedItems },
+        };
+      }),
 }));

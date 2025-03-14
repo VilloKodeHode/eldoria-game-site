@@ -8,17 +8,13 @@ interface CraftSectionProps {
   items: StoreItem[];
 }
 
-export const CraftSection: React.FC<CraftSectionProps> = ({ items }) => {
-  const {
-    craftingItemData,
-    increaseCraftingItemAmount,
-    decreaseCraftingItemAmount,
-  } = useShopStore(items)();
+export const CraftSection = ({ items }) => {
+
 
   return (
     <>
       <section className="flex flex-wrap gap-16 justify-center">
-        {craftingItemData.map((item) => {
+        {items.map((item) => {
           return (
             <div
               key={item.id}

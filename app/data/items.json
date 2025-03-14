@@ -1,0 +1,500 @@
+[
+  {
+    "id": "herbs",
+    "name": "Herbs",
+    "src": "/images/ingredients/herbs-ingredient.webp",
+    "itemType": "material",
+    "subType": "ingredient",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "regen-buff",
+      "affectedStat": "health",
+      "effectAmount": 10,
+      "duration": "medium"
+    },
+    "buyPrice": 5,
+    "sellPrice": 2
+  },
+  {
+    "id": "berries",
+    "name": "Berries",
+    "src": "/images/ingredients/berries-ingredient.webp",
+    "itemType": "material",
+    "subType": "ingredient",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "regen-buff",
+      "affectedStat": "health",
+      "effectAmount": 20,
+      "duration": "long"
+    },
+    "buyPrice": 3,
+    "sellPrice": 1
+  },
+  {
+    "id": "water",
+    "name": "Water",
+    "src": "/images/ingredients/water-ingredient.webp",
+    "itemType": "material",
+    "subType": "ingredient",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "regen-buff",
+      "affectedStat": "stamina",
+      "effectAmount": 30,
+      "duration": "long"
+    },
+    "buyPrice": 2,
+    "sellPrice": 1
+  },
+  {
+    "id": "mushrooms",
+    "name": "Mushrooms",
+    "src": "/images/ingredients/mushrooms-ingredient.webp",
+    "itemType": "material",
+    "subType": "ingredient",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "restore",
+      "affectedStat": "health",
+      "effectAmount": 10,
+      "duration": "instantaneous"
+    },
+    "buyPrice": 4,
+    "sellPrice": 2
+  },
+  {
+    "id": "flowers",
+    "name": "Flowers",
+    "src": "/images/ingredients/flowers-ingredient.webp",
+    "itemType": "material",
+    "subType": "ingredient",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "restore",
+      "affectedStat": "mana",
+      "effectAmount": 10,
+      "duration": "instantaneous"
+    },
+    "buyPrice": 6,
+    "sellPrice": 3
+  },
+  {
+    "id": "crystals",
+    "name": "Crystals",
+    "src": "/images/ingredients/crystals-ingredient.webp",
+    "itemType": "material",
+    "subType": "ingredient",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": null,
+      "affectedStat": null,
+      "effectAmount": 0,
+      "duration": null
+    },
+    "buyPrice": 15,
+    "sellPrice": 8
+  },
+  {
+    "id": "healingPotion",
+    "name": "Healing Potion",
+    "src": "/images/potions/healing-potion.webp",
+    "itemType": "consumable",
+    "subType": "potion",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "restore",
+      "affectedStat": "health",
+      "effectAmount": 50,
+      "duration": "instantaneous"
+    },
+    "buyPrice": 50,
+    "sellPrice": 10
+  },
+  {
+    "id": "strengthPotion",
+    "name": "Strength Potion",
+    "src": "/images/potions/strength-potion.webp",
+    "itemType": "consumable",
+    "subType": "potion",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "buff",
+      "affectedStat": "strength",
+      "effectAmount": 15,
+      "duration": "long"
+    },
+    "buyPrice": 75,
+    "sellPrice": 20
+  },
+  {
+    "id": "manaPotion",
+    "name": "Mana Potion",
+    "src": "/images/potions/mana-potion.webp",
+    "itemType": "consumable",
+    "subType": "potion",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "restore",
+      "affectedStat": "mana",
+      "effectAmount": 50,
+      "duration": "instantaneous"
+    },
+    "buyPrice": 60,
+    "sellPrice": 15
+  },
+  {
+    "id": "speedPotion",
+    "name": "Speed Potion",
+    "src": "/images/potions/speed-potion.webp",
+    "itemType": "consumable",
+    "subType": "potion",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "buff",
+      "affectedStat": "speed",
+      "effectAmount": 20,
+      "duration": "medium"
+    },
+    "buyPrice": 70,
+    "sellPrice": 18
+  },
+  {
+    "id": "stealthPotion",
+    "name": "Stealth Potion",
+    "src": "/images/potions/stealth-potion.webp",
+    "itemType": "consumable",
+    "subType": "potion",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "buff",
+      "affectedStat": "stealth",
+      "effectAmount": 30,
+      "duration": "long"
+    },
+    "buyPrice": 90,
+    "sellPrice": 25
+  },
+  {
+    "id": "antidote",
+    "name": "Antidote",
+    "src": "/images/potions/antidote-potion.webp",
+    "itemType": "consumable",
+    "subType": "potion",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "cure",
+      "affectedStat": "poison",
+      "effectAmount": null,
+      "duration": "instantaneous"
+    },
+    "buyPrice": 40,
+    "sellPrice": 10
+  },
+  {
+    "id": "lovePotion",
+    "name": "Love Potion",
+    "src": "/images/potions/love-potion.webp",
+    "itemType": "consumable",
+    "subType": "potion",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "buff",
+      "affectedStat": "charm",
+      "effectAmount": 10,
+      "duration": "short"
+    },
+    "buyPrice": 120,
+    "sellPrice": 30
+  },
+  {
+    "id": "nightvisionPotion",
+    "name": "Night Vision Potion",
+    "src": "/images/potions/nightvision-potion.webp",
+    "itemType": "consumable",
+    "subType": "potion",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "vision",
+      "affectedStat": "nightVision",
+      "effectAmount": null,
+      "duration": "long"
+    },
+    "buyPrice": 85,
+    "sellPrice": 20
+  },
+  {
+    "id": "fireResistancePotion",
+    "name": "Fire Resistance Potion",
+    "src": "/images/potions/fireResistance-potion.webp",
+    "itemType": "consumable",
+    "subType": "potion",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "resistance",
+      "affectedStat": "fire",
+      "effectAmount": 50,
+      "duration": "long"
+    },
+    "buyPrice": 100,
+    "sellPrice": 25
+  },
+  {
+    "id": "frostResistancePotion",
+    "name": "Frost Resistance Potion",
+    "src": "/images/potions/frostResistance-potion.webp",
+    "itemType": "consumable",
+    "subType": "potion",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "resistance",
+      "affectedStat": "frost",
+      "effectAmount": 50,
+      "duration": "long"
+    },
+    "buyPrice": 100,
+    "sellPrice": 25
+  },
+  {
+    "id": "lightningResistancePotion",
+    "name": "Lightning Resistance Potion",
+    "src": "/images/potions/lightningResistance-potion.webp",
+    "itemType": "consumable",
+    "subType": "potion",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "resistance",
+      "affectedStat": "lightning",
+      "effectAmount": 50,
+      "duration": "long"
+    },
+    "buyPrice": 100,
+    "sellPrice": 25
+  },
+  {
+    "id": "energyPotion",
+    "name": "Energy Potion",
+    "src": "/images/potions/energy-potion.webp",
+    "itemType": "consumable",
+    "subType": "potion",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "regen-buff",
+      "affectedStat": "stamina",
+      "effectAmount": 40,
+      "duration": "long"
+    },
+    "buyPrice": 80,
+    "sellPrice": 20
+  },
+  {
+    "id": "focusPotion",
+    "name": "Focus Potion",
+    "src": "/images/potions/focus-potion.webp",
+    "itemType": "consumable",
+    "subType": "potion",
+    "equippable": {
+        "slot": null,
+        "damageType": null,
+        "damage": []
+      },
+    "consumable": {
+      "effectType": "buff",
+      "affectedStat": "focus",
+      "effectAmount": 30,
+      "duration": "medium"
+    },
+    "buyPrice": 90,
+    "sellPrice": 25
+  },
+  {
+    "id": "rustyDagger",
+    "name": "Rusty Dagger",
+    "src": "/images/equipment/rusty-dagger-equipment.webp",
+    "itemType": "equipment",
+    "subType": "weapon",
+    "equippable": {
+        "slot": "rightHand",
+        "damageType": "physical",
+        "damage": [5,8]
+      },
+    "consumable": {
+      "effectType": null,
+      "affectedStat": null,
+      "effectAmount": 0,
+      "duration": null
+    },
+    "buyPrice": 20,
+    "sellPrice": 5
+  },
+  {
+    "id": "knightSword",
+    "name": "Knight Sword",
+    "src": "/images/equipment/knight-sword-equipment.webp",
+    "itemType": "equipment",
+    "subType": "weapon",
+    "equippable": {
+      "slot": "rightHand",
+      "damageType": "physical",
+      "damage": [12, 18]
+    },
+    "consumable": {
+      "effectType": null,
+      "affectedStat": null,
+      "effectAmount": 0,
+      "duration": null
+    },
+    "buyPrice": 600,
+    "sellPrice": 350
+  },
+  {
+    "id": "peasantBoots",
+    "name": "Peasant Boots",
+    "src": "/images/equipment/peasant-boots-equipment.webp",
+    "itemType": "equipment",
+    "subType": "armor",
+    "equippable": {
+      "slot": "feet",
+      "defense": 3
+    },
+    "consumable": {
+      "effectType": null,
+      "affectedStat": null,
+      "effectAmount": 0,
+      "duration": null
+    },
+    "buyPrice": 100,
+    "sellPrice": 50
+  },
+  {
+    "id": "peasantShirt",
+    "name": "Peasant Shirt",
+    "src": "/images/equipment/peasant-shirt-equipment.webp",
+    "itemType": "equipment",
+    "subType": "armor",
+    "equippable": {
+      "slot": "body",
+      "defense": 5
+    },
+    "consumable": {
+      "effectType": null,
+      "affectedStat": null,
+      "effectAmount": 0,
+      "duration": null
+    },
+    "buyPrice": 150,
+    "sellPrice": 75
+  },
+  {
+    "id": "peasantHat",
+    "name": "Peasant Hat",
+    "src": "/images/equipment/peasant-hat-equipment.webp",
+    "itemType": "equipment",
+    "subType": "armor",
+    "equippable": {
+      "slot": "head",
+      "defense": 2
+    },
+    "consumable": {
+      "effectType": null,
+      "affectedStat": null,
+      "effectAmount": 0,
+      "duration": null
+    },
+    "buyPrice": 80,
+    "sellPrice": 40
+  },
+  {
+    "id": "steelSword",
+    "name": "Steel Sword",
+    "src": "/images/equipment/steel-sword-equipment.webp",
+    "itemType": "equipment",
+    "subType": "weapon",
+    "equippable": {
+      "slot": "rightHand",
+      "damageType": "physical",
+      "damage": [9, 14]
+    },
+    "consumable": {
+      "effectType": null,
+      "affectedStat": null,
+      "effectAmount": 0,
+      "duration": null
+    },
+    "buyPrice": 450,
+    "sellPrice": 250
+  }
+
+]

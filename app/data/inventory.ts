@@ -1,104 +1,56 @@
+export interface Item {
+  id: string;
+  name: string;
+  src: string;
+  itemType: string;
+  subType: string;
+  equippable: {
+    slot: string | null; 
+    damageType?: string | null;
+    damage?: [number, number] | null;
+    defense?: number | null;
+  } | null; 
+  consumable: {
+    effectType?: string | null;
+    affectedStat?: string | null;
+    effectAmount?: number | null;
+    duration?: string | null;
+  } | null; 
+  buyPrice: number;
+  sellPrice: number;
+}
+
+export interface InventoryItem extends Item {
+  amount: number;
+}
+
 export interface PlayerInventory {
   currency: {
     gold: number;
     gems: number;
   };
   items: {
-    weapons: EquipmentItem[];
-    armour: EquipmentItem[];
-    potions: ConsumableItem[];
-    foods: ConsumableItem[];
-    ingredients: CraftingItem[];
-    materials: CraftingItem[];
+    weapons: InventoryItem[];
+    armour: InventoryItem[];
+    potions: InventoryItem[];
+    foods: InventoryItem[];
+    ingredients: InventoryItem[];
+    materials: InventoryItem[];
   };
 }
 
-export interface InventoryItem {
-  amount: number;
-  id: string;
-  itemName: string;
-  buyPrice: number;
-  sellPrice: number;
+export interface PlayerInventoryStore {
+  playerInventory: PlayerInventory;
+  addItem: (id: string, category: keyof PlayerInventory["items"]) => void;
+  removeItem: (id: string, category: keyof PlayerInventory["items"]) => void;
+  equipItem: (id: string, category: "weapons" | "armour") => void;
+  unequipItem: (id: string, category: "weapons" | "armour") => void;
+  useItem: (id: string, category: "potions" | "foods") => void;
+  sellItem: (id: string, category: keyof PlayerInventory["items"]) => void;
+  viewItem: (id: string, category: keyof PlayerInventory["items"]) => void;
+  addGold: (amount: number) => void;
+  removeGold: (amount: number) => void;
+  addGems: (amount: number) => void;
+  removeGems: (amount: number) => void;
+  updateInventory: (shopItems: Partial<Record<keyof PlayerInventory["items"], Item[]>>) => void;
 }
-
-export interface CharacterSlots {
-  head: string;
-  body: string;
-  hands: string;
-  legs: string;
-  feet: string;
-  rightHand: string;
-  leftHand: string;
-  neck: string;
-  ringOne: string;
-  ringTwo: string;
-}
-
-type EquipmentSlot = keyof CharacterSlots;
-
-export interface EquipmentItem extends InventoryItem {
-  equipped: boolean;
-  slot: EquipmentSlot;
-}
-
-export interface ConsumableItem extends InventoryItem {
-  effectType: "health" | "mana" | "rejuvenate" | "stamina" | "buff";
-  effectAmount: number;
-}
-
-export interface CraftingItem extends InventoryItem {
-  type: string;
-}
-
-export const playerInventory: PlayerInventory = {
-  currency: {
-    gold: 0,
-    gems: 50,
-  },
-  items: {
-    weapons: [
-      {
-        id: "rustyDagger",
-        itemName: "Rusty Dagger",
-        amount: 1,
-        equipped: true,
-        slot: "rightHand",
-        buyPrice: 100,
-        sellPrice: 20,
-      },
-    ],
-    armour: [
-      {
-        id: "peasentShirt",
-        itemName: "Peasent Shirt",
-        amount: 1,
-        equipped: true,
-        slot: "body",
-        buyPrice: 20,
-        sellPrice: 5,
-      },
-      {
-        id: "peasentPants",
-        itemName: "Peasent Pants",
-        amount: 1,
-        equipped: true,
-        slot: "legs",
-        buyPrice: 20,
-        sellPrice: 5,
-      },
-      {
-        id: "peasentBoots",
-        itemName: "Peasent Boots",
-        amount: 1,
-        equipped: true,
-        slot: "feet",
-        buyPrice: 20,
-        sellPrice: 5,
-      },
-    ],
-    foods: [],
-    potions: [],
-    ingredients: [],
-    materials: [],
-  },
-};

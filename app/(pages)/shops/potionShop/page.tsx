@@ -4,10 +4,14 @@ import { ingredients } from "@/app/data/ingredients";
 import { CraftSection } from "@/app/(pages)/shops/components/CraftSection";
 import { potionShopTexts } from "./data/potionShopTexts";
 import { CraftButton } from "../components/buttons/ShopButtons";
+import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore";
 
 // import { potions } from "@/app/(pages)/shops/potionShop/data/potions";
 
 export default function Home() {
+    const {  } = usePlayerInventory();
+
+  
   return (
     <>
       <div className="min-h-screen grid justify-center items-center">
