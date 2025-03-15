@@ -52,7 +52,9 @@ export const CharacterInventory = () => {
                           </span>
                           <button className="cursor-pointer hover:scale-105 transition border-b-2 border-b-potion-shop-enchanted-gold" onClick={() => sellItem(item.id,
                             // @ts-expect-error Type 'string | undefined' is not assignable to type 'string'.
-                            category)}>(Sell: {item.sellPrice} Gold)</button>
+                            category)}>
+                              (Sell: {item.sellPrice} Gold)
+                              </button>
                         </div>
                       </li>
                     ))}

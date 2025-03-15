@@ -25,7 +25,9 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
         addItemToInventory("peasantShirt"),
         addItemToInventory("peasantHat"),
       ],
-      potions: [addItemToInventory("healingPotion"),],
+      potions: [addItemToInventory("healingPotion"),
+        addItemToInventory("speedPotion")
+      ],
       foods: [],
       ingredients: [],
       materials: [],
@@ -236,4 +238,7 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
           playerInventory: { ...state.playerInventory, items: updatedItems },
         };
       }),
+      // buyback: (soldItem)=> {
+
+      // },
 }));

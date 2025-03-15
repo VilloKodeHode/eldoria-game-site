@@ -1,24 +1,37 @@
 "use client";
 
+import { StoreItem } from "@/app/data/inventory";
 // import { StoreItem } from "@/app/interfaces/shopTypes";
 // import { useShopStore } from "@/app/stores/shopStore/CraftingItemStore";
 import Image from "next/image";
+import { useState } from "react";
 
 // interface CraftSectionProps {
 //   items: StoreItem[];
 // }
 
 export const CraftSection = ({ items }) => {
+  const [ingredients, setIngredients] = useState<StoreItem[]>(items);
+  console.log(ingredients.map((item) => item.amount))
 
+
+  const updateItemAmount = (id: string, change: number) => {
+    setIngredients((prevInventory) =>
+      prevInventory.map((item) =>
+        item.id === id ? { ...item, amount: Math.max(0, item.amount + change) } : item
+      )
+    );
+  };
 
   return (
     <>
       <section className="flex flex-wrap gap-16 justify-center">
-        {items.map((item) => {
+        {ingredients.map((item) => {
           return (
             <div
               key={item.id}
-              className={`h-50 w-50 relative flex flex-col justify-between border-4 border-potion-shop-lunar-pearl/50 bg-potion-shop-lunar-pearl/20`}>
+              className={`h-50 w-50 relative flex flex-col justify-between border-4 border-potion-shop-lunar-pearl/50 bg-potion-shop-lunar-pearl/20`}
+            >
               <Image
                 className="absolute top-0 left-0 -z-10"
                 width={200}
@@ -34,8 +47,8 @@ export const CraftSection = ({ items }) => {
                   <div className="border-r-4 flex-1/3 border-potion-shop-lunar-pearl/50">
                     <button
                       className="text-4xl active:scale-95 p-2 text-potion-shop-enchanted-gold"
-                      // onClick={() => increaseCraftingItemAmount(item.id)}
-                      >
+                      onClick={() => updateItemAmount(item.id, 1)}
+                    >
                       +
                     </button>
                   </div>
@@ -44,14 +57,15 @@ export const CraftSection = ({ items }) => {
                       item.amount > 0
                         ? "text-potion-shop-forest-emerald"
                         : "text-potion-shop-crimson-flame"
-                    }`}>
+                    }`}
+                  >
                     {item.amount}
                   </span>
                   <div className="border-l-4 border-potion-shop-lunar-pearl/50 flex-1/3">
                     <button
                       className="text-4xl p-2 active:scale-95 text-potion-shop-enchanted-gold"
-                      // onClick={() => decreaseCraftingItemAmount(item.id)}
-                      >
+                      onClick={() => updateItemAmount(item.id, -1)}
+                    >
                       -
                     </button>
                   </div>

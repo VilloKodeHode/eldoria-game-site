@@ -16,11 +16,32 @@ export interface Item {
     effectAmount?: number | null;
     duration?: string | null;
   } | null; 
+  recipie?: {
+    ingredients: {
+      herbs: number | null,
+      berries: number | null,
+      mushrooms: number | null,
+      water: number | null,
+      flowers: number | null,
+      crystals: number | null
+    },
+    materials: {
+      iron: number | null,
+      cloth: number | null,
+      stone: number | null,
+      leather: number | null,
+      wood: number | null,
+    },
+  }
   buyPrice: number;
   sellPrice: number;
 }
 
 export interface InventoryItem extends Item {
+  amount: number;
+}
+
+export interface StoreItem extends Item {
   amount: number;
 }
 

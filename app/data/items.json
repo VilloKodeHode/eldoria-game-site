@@ -17,7 +17,24 @@
       "duration": "medium"
     },
     "buyPrice": 5,
-    "sellPrice": 2
+    "sellPrice": 2,
+    "recipie": {
+      "ingredients": {
+        "herbs": 0,
+        "berries": 0,
+        "mushrooms": 0,
+        "water": 0,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "berries",
@@ -37,7 +54,24 @@
       "duration": "long"
     },
     "buyPrice": 3,
-    "sellPrice": 1
+    "sellPrice": 1,
+    "recipie": {
+      "ingredients": {
+        "herbs": 0,
+        "berries": 0,
+        "mushrooms": 0,
+        "water": 0,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "water",
@@ -57,11 +91,30 @@
       "duration": "long"
     },
     "buyPrice": 2,
-    "sellPrice": 1
+    "sellPrice": 1,
+    "recipie": {
+      "ingredients": {
+        "herbs": 0,
+        "berries": 0,
+        "mushrooms": 0,
+        "water": 0,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "mushrooms",
+    "water": 0,
     "name": "Mushrooms",
+    "water": 0,
     "src": "/images/ingredients/mushrooms-ingredient.webp",
     "itemType": "material",
     "subType": "ingredient",
@@ -77,7 +130,24 @@
       "duration": "instantaneous"
     },
     "buyPrice": 4,
-    "sellPrice": 2
+    "sellPrice": 2,
+    "recipie": {
+      "ingredients": {
+        "herbs": 0,
+        "berries": 0,
+        "mushrooms": 0,
+        "water": 0,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "flowers",
@@ -97,7 +167,24 @@
       "duration": "instantaneous"
     },
     "buyPrice": 6,
-    "sellPrice": 3
+    "sellPrice": 3,
+    "recipie": {
+      "ingredients": {
+        "herbs": 0,
+        "berries": 0,
+        "mushrooms": 0,
+        "water": 0,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "crystals",
@@ -117,7 +204,24 @@
       "duration": null
     },
     "buyPrice": 15,
-    "sellPrice": 8
+    "sellPrice": 8,
+    "recipie": {
+      "ingredients": {
+        "herbs": 0,
+        "berries": 0,
+        "mushrooms": 0,
+        "water": 0,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "healingPotion",
@@ -137,7 +241,24 @@
       "duration": "instantaneous"
     },
     "buyPrice": 50,
-    "sellPrice": 10
+    "sellPrice": 10,
+    "recipie": {
+      "ingredients": {
+        "herbs": 2,
+        "berries": 1,
+        "mushrooms": 0,
+        "water": 1,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "strengthPotion",
@@ -157,7 +278,24 @@
       "duration": "long"
     },
     "buyPrice": 75,
-    "sellPrice": 20
+    "sellPrice": 20,
+    "recipie": {
+      "ingredients": {
+        "herbs": 0,
+        "berries": 1,
+        "mushrooms": 2,
+        "water": 1,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "manaPotion",
@@ -177,7 +315,24 @@
       "duration": "instantaneous"
     },
     "buyPrice": 60,
-    "sellPrice": 15
+    "sellPrice": 15,
+    "recipie": {
+      "ingredients": {
+        "herbs": 0,
+        "berries": 0,
+        "mushrooms": 0,
+        "water": 3,
+        "flowers": 1,
+        "crystals": 2
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "speedPotion",
@@ -197,7 +352,24 @@
       "duration": "medium"
     },
     "buyPrice": 70,
-    "sellPrice": 18
+    "sellPrice": 18,
+    "recipie": {
+      "ingredients": {
+        "herbs": 2,
+        "berries": 0,
+        "mushrooms": 1,
+        "water": 2,
+        "flowers": 1,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "stealthPotion",
@@ -217,7 +389,24 @@
       "duration": "long"
     },
     "buyPrice": 90,
-    "sellPrice": 25
+    "sellPrice": 25,
+    "recipie": {
+      "ingredients": {
+        "herbs": 0,
+        "berries": 0,
+        "mushrooms": 0,
+        "water": 1,
+        "flowers": 2,
+        "crystals": 2
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "antidote",
@@ -237,7 +426,24 @@
       "duration": "instantaneous"
     },
     "buyPrice": 40,
-    "sellPrice": 10
+    "sellPrice": 10,
+    "recipie": {
+      "ingredients": {
+        "herbs": 1,
+        "berries": 3,
+        "mushrooms": 0,
+        "water": 2,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "lovePotion",
@@ -257,7 +463,24 @@
       "duration": "short"
     },
     "buyPrice": 120,
-    "sellPrice": 30
+    "sellPrice": 30,
+    "recipie": {
+      "ingredients": {
+        "herbs": 0,
+        "berries": 0,
+        "mushrooms": 0,
+        "water": 2,
+        "flowers": 2,
+        "crystals": 2
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "nightvisionPotion",
@@ -277,7 +500,24 @@
       "duration": "long"
     },
     "buyPrice": 85,
-    "sellPrice": 20
+    "sellPrice": 20,
+    "recipie": {
+      "ingredients": {
+        "herbs": 1,
+        "berries": 0,
+        "mushrooms": 0,
+        "water": 1,
+        "flowers": 2,
+        "crystals": 1
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "fireResistancePotion",
@@ -297,7 +537,24 @@
       "duration": "long"
     },
     "buyPrice": 100,
-    "sellPrice": 25
+    "sellPrice": 25,
+    "recipie": {
+      "ingredients": {
+        "herbs": 1,
+        "berries": 1,
+        "mushrooms": 0,
+        "water": 3,
+        "flowers": 1,
+        "crystals": 2
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "frostResistancePotion",
@@ -317,7 +574,24 @@
       "duration": "long"
     },
     "buyPrice": 100,
-    "sellPrice": 25
+    "sellPrice": 25,
+    "recipie": {
+      "ingredients": {
+        "herbs": 1,
+        "berries": 2,
+        "mushrooms": 1,
+        "water": 1,
+        "flowers": 1,
+        "crystals": 2
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "lightningResistancePotion",
@@ -337,7 +611,24 @@
       "duration": "long"
     },
     "buyPrice": 100,
-    "sellPrice": 25
+    "sellPrice": 25,
+    "recipie": {
+      "ingredients": {
+        "herbs": 1,
+        "berries": 1,
+        "mushrooms": 3,
+        "water": 1,
+        "flowers": 0,
+        "crystals": 2
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "energyPotion",
@@ -357,7 +648,24 @@
       "duration": "long"
     },
     "buyPrice": 80,
-    "sellPrice": 20
+    "sellPrice": 20,
+    "recipie": {
+      "ingredients": {
+        "herbs": 4,
+        "berries": 2,
+        "mushrooms": 1,
+        "water": 1,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "focusPotion",
@@ -377,7 +685,24 @@
       "duration": "medium"
     },
     "buyPrice": 90,
-    "sellPrice": 25
+    "sellPrice": 25,
+    "recipie": {
+      "ingredients": {
+        "herbs": 1,
+        "berries": 1,
+        "mushrooms": 0,
+        "water": 1,
+        "flowers": 4,
+        "crystals": 2
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "rustyDagger",
@@ -397,7 +722,24 @@
       "duration": null
     },
     "buyPrice": 20,
-    "sellPrice": 5
+    "sellPrice": 5,
+    "recipie": {
+      "ingredients": {
+        "herbs": 0,
+        "berries": 0,
+        "mushrooms": 0,
+        "water": 0,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 1,
+        "cloth": 0,
+        "stone": 0,
+        "leather": 1,
+        "wood": 1
+      }
+    }
   },
   {
     "id": "knightSword",
@@ -417,7 +759,24 @@
       "duration": null
     },
     "buyPrice": 600,
-    "sellPrice": 350
+    "sellPrice": 350,
+    "recipie": {
+      "ingredients": {
+        "herbs": 2,
+        "berries": 1,
+        "mushrooms": 0,
+        "water": 1,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 2,
+        "cloth": 1,
+        "stone": 0,
+        "leather": 1,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "peasantBoots",
@@ -436,7 +795,24 @@
       "duration": null
     },
     "buyPrice": 100,
-    "sellPrice": 50
+    "sellPrice": 50,
+    "recipie": {
+      "ingredients": {
+        "herbs": 2,
+        "berries": 1,
+        "mushrooms": 0,
+        "water": 1,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 2,
+        "stone": 0,
+        "leather": 1,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "peasantShirt",
@@ -455,7 +831,24 @@
       "duration": null
     },
     "buyPrice": 150,
-    "sellPrice": 75
+    "sellPrice": 75,
+    "recipie": {
+      "ingredients": {
+        "herbs": 2,
+        "berries": 1,
+        "mushrooms": 0,
+        "water": 1,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 4,
+        "stone": 0,
+        "leather": 0,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "peasantHat",
@@ -474,7 +867,24 @@
       "duration": null
     },
     "buyPrice": 80,
-    "sellPrice": 40
+    "sellPrice": 40,
+    "recipie": {
+      "ingredients": {
+        "herbs": 2,
+        "berries": 1,
+        "mushrooms": 0,
+        "water": 1,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 0,
+        "cloth": 2,
+        "stone": 0,
+        "leather": 1,
+        "wood": 0
+      }
+    }
   },
   {
     "id": "steelSword",
@@ -494,7 +904,24 @@
       "duration": null
     },
     "buyPrice": 450,
-    "sellPrice": 250
+    "sellPrice": 250,
+    "recipie": {
+      "ingredients": {
+        "herbs": 2,
+        "berries": 1,
+        "mushrooms": 0,
+        "water": 1,
+        "flowers": 0,
+        "crystals": 0
+      },
+      "materials": {
+        "iron": 2,
+        "cloth": 1,
+        "stone": 0,
+        "leather": 1,
+        "wood": 0
+      }
+    }
   }
 
 ]
