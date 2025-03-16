@@ -11,7 +11,7 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
       <div className="grid  grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
         {tradeItems.length > 0 ? (
           tradeItems.map((item) => {
-            console.log(item);
+            // console.log(item);
             return (
               <div
                 className="bg-potion-shop-obsidian-black/70 h-44 grid grid-cols-[150px_1fr]"
