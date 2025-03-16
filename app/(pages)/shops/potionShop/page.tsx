@@ -6,7 +6,7 @@ import { potionShopTexts } from "./data/potionShopTexts";
 import { CraftButton } from "../components/buttons/ShopButtons";
 import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore";
 import itemsDataBase from "@/app/data/items.json";
-import { InventoryItem, Item, PlayerInventory, ShopItem } from "@/app/data/inventory";
+import { PlayerInventory, ShopItem } from "@/app/interfaces/inventory";
 import { useState } from "react";
 import Image from "next/image";
 // import { potions } from "@/app/(pages)/shops/potionShop/data/potions";

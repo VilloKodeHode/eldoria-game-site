@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ShopItem } from '../../../data/inventory';
+import { ShopItem } from '../../../interfaces/inventory';
 
 export const CraftSection = ({setIngredients, items }) => {
 

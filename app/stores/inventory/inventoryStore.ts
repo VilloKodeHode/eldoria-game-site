@@ -3,7 +3,7 @@ import {
   Item,
   PlayerInventory,
   PlayerInventoryStore,
-} from "@/app/data/inventory";
+} from "@/app/interfaces/inventory";
 import { create } from "zustand";
 import itemsData from "@/app/data/items.json";
 
