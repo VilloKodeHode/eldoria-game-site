@@ -2,72 +2,89 @@
 
 // import { ingredients } from "@/app/data/ingredients";
 import { CraftSection } from "@/app/(pages)/shops/components/CraftSection";
-import { potionShopTexts } from "./data/potionShopTexts";
+import shopData from "./data/potionShopInfo.json";
 import { CraftButton } from "../components/buttons/ShopButtons";
 import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore";
 import itemsDataBase from "@/app/data/items.json";
 import { PlayerInventory, ShopItem } from "@/app/interfaces/inventory";
 import { useState } from "react";
 import Image from "next/image";
+import { TradeSection } from "../components/TradeSection";
 // import { potions } from "@/app/(pages)/shops/potionShop/data/potions";
 
 export default function Home() {
-  const { addItem } = usePlayerInventory();
+  const { addItem, playerInventory } = usePlayerInventory();
   const shopIngredients: ShopItem[] = itemsDataBase
-    .filter((item) => item.subType === "ingredient")
+    .filter((item) => item.subType === shopData.shopMaterialType)
     .map((item) => ({
       ...item,
       amount: 0,
     })) as ShopItem[];
   const [ingredients, setIngredients] = useState<ShopItem[]>(shopIngredients);
+
+  // console.log(playerInventory);
+
+  const shopItemsTosell: ShopItem[] = itemsDataBase
+    .filter((item) => item.subType === shopData.shopType)
+    .map((item) => ({
+      ...item,
+      amount: 0,
+    })) as ShopItem[];
+
+  const playerItemsTosell: ShopItem[] = playerInventory.items.potions
+    .filter((item) => item.subType === shopData.shopType)
+    .map((item) => ({
+      ...item,
+      amount: 0,
+    })) as ShopItem[];
+
+  // const [shopSellingItems, setShopSellingItems] =
+  //   useState<ShopItem[]>(shopItemsTosell);
   const [craftedItem, setCraftedItem] = useState<ShopItem | null>();
 
-  // console.log(itemsDataBase);
-
-  // console.log(
-  //   itemsDataBase.map((item) => Object.values(item.recipe.ingredients))
-  // );
+  // const subTypeOfItems = ingredients[0].subType
 
   const attemptCraft = () => {
     const findMatchingRecipe = itemsDataBase.find((item) => {
-      const recipieIngredients = Object.values(item.recipe.ingredients || {});
+      const ingredientsRecipes = Object.values(item.recipe.ingredients || {});
       const currentIngredients = ingredients.map(
         (ingredient) => ingredient.amount
       );
-      return recipieIngredients.every(
+      return ingredientsRecipes.every(
         (requiredAmount, index) => currentIngredients[index] === requiredAmount
       );
     });
-    // console.log(
-    //   findMatchingRecipe ? { ...findMatchingRecipe, amount: 1 }  : null
-    // );
+
     if (findMatchingRecipe) {
       const craftedItem = { ...findMatchingRecipe, amount: 1 } as ShopItem;
-      
+
       setCraftedItem(craftedItem);
 
-      addItem(craftedItem.id, craftedItem.subType as keyof PlayerInventory["items"]);
-
+      addItem(
+        craftedItem.id,
+        craftedItem.subType as keyof PlayerInventory["items"]
+      );
     } else {
       setCraftedItem(null);
     }
-      
   };
 
   return (
     <>
-      <div className="min-h-screen grid justify-center items-center">
-        <div className="grid gap-16">
+      {/* <div className="min-h-screen grid justify-center gap-24 items-center"> */}
+        <section className="grid gap-16">
+          <h1 className="text-center text-3xl absolute top-0 left-0 p-4">{shopData.title}</h1>
           <CraftSection setIngredients={setIngredients} items={ingredients} />
           <div className="flex justify-center gap-8">
             <CraftButton
               onClick={attemptCraft}
               isCreateButton={true}
-              shopText={potionShopTexts}
+              shopText={shopData}
             />
             <div className="result-area">
-              <p id="potionResultText">{potionShopTexts.resultText}</p>
+              {/* <p id="potionResultText">{shopData.resultText}</p> */}
               <Image
+              className="w-64 h-64 rounded-lg"
                 width={300}
                 height={300}
                 src={
@@ -81,15 +98,20 @@ export default function Home() {
             <CraftButton
               onClick={null}
               isResetButton={true}
-              shopText={potionShopTexts}
+              shopText={shopData}
             />
           </div>
+        </section>
+        <div className="grid gap-8 w-full">
+        <TradeSection tradeItems={shopItemsTosell} />
+
+        <TradeSection tradeItems={playerItemsTosell} buySection={false} />
         </div>
 
-        <div id="books">
-          <button id="almanac-button">{potionShopTexts.almanacButton}</button>
+        {/* <div id="books">
+          <button id="almanac-button">{potionShopContent.almanacButton}</button>
           <button id="compendium-button">
-            {potionShopTexts.compendiumButton}
+            {potionShopContent.compendiumButton}
           </button>
 
           <div id="almanac">
@@ -103,9 +125,15 @@ export default function Home() {
               <div className="compendium-background"></div>
             </div>
           </div>
-        </div>
-        <div className="background"></div>
-      </div>
+        </div> */}
+        <Image
+          src={shopData.images.main}
+          alt=""
+          className="h-full w-full fixed top-0 left-0 object-cover -z-10 hue-rotate-30 opacity-10"
+          width={1920}
+          height={1080}
+        />
+      {/* </div> */}
     </>
   );
 }

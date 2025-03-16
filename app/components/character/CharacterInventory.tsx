@@ -10,7 +10,7 @@ export const CharacterInventory = () => {
   return (
     <>
       <button
-        className="absolute cursor-pointer top-0 right-0 z-100 p-4 text-5xl"
+        className="fixed cursor-pointer top-0 right-0 z-100 p-4 text-5xl"
         onClick={() => setOpen(!open)}
       >
         📜
@@ -18,7 +18,7 @@ export const CharacterInventory = () => {
       <div
         className={` ${
           open ? "translate-x-0" : "translate-x-full"
-        } transition duration-1000 z-99 bg-potion-shop-obsidian-black text-potion-shop-lunar-pearl  grid gap-8 w-fit p-8 absolute right-0`}
+        } transition duration-1000 z-99 bg-potion-shop-obsidian-black text-potion-shop-lunar-pearl  grid gap-8 w-fit p-8 fixed right-0`}
       >
         <div>
           <h2>Gold: {playerInventory.currency.gold} 🟡</h2>

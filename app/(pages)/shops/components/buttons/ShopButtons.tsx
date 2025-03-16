@@ -17,8 +17,8 @@ export const CraftButton = ({
   return (
     <button
       onClick={onClick}
-      className={`${ButtonStyle} p-8 text-shadow`}
-      //   style={{ textShadow: "0px 0px 5px 5px black" }}
+      className={`${ButtonStyle} self-center p-8 h-fit cursor-pointer text-4xl font-bold text-potion-shop-lunar-pearl text-shadow`}
+        style={{ textShadow: "2px 2px 5px black" }}
     >
       {textToUse}
     </button>

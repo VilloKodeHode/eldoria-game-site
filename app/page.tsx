@@ -1,5 +1,5 @@
-import Link from "next/link";
-import Image from "next/image";
+// import Link from "next/link";
+// import Image from "next/image";
 
 export default function Home() {
   return (
@@ -7,7 +7,7 @@ export default function Home() {
       <section
         className={`flex flex-col items-center min-h-screen justify-center `}>
         <h1 className={`text-9xl`}>Eldoria game</h1>
-        <Link
+        {/* <Link
           className="h-32 w-32"
           href="/shops/potionShop">
           <Image
@@ -18,7 +18,8 @@ export default function Home() {
             alt="Potion Shop"
           />
         </Link>
-        <span>Potion Shop</span>
+        <span>Potion Shop</span> */}
+        <p>use the compass in the top left corner to check out locations!</p>
       </section>
     </>
   );

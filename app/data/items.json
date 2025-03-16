@@ -520,7 +520,7 @@
   {
     "id": "fireResistancePotion",
     "name": "Fire Resistance Potion",
-    "src": "/images/potions/fireResistance-potion.webp",
+    "src": "/images/potions/fire-resistance-potion.webp",
     "itemType": "consumable",
     "subType": "potions",
     "equippable": {
@@ -557,7 +557,7 @@
   {
     "id": "frostResistancePotion",
     "name": "Frost Resistance Potion",
-    "src": "/images/potions/frostResistance-potion.webp",
+    "src": "/images/potions/frost-resistance-potion.webp",
     "itemType": "consumable",
     "subType": "potions",
     "equippable": {
@@ -594,7 +594,7 @@
   {
     "id": "lightningResistancePotion",
     "name": "Lightning Resistance Potion",
-    "src": "/images/potions/lightningResistance-potion.webp",
+    "src": "/images/potions/lightning-resistance-potion.webp",
     "itemType": "consumable",
     "subType": "potions",
     "equippable": {

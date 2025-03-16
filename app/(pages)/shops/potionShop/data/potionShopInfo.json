@@ -1,0 +1,16 @@
+ {
+  "title": "Potion Shop",
+  "shopMaterialType": "ingredients",
+  "shopType": "potions",
+  "createButton": "Brew",
+  "resetButton": "Reset",
+  "resultText": "Brew a potion",
+  "nothingToSell": "No potions to sell",
+  "almanacButton": "Almanac",
+  "compendiumButton": "Compendium",
+  "images": {
+    "main": "/images/potionShop/background/potion-shop.webp",
+    "almanac": "/images/potionShop/almanac/potion-almanac.webp",
+    "compendium": "/images/potionShop/compendium/potion-compendium.webp"
+  }
+}
