@@ -82,7 +82,7 @@ export default function Home() {
               shopText={shopData}
             />
             <div className="result-area">
-              {/* <p id="potionResultText">{shopData.resultText}</p> */}
+              <p id="potionResultText">{craftedItem ? "successfully created:" + craftedItem.name : ""}</p>
               <Image
               className="w-64 h-64 rounded-lg"
                 width={300}
