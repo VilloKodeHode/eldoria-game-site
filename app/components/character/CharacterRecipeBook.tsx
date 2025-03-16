@@ -2,7 +2,6 @@
 
 import { InventoryItem } from "@/app/interfaces/inventory";
 import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore";
-import Image from "next/image";
 import { useState } from "react";
 
 export const CharacterRecipeBook = () => {
