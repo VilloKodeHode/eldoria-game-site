@@ -243,6 +243,27 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
       };
     }),
 
+  addRecipe: (id, category) =>
+    set((state) => {
+      const item = state.playerInventory.items[category].find(
+        (item) => item.id === id
+      );
+
+      // If the recipe is already known, return the current state
+      if (item?.knowRecipe) return state;
+      return {
+        playerInventory: {
+          ...state.playerInventory,
+          items: {
+            ...state.playerInventory.items,
+            [category]: state.playerInventory.items[category].map((item) =>
+              item.id === id ? { ...item, knowRecipe: true } : item
+            ),
+          },
+        },
+      };
+    }),
+
   viewItem: (id, category) =>
     set((state) => {
       const item = state.playerInventory.items[category].find(

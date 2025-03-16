@@ -3,6 +3,7 @@ import "./globals.css";
 import { CharacterInventory } from "./components/character/CharacterInventory";
 import { Astloch, Figtree } from "next/font/google";
 import { Map } from "./components/map/Map";
+import { CharacterRecipeBook } from "./components/character/CharacterRecipeBook";
 
 
 export const figtree = Figtree({
@@ -32,6 +33,7 @@ export default function RootLayout({
       <body
         className={`${astloch.className} bg-[#1f2326] antialiased overflow-x-hidden`}>
         <CharacterInventory />
+        <CharacterRecipeBook/>
         <Map/>
         <main className="min-h-screen text-potion-shop-lunar-pearl items-center py-16 flex flex-col px-2 md:px-8 lg:px-16">
           {children}

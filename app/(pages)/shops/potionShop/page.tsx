@@ -13,7 +13,7 @@ import { TradeSection } from "../components/TradeSection";
 // import { potions } from "@/app/(pages)/shops/potionShop/data/potions";
 
 export default function Home() {
-  const { addItem, playerInventory } = usePlayerInventory();
+  const { addItem, addRecipe, playerInventory } = usePlayerInventory();
   const shopIngredients: ShopItem[] = itemsDataBase
     .filter((item) => item.subType === shopData.shopMaterialType)
     .map((item) => ({
@@ -56,7 +56,7 @@ export default function Home() {
     });
 
     if (findMatchingRecipe) {
-      const craftedItem = { ...findMatchingRecipe, amount: 1 } as ShopItem;
+      const craftedItem = { ...findMatchingRecipe, amount: 1, knowRecipe: true } as ShopItem;
 
       setCraftedItem(craftedItem);
 
@@ -64,6 +64,7 @@ export default function Home() {
         craftedItem.id,
         craftedItem.subType as keyof PlayerInventory["items"]
       );
+      addRecipe(craftedItem.id, craftedItem.subType as keyof PlayerInventory["items"]);
     } else {
       setCraftedItem(null);
     }
@@ -81,8 +82,8 @@ export default function Home() {
               isCreateButton={true}
               shopText={shopData}
             />
-            <div className="result-area">
-              <p id="potionResultText">{craftedItem ? "successfully created:" + craftedItem.name : ""}</p>
+            <div>
+              <p>{craftedItem ? "successfully created: " + craftedItem.name : ""}</p>
               <Image
               className="w-64 h-64 rounded-lg"
                 width={300}
@@ -90,9 +91,9 @@ export default function Home() {
                 src={
                   craftedItem?.src
                     ? craftedItem?.src
-                    : ("/images/potions/empty-potion.webp" as string)
+                    : ("/images/potions/empty-potion.webp")
                 }
-                alt=""
+                alt={craftedItem ? "Image of a " + craftedItem.name: ""}
               />
             </div>
             <CraftButton

@@ -18,12 +18,14 @@ export const CharacterInventory = () => {
       <div
         className={` ${
           open ? "translate-x-0" : "translate-x-full"
-        } transition duration-1000 z-99 bg-potion-shop-obsidian-black text-potion-shop-lunar-pearl  grid gap-8 w-fit p-8 fixed right-0`}
+        } transition duration-1000 z-99 bg-potion-shop-obsidian-black text-potion-shop-lunar-pearl  grid gap-8 w-full h-full p-8 fixed right-0`}
       >
+        
         <div>
           <h2>Gold: {playerInventory.currency.gold} 🟡</h2>
           <h2>Gems: {playerInventory.currency.gems} 💎</h2>
         </div>
+        
         <div className="grid gap-8">
           {Object.entries(playerInventory.items).map(
             ([category, items]) =>
@@ -32,7 +34,7 @@ export const CharacterInventory = () => {
                   <h3>{category.toUpperCase()}</h3>
                   <ul className="grid gap-4">
                     {items.map((item) => (
-                      <li key={item.id} className="flex gap-2">
+                      <li key={item.id} className="flex items-center gap-2">
                         <div className="flex justify-end relative w-12 h-12">
                         
                         <Image
@@ -43,7 +45,7 @@ export const CharacterInventory = () => {
                           height={50}
                         />
                         <div className="bg-potion-shop-lunar-pearl rounded-full text-potion-shop-obsidian-black h-3.5 relative z-10 p-1 w-3.5">
-                        <span className=" text-sm absolute -translate-y-1/2 top-1/2">{item.amount}</span>
+                        <span className=" text-sm absolute -translate-y-1/2 top-1/2">{item.amount > 9 ? "9+" : item.amount}</span>
                         </div>
                         </div>
                         <div className="text-xs flex flex-col justify-center gap-2">

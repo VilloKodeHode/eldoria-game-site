@@ -16,6 +16,7 @@ export interface Item {
     effectAmount?: number | null;
     duration?: string | null;
   } | null; 
+  knowRecipe: boolean,  
   recipe?: {
     ingredients: {
       herbs: number | null,
@@ -70,6 +71,7 @@ export interface PlayerInventoryStore {
   sellItem: (id: string, category: keyof PlayerInventory["items"]) => void;
   buyItem: (id: string, category: keyof PlayerInventory["items"]) => void;
   viewItem: (id: string, category: keyof PlayerInventory["items"]) => void;
+  addRecipe: (id: string, category: keyof PlayerInventory["items"]) => void;
   addGold: (amount: number) => void;
   removeGold: (amount: number) => void;
   addGems: (amount: number) => void;
