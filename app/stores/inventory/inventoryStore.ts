@@ -8,7 +8,7 @@ import { create } from "zustand";
 import itemsData from "@/app/data/items.json";
 
 
-const addItemToInventory = (id: string, amount: number = 1): InventoryItem => {
+export const addItemToInventory = (id: string, amount: number = 1): InventoryItem => {
   const item = itemsData.find((item) => item.id === id) as Item;
   if (!item) throw new Error(`Item with ID ${id} not found`);
   return { ...item, amount };
@@ -180,10 +180,10 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
 
   sellItem: (id, category) =>
     set((state) => {
-      const item = state.playerInventory.items[category].find(
-        (i) => i.id === id
+      const existingItem = state.playerInventory.items[category].find(
+        (item) => item.id === id
       );
-      if (!item) return state;
+      if (!existingItem) return state;
 
       return {
         playerInventory: {
@@ -192,13 +192,15 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
             ...state.playerInventory.currency,
             gold:
               state.playerInventory.currency.gold +
-              item.sellPrice * item.amount,
+              existingItem.sellPrice,
           },
           items: {
             ...state.playerInventory.items,
-            [category]: state.playerInventory.items[category].filter(
-              (i) => i.id !== id
-            ),
+            [category]: state.playerInventory.items[category].map(
+              (item) => item.id === id
+              ? { ...item, amount: Math.max(0, item.amount - 1) }
+              : item
+            ). filter ((item => item.amount > 0))
           },
         },
       };

@@ -16,7 +16,7 @@ export interface Item {
     effectAmount?: number | null;
     duration?: string | null;
   } | null; 
-  recipie?: {
+  recipe?: {
     ingredients: {
       herbs: number | null,
       berries: number | null,
@@ -41,7 +41,7 @@ export interface InventoryItem extends Item {
   amount: number;
 }
 
-export interface StoreItem extends Item {
+export interface ShopItem extends Item {
   amount: number;
 }
 

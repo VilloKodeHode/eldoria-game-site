@@ -1,23 +1,13 @@
 "use client";
 
-import { StoreItem } from "@/app/data/inventory";
-// import { StoreItem } from "@/app/interfaces/shopTypes";
-// import { useShopStore } from "@/app/stores/shopStore/CraftingItemStore";
 import Image from "next/image";
-import { useState } from "react";
+import { ShopItem } from '../../../data/inventory';
 
-// interface CraftSectionProps {
-//   items: StoreItem[];
-// }
-
-export const CraftSection = ({ items }) => {
-  const [ingredients, setIngredients] = useState<StoreItem[]>(items);
-  console.log(ingredients.map((item) => item.amount))
-
+export const CraftSection = ({setIngredients, items }) => {
 
   const updateItemAmount = (id: string, change: number) => {
     setIngredients((prevInventory) =>
-      prevInventory.map((item) =>
+      prevInventory.map((item:ShopItem) =>
         item.id === id ? { ...item, amount: Math.max(0, item.amount + change) } : item
       )
     );
@@ -26,7 +16,7 @@ export const CraftSection = ({ items }) => {
   return (
     <>
       <section className="flex flex-wrap gap-16 justify-center">
-        {ingredients.map((item) => {
+        {items.map((item) => {
           return (
             <div
               key={item.id}
