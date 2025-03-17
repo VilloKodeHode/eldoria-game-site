@@ -13,9 +13,9 @@ export const DevCheats = () => {
   window.addEventListener("keydown", (e) => {
     if (e.key === "|") {
       setOpen(!open);
-      if (open) {
-        new Audio("/sounds/jalle-cheater.mp3").play()
-      }
+    //   if (open) {
+    //     new Audio("/sounds/jalle-cheater.mp3").play()
+    //   }
     }
   });
   return (
