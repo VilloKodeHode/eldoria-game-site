@@ -21,7 +21,6 @@ export default function Home() {
       amount: 0,
     })) as ShopItem[];
   const [ingredients, setIngredients] = useState<ShopItem[]>(shopIngredients);
-
   // console.log(playerInventory);
 
   const shopItemsTosell: ShopItem[] = itemsDataBase
@@ -70,6 +69,8 @@ export default function Home() {
     }
   };
 
+
+  console.log(ingredients)
   return (
     <>
       {/* <div className="min-h-screen grid justify-center gap-24 items-center"> */}
@@ -89,7 +90,7 @@ export default function Home() {
                 width={300}
                 height={300}
                 src={
-                  craftedItem?.src
+                  craftedItem?.src && ingredients
                     ? craftedItem?.src
                     : ("/images/potions/empty-potion.webp")
                 }
@@ -97,7 +98,7 @@ export default function Home() {
               />
             </div>
             <CraftButton
-              onClick={null}
+              onClick={()=> (setIngredients(shopIngredients), setCraftedItem(null))}
               isResetButton={true}
               shopText={shopData}
             />
