@@ -10,15 +10,10 @@ export const DevCheats = () => {
   const { addGems, addGold } = usePlayerInventory();
 //   const [itemId, setItemId] = useState("");
   const [open, setOpen] = useState(false);
-  window.addEventListener("keydown", (e) => {
-    if (e.key === "|") {
-      setOpen(!open);
-    //   if (open) {
-    //     new Audio("/sounds/jalle-cheater.mp3").play()
-    //   }
-    }
-  });
+
   return (
+    <>
+    <button onClick={() => setOpen(!open)} className="bottom-0 right-0 fixed z-100 cursor-pointer text-sm p-2 hover:scale-150 text-potion-shop-forest-emerald">?</button>
     <div
       className={`flex flex-col gap-4 absolute ${
         open ? "translate-y-0" : "-translate-y-full"
@@ -48,5 +43,6 @@ export const DevCheats = () => {
         <button onClick={() => addItemToInventory(itemId)}>add item</button>
       </div> */}
     </div>
+    </>
   );
 };
