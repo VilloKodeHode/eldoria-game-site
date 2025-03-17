@@ -5,18 +5,29 @@ import {
   PlayerInventoryStore,
 } from "@/app/interfaces/inventory";
 import { create } from "zustand";
+// itemsData is an array of items
 import itemsData from "@/app/data/items.json";
 
+// function to add an item to the inventory
 export const addItemToInventory = (
   id: string,
   amount: number = 1
 ): InventoryItem => {
+  // find the item in the data
   const item = itemsData.find((item) => item.id === id) as Item;
+  // if the item is not found, throw an error
   if (!item) throw new Error(`Item with ID ${id} not found`);
+  // return the item an add a key (amount) to it
   return { ...item, amount };
 };
 
+// create the store:
+//? create is a zustand function
+//? set is a function to update the store
 export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
+  // set the initial state
+  // in items we add some items so the player starts with some items
+  //? You can try adding more items to see if they work (you need the item id, which can be found in items.json)
   playerInventory: {
     currency: { gold: 0, gems: 0 },
     items: {
@@ -29,6 +40,7 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
       potions: [
         addItemToInventory("healingPotion"),
         addItemToInventory("speedPotion"),
+        // addItemToInventory("manaPotion"), //! uncomment this line to add the mana potion
       ],
       foods: [],
       ingredients: [],
@@ -36,12 +48,13 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
     },
   },
 
-  viewInventory: () => {
-    set((state) => {
-      console.log("Inventory:", state.playerInventory);
-      return state;
-    });
-  },
+  //!unused
+  // viewInventory: () => {
+  //   set((state) => {
+  //     console.log("Inventory:", state.playerInventory);
+  //     return state;
+  //   });
+  // },
 
   addItem: (id, category) =>
     set((state) => {
@@ -264,15 +277,18 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
       };
     }),
 
-  viewItem: (id, category) =>
-    set((state) => {
-      const item = state.playerInventory.items[category].find(
-        (i) => i.id === id
-      );
-      console.log("Item Details:", item);
-      return state;
-    }),
+  //!unused
+  // viewItem: (id, category) =>
+  //   set((state) => {
+  //     const item = state.playerInventory.items[category].find(
+  //       (i) => i.id === id
+  //     );
+  //     console.log("Item Details:", item);
+  //     return state;
+  //   }),
 
+
+  //! not needed, but keep it still to see if it can be used for something else:
   updateInventory: (shopItems) =>
     set((state) => {
       const updatedItems = { ...state.playerInventory.items };

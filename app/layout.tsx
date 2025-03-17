@@ -4,6 +4,7 @@ import { CharacterInventory } from "./components/character/CharacterInventory";
 import { Astloch, Figtree } from "next/font/google";
 import { Map } from "./components/map/Map";
 import { CharacterRecipeBook } from "./components/character/CharacterRecipeBook";
+import { DevCheats } from "./components/cheat/DevCheats";
 
 
 export const figtree = Figtree({
@@ -32,6 +33,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${astloch.className} bg-[#1f2326] antialiased overflow-x-hidden`}>
+          <DevCheats/>
         <CharacterInventory />
         <CharacterRecipeBook/>
         <Map/>

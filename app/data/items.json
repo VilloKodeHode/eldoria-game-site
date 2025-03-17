@@ -19,6 +19,7 @@
     "buyPrice": 5,
     "sellPrice": 2,
     "knowRecipe": false,  
+    "craftable": false,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -57,6 +58,7 @@
     "buyPrice": 3,
     "sellPrice": 1,
     "knowRecipe": false,  
+    "craftable": false,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -95,6 +97,7 @@
     "buyPrice": 2,
     "sellPrice": 1,
     "knowRecipe": false,  
+    "craftable": false,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -133,6 +136,7 @@
     "buyPrice": 4,
     "sellPrice": 2,
     "knowRecipe": false,  
+    "craftable": false,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -171,6 +175,7 @@
     "buyPrice": 6,
     "sellPrice": 3,
     "knowRecipe": false,  
+    "craftable": false,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -209,6 +214,7 @@
     "buyPrice": 15,
     "sellPrice": 8,
     "knowRecipe": false,  
+    "craftable": false,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -247,6 +253,7 @@
     "buyPrice": 50,
     "sellPrice": 10,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 2,
@@ -285,6 +292,7 @@
     "buyPrice": 75,
     "sellPrice": 20,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -323,6 +331,7 @@
     "buyPrice": 60,
     "sellPrice": 15,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -361,6 +370,7 @@
     "buyPrice": 70,
     "sellPrice": 18,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 2,
@@ -399,6 +409,7 @@
     "buyPrice": 90,
     "sellPrice": 25,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -437,6 +448,7 @@
     "buyPrice": 40,
     "sellPrice": 10,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 1,
@@ -475,6 +487,7 @@
     "buyPrice": 120,
     "sellPrice": 30,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -513,6 +526,7 @@
     "buyPrice": 85,
     "sellPrice": 20,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 1,
@@ -551,6 +565,7 @@
     "buyPrice": 100,
     "sellPrice": 25,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 1,
@@ -589,6 +604,7 @@
     "buyPrice": 100,
     "sellPrice": 25,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 1,
@@ -627,6 +643,7 @@
     "buyPrice": 100,
     "sellPrice": 25,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 1,
@@ -665,6 +682,7 @@
     "buyPrice": 80,
     "sellPrice": 20,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 4,
@@ -703,6 +721,7 @@
     "buyPrice": 90,
     "sellPrice": 25,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 1,
@@ -741,6 +760,7 @@
     "buyPrice": 20,
     "sellPrice": 5,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -779,6 +799,7 @@
     "buyPrice": 600,
     "sellPrice": 350,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -816,6 +837,7 @@
     "buyPrice": 100,
     "sellPrice": 50,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -853,6 +875,7 @@
     "buyPrice": 150,
     "sellPrice": 75,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -890,6 +913,7 @@
     "buyPrice": 80,
     "sellPrice": 40,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 0,
@@ -928,6 +952,7 @@
     "buyPrice": 450,
     "sellPrice": 250,
     "knowRecipe": false,  
+    "craftable": true,
     "recipe": {
       "ingredients": {
         "herbs": 0,

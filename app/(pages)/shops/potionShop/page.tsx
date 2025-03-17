@@ -43,9 +43,12 @@ export default function Home() {
 
   // const subTypeOfItems = ingredients[0].subType
 
+
+  //TODO: need to filter out items that has "craftable": false
   const attemptCraft = () => {
     const findMatchingRecipe = itemsDataBase.find((item) => {
       const ingredientsRecipes = Object.values(item.recipe.ingredients || {});
+      // get current set ingredients in the potionShop UI:
       const currentIngredients = ingredients.map(
         (ingredient) => ingredient.amount
       );
@@ -64,6 +67,7 @@ export default function Home() {
         craftedItem.subType as keyof PlayerInventory["items"]
       );
       addRecipe(craftedItem.id, craftedItem.subType as keyof PlayerInventory["items"]);
+      setIngredients(shopIngredients)
     } else {
       setCraftedItem(null);
     }
