@@ -31,7 +31,8 @@
       "@contexts/*": ["app/contexts/*"],
       "@data/*": ["app/data/*"],
       "@logic/*": ["app/logic/*"],
-      "@interfaces/*": ["app/interfaces/*"]
+      "@interfaces/*": ["app/interfaces/*"],
+      "@/sanity/*": ["app/sanity/*"]
     }
   },
   "include": [
