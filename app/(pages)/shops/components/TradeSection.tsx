@@ -14,7 +14,7 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
             // console.log(item);
             return (
               <div
-                className="bg-potion-shop-obsidian-black/70 h-44 grid grid-cols-[150px_1fr]"
+                className="bg-obsidian-black/70 h-44 grid grid-cols-[150px_1fr]"
                 key={item.id + "shopSellingItem"}
               >
                 <Image
@@ -53,7 +53,7 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
                     ""
                   )}
                   <button
-                    className="border-2 border-potion-shop-lunar-pearl/50 text-xl hover:scale-105 origin-center cursor-pointer select-none active:scale-95 p-2 text-potion-shop-enchanted-gold"
+                    className="border-2 border-lunar-pearl/50 text-xl hover:scale-105 origin-center cursor-pointer select-none active:scale-95 p-2 text-enchanted-gold"
                     onClick={() =>
                       buySection
                         ? buyItem(item.id, item.subType)

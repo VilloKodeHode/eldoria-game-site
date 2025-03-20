@@ -18,7 +18,7 @@ export const CharacterInventory = () => {
       <div
         className={` ${
           open ? "translate-x-0" : "translate-x-full"
-        } transition duration-1000 z-99 bg-potion-shop-obsidian-black text-potion-shop-lunar-pearl  grid gap-8 w-full h-full p-8 fixed right-0`}
+        } transition duration-1000 z-99 bg-obsidian-black text-lunar-pearl  grid gap-8 w-full h-full p-8 fixed top-0 right-0`}
       >
         
         <div>
@@ -44,7 +44,7 @@ export const CharacterInventory = () => {
                           width={50}
                           height={50}
                         />
-                        <div className="bg-potion-shop-lunar-pearl rounded-full text-potion-shop-obsidian-black h-3.5 relative z-10 p-1 w-3.5">
+                        <div className="bg-lunar-pearl rounded-full text-obsidian-black h-3.5 relative z-10 p-1 w-3.5">
                         <span className=" text-sm absolute -translate-y-1/2 top-1/2">{item.amount > 9 ? "9+" : item.amount}</span>
                         </div>
                         </div>
@@ -52,7 +52,7 @@ export const CharacterInventory = () => {
                           <span>
                             {item.name}
                           </span>
-                          <button className="cursor-pointer hover:scale-105 transition border-b-2 border-b-potion-shop-enchanted-gold" onClick={() => sellItem(item.id,
+                          <button className="cursor-pointer hover:scale-105 transition border-b-2 border-b-enchanted-gold" onClick={() => sellItem(item.id,
                             // @ts-expect-error Type 'string | undefined' is not assignable to type 'string'.
                             category)}>
                               (Sell: {item.sellPrice} Gold)

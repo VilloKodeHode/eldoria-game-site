@@ -10,14 +10,14 @@ export const CraftButton = ({
     ? shopText.resetButton
     : shopText.createButton; // prevents error
   const ButtonStyle = isCreateButton
-    ? "bg-potion-shop-forest-emerald"
+    ? "bg-forest-emerald"
     : isResetButton
-    ? "bg-potion-shop-crimson-flame"
+    ? "bg-crimson-flame"
     : ""; // fallback style
   return (
     <button
       onClick={onClick}
-      className={`${ButtonStyle} self-center p-8 h-fit cursor-pointer text-4xl font-bold text-potion-shop-lunar-pearl text-shadow`}
+      className={`${ButtonStyle} self-center p-8 h-fit cursor-pointer text-4xl font-bold text-lunar-pearl text-shadow`}
         style={{ textShadow: "2px 2px 5px black" }}
     >
       {textToUse}

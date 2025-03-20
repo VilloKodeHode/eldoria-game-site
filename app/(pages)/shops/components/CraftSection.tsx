@@ -21,7 +21,7 @@ export const CraftSection = ({ setIngredients, items }) => {
           return (
             <div
               key={item.id}
-              className={`h-50 w-50 relative flex flex-col justify-between border-4 border-potion-shop-lunar-pearl/50 bg-potion-shop-lunar-pearl/20`}
+              className={`h-50 w-50 relative flex flex-col justify-between border-4 border-lunar-pearl/50 bg-lunar-pearl/20`}
             >
               <Image
                 className="absolute select-none top-0 left-0 -z-10"
@@ -30,11 +30,11 @@ export const CraftSection = ({ setIngredients, items }) => {
                 src={item.src}
                 alt=""
               />
-              <p className="text-center text-2xl text-potion-shop-enchanted-gold font-bold border-b-4 bg-potion-shop-obsidian-black/70 border-potion-shop-lunar-pearl/50 select-none">
+              <p className="text-center text-2xl text-enchanted-gold font-bold border-b-4 bg-obsidian-black/70 border-lunar-pearl/50 select-none">
                 {item.name}
               </p>
               <div className="flex flex-col w-full justify-center">
-                <div className="flex justify-between items-center border-t-4 text-center border-potion-shop-lunar-pearl/50 bg-potion-shop-obsidian-black/70">
+                <div className="flex justify-between items-center border-t-4 text-center border-lunar-pearl/50 bg-obsidian-black/70">
                   <ChangeAmountButton
                     onClick={() => updateItemAmount(item.id, 1)}
                   />
@@ -42,8 +42,8 @@ export const CraftSection = ({ setIngredients, items }) => {
                   <span
                     className={`text-2xl select-none flex-1/2 transition ${
                       item.amount > 0
-                        ? "text-potion-shop-forest-emerald"
-                        : "text-potion-shop-crimson-flame"
+                        ? "text-forest-emerald"
+                        : "text-crimson-flame"
                     }`}
                   >
                     {item.amount}
@@ -67,10 +67,10 @@ const ChangeAmountButton = ({ onClick, addButton = true }) => {
     <div
       className={`${
         addButton ? "border-r-4" : "border-l-4"
-      } flex-1/3 border-potion-shop-lunar-pearl/50`}
+      } flex-1/3 border-lunar-pearl/50`}
     >
       <button
-        className="text-4xl hover:scale-120 origin-center cursor-pointer select-none active:scale-95 p-2 text-potion-shop-enchanted-gold"
+        className="text-4xl hover:scale-120 origin-center cursor-pointer select-none active:scale-95 p-2 text-enchanted-gold"
         onClick={onClick}
       >
         {addButton ? "+" : "-"}

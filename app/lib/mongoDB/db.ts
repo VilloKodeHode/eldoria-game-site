@@ -1,7 +1,7 @@
 import { MongoClient } from "mongodb";
 
 const MONGODB_URI = process.env.MONGODB_URI as string;
-const MONGODB_DB = "eldoria_game";
+const MONGODB_DB = "eldoria-updating-database";
 
 if (!MONGODB_URI) {
   throw new Error("MONGODB_URI environment variable is not set");

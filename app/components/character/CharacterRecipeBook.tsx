@@ -20,7 +20,7 @@ export const CharacterRecipeBook = () => {
       <div
         className={` ${
           open ? "translate-x-0" : "translate-x-full"
-        } transition duration-1000 z-99 text-potion-shop-lunar-pearl bg-potion-shop-obsidian-black flex flex-col gap-8 h-screen w-screen fixed top-0 right-0 p-8`}
+        } transition duration-1000 z-99 text-lunar-pearl bg-obsidian-black flex flex-col gap-8 h-screen w-screen fixed top-0 right-0 p-8`}
       >
         <h4 className="text-4xl">Recipe Book (discovered recipes)</h4>
         <ItemRecipes playerInventory={playerInventory} itemType="ingredients" />
