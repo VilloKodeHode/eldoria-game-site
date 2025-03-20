@@ -32,7 +32,7 @@
       "@data/*": ["app/data/*"],
       "@logic/*": ["app/logic/*"],
       "@interfaces/*": ["app/interfaces/*"],
-      "@/sanity/*": ["app/sanity/*"]
+      "@/sanity/*": ["app/lib/sanity/*"]
     }
   },
   "include": [
