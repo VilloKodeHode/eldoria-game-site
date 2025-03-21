@@ -31,3 +31,14 @@ export const allItems = defineQuery(`*[_type == "item"] {
   buyPrice,
   sellPrice
 }`);
+
+export const allIngredients =
+  defineQuery(`*[_type == "item" && "ingredient" in subCategory] {
+  _id,
+  name,
+  description,
+  itemID,
+  src,
+  buyPrice,
+  sellPrice
+}`);
