@@ -4,31 +4,19 @@ export type SanityItem = {
     _id: string;
     name: string;
     //TODO fix the any type error below:
-    [key: string]: any;
+    [key: string]: string | number | undefined;
   };
 
-interface SanityDataStore {
-    potions: SanityItem[];
+  interface SanityDataStore {
     ingredients: SanityItem[];
-    npcs: SanityItem[];
-    races: SanityItem[];
-    classes: SanityItem[];
-    setPotions: (data: SanityItem[]) => void;
+    potions: SanityItem[];
     setIngredients: (data: SanityItem[]) => void;
-    setNpcs: (data: SanityItem[]) => void;
-    setRaces: (data: SanityItem[]) => void;
-    setClasses: (data: SanityItem[]) => void;
+    setPotions: (data: SanityItem[]) => void;
   }
-
+  
   export const useSanityDataStore = create<SanityDataStore>((set) => ({
-    potions: [],
     ingredients: [],
-    npcs: [],
-    races: [],
-    classes: [],
-    setPotions: (data) => set({ potions: data }),
+    potions: [],
     setIngredients: (data) => set({ ingredients: data }),
-    setNpcs: (data) => set({ npcs: data }),
-    setRaces: (data) => set({ races: data }),
-    setClasses: (data) => set({ classes: data }),
+    setPotions: (data) => set({ potions: data }),
   }));

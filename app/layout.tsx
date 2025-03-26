@@ -16,6 +16,11 @@ import { DevCheats } from "./components/cheat/DevCheats";
 // import { SanityLive } from "./lib/sanity/live";
 import { getCharacter } from "./lib/mongoDB/getCharacter";
 import { CreateCharacter } from "./components/character/CreateCharacter";
+import {
+  cacheFetchAllIngredients,
+  cacheFetchAllPotions,
+} from "./lib/sanity/fetchers";
+import { useSanityDataStore } from "./stores/sanityData/sanityDataStore";
 // import { fetchAllIngredients, fetchAllPotions } from "./lib/sanity/live";
 
 export const figtree = Figtree({
@@ -46,18 +51,23 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const character = await getCharacter();
-  
-  // const ingredients = await fetchAllIngredients();
-  // const potions = await fetchAllPotions();
-  // console.log(potions);
 
-  // console.log(ingredients);
+  const ingredients = await cacheFetchAllIngredients();
+  const potions = await cacheFetchAllPotions();
+  
+
+  const store = useSanityDataStore.getState();
+  store.setIngredients(ingredients);
+  store.setPotions(potions);
+
+
 
   return (
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${astloch.className} bg-[#1f2326] antialiased overflow-x-hidden`}>
+          className={`${astloch.className} bg-[#1f2326] antialiased overflow-x-hidden`}
+        >
           <header className="flex z-999 absolute justify-start text-amber-50 items-center p-4 gap-4 h-16">
             <SignedOut>
               <SignInButton />

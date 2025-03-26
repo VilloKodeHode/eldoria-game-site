@@ -7,9 +7,10 @@ import { CraftButton } from "../components/buttons/ShopButtons";
 import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore";
 import itemsDataBase from "@/app/data/items.json";
 import { PlayerInventory, ShopItem } from "@/app/interfaces/inventory";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import { TradeSection } from "../components/TradeSection";
+import { useSanityDataStore } from "@/app/stores/sanityData/sanityDataStore";
 // import { potions } from "@/app/(pages)/shops/potionShop/data/potions";
 
 export default function Home() {
@@ -42,6 +43,14 @@ export default function Home() {
   const [craftedItem, setCraftedItem] = useState<ShopItem | null>();
 
   // const subTypeOfItems = ingredients[0].subType
+
+  const sanityIngredients = useSanityDataStore((state) => state.ingredients);
+  const sanityPotions = useSanityDataStore((state) => state.potions);
+  useEffect(() => {
+    console.log("sanityIngredients: ",sanityIngredients)
+    console.log("sanityPotions: ",sanityPotions)  
+  }, [sanityIngredients, sanityPotions])
+  
 
 
   //TODO: need to filter out items that has "craftable": false
