@@ -15,12 +15,12 @@ const mongoClient = new MongoClient(process.env.MONGODB_URI?.toString(), {
 
 export async function GET(
   req: Request,
-  { params }: { params: { playerId: string } }
+  context : { params: { playerId: string } }
 ) {
   try {
     await mongoClient.connect();
     const db = mongoClient.db("eldoria-updating-database");
-    const { playerId } = await params;
+    const { playerId } = context.params;
     const player = await db.collection("players").findOne({ playerId });
 
     if (!player) {
