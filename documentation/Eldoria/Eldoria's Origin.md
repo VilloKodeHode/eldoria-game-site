@@ -5,7 +5,7 @@ At the dawn of all that is, there was not yet time, form, or memory—only a pro
 
 The Astral Light was not born, nor made. It simply **was**.
 
-A radiant consciousness of pure will and awareness, the Astral Light **exhaled** into the void, and from this divine breath emerged the **Luminous Aether**—an infinite sea of radiant, unshaped energy. Though beautiful, the Aether was wild, untamed, and without purpose. The Astral Light, seeking harmony in the chaos, performed its first great act:
+A radiant consciousness of pure will and awareness, the Astral Light **exhaled** into the void, and from this divine breath emerged **[[The Luminous Aether]]** —an infinite sea of radiant, unshaped energy. Though beautiful, the Aether was wild, untamed, and without purpose. The Astral Light, seeking harmony in the chaos, performed its first great act:
 
 ---
 
@@ -13,7 +13,7 @@ A radiant consciousness of pure will and awareness, the Astral Light **exhaled**
 
 #### **The Creation Process**
 
-To refine the vast Luminous Aether into something stable, the Astral Light focused its intention and drew forth a singular crystalline heart—the **Aether Core**. This perfect gem of radiant harmony acted as a conduit, distilling the raw energy into forms that could be shaped.
+To refine the vast Luminous Aether into something stable, the Astral Light focused its intention and drew forth a singular crystalline heart—the **[[The Aether Core]]**. This perfect gem of radiant harmony acted as a conduit, distilling the raw energy into forms that could be shaped.
 
 #### **The Core's Duality**
 
@@ -29,34 +29,6 @@ These two aspects swirled in balance, creating a dynamic cycle of birth and rebi
 #### **The Core’s Role**
 
 The Core served as the stabilizing anchor of reality. Within its presence, the Astral Light began to mold the first elements of existence. Stars, realms, and patterns of life emerged from its radiant influence.
-
----
-
-### **The Shattering of the Aether Core**
-
-Perfection, however, could not remain still.
-
-To bring forth true creation—worlds teeming with life, complexity, and spirit—the Astral Light made the ultimate sacrifice. It **shattered the Aether Core**, sending fragments across the void. From the cascade of its destruction arose **Eldoria**, a world born of balance and contradiction.
-
-This act also sundered the Astral Light itself into two guiding forces:
-
-- **Harmony** – the echo of balance and unity.
-    
-- **Chaos** – the pulse of change and challenge.
-    
-
-#### **From the Shards**
-
-Each shard of the Aether Core became a wellspring of power:
-
-- **Vitalis Shards** birthed forests, rivers, and vibrant plains.
-    
-- **Entropis Shards** formed mountains, caverns, and arid lands.
-    
-- **Aether Lines** stretched between shards, becoming magical leylines that pulse through Eldoria.
-    
-
-But these gifts came with cost. **Shatterlines**, **Void Rifts**, and **Elemental Nodes** marked the scars left by the Core’s destruction, releasing wild Aether and reshaping the land.
 
 ---
 

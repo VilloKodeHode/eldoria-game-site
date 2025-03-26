@@ -46,8 +46,9 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const character = await getCharacter();
-  // const ingredients = await fetchAllIngredients;
-  // const potions = await fetchAllPotions;
+  
+  // const ingredients = await fetchAllIngredients();
+  // const potions = await fetchAllPotions();
   // console.log(potions);
 
   // console.log(ingredients);
