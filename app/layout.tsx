@@ -13,10 +13,10 @@ import { Astloch, Figtree } from "next/font/google";
 import { Map } from "./components/map/Map";
 import { CharacterRecipeBook } from "./components/character/CharacterRecipeBook";
 import { DevCheats } from "./components/cheat/DevCheats";
-// import { SanityLive } from "./lib/sanity/live";
+import { SanityLive } from "./lib/sanity/live";
 import { getCharacter } from "./lib/mongoDB/getCharacter";
 import { CreateCharacter } from "./components/character/CreateCharacter";
-import { fetchAllIngredients } from "./lib/sanity/live";
+import { fetchAllIngredients, fetchAllPotions } from "./lib/sanity/live";
 
 export const figtree = Figtree({
   subsets: ["latin"],
@@ -47,6 +47,8 @@ export default async function RootLayout({
 }>) {
   const character = await getCharacter();
   const ingredients = await fetchAllIngredients;
+  const potions = await fetchAllPotions;
+  console.log(potions);
 
   console.log(ingredients);
 
@@ -73,7 +75,7 @@ export default async function RootLayout({
                 <Map />
                 <MainLayout>
                   {children}
-                  {/* <SanityLive /> */}
+                  <SanityLive />
                 </MainLayout>
               </>
             ) : (
