@@ -1,175 +1,99 @@
+// app/(pages)/shops/potionShop/page.tsx
+
 "use client";
 
-// import { ingredients } from "@/app/data/ingredients";
-import { CraftSection } from "@/app/(pages)/shops/components/CraftSection";
-import shopData from "./data/potionShopInfo.json";
-import { CraftButton } from "../components/buttons/ShopButtons";
-import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore";
-import itemsDataBase from "@/app/data/items.json";
-import { PlayerInventory, ShopItem } from "@/app/interfaces/inventory";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-import { TradeSection } from "../components/TradeSection";
-import { useSanityDataStore } from "@/app/stores/sanityData/sanityDataStore";
-// import { potions } from "@/app/(pages)/shops/potionShop/data/potions";
 
-export default function Home() {
+import shopData from "./data/potionShopInfo.json";
+import { useSanityDataStore } from "@/app/stores/sanityData/sanityDataStore";
+import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore";
+import { CraftSection } from "../components/CraftSection";
+import { TradeSection } from "../components/TradeSection";
+import { CraftButton } from "../components/buttons/ShopButtons";
+import { addToInventory } from "@/app/lib/mongoDB/addToInventory";
+
+export default function PotionShopPage() {
   const sanityIngredients = useSanityDataStore((state) => state.ingredients);
   const sanityPotions = useSanityDataStore((state) => state.potions);
-
-  console.log("sanityIngredients: ", sanityIngredients);
-  console.log("sanityPotions: ", sanityPotions);
   const { addItem, addRecipe, playerInventory } = usePlayerInventory();
-  const shopIngredients: ShopItem[] = itemsDataBase
-    .filter((item) => item.subType === shopData.shopMaterialType)
-    .map((item) => ({
-      ...item,
-      amount: 0,
-    })) as ShopItem[];
-  const [ingredients, setIngredients] = useState<ShopItem[]>(shopIngredients);
-  // console.log(playerInventory);
 
-  const shopItemsTosell: ShopItem[] = itemsDataBase
-    .filter((item) => item.subType === shopData.shopType)
-    .map((item) => ({
-      ...item,
-      amount: 0,
-    })) as ShopItem[];
+  const [ingredients, setIngredients] = useState([]);
+  const [shopSellingItems, setShopSellingItems] = useState([]);
+  const [craftedItem, setCraftedItem] = useState(null);
 
-  const playerItemsTosell: ShopItem[] = playerInventory.items.potions
-    .filter((item) => item.subType === shopData.shopType)
-    .map((item) => ({
-      ...item,
-      amount: 0,
-    })) as ShopItem[];
+  useEffect(() => {
+    if (sanityIngredients.length > 0) {
+      const mapped = sanityIngredients.map((item) => ({
+        ...item,
+        amount: 0,
+        id: item.itemID.current,
+      }));
+      setIngredients(mapped);
+    }
+  }, [sanityIngredients]);
 
-  // const [shopSellingItems, setShopSellingItems] =
-  //   useState<ShopItem[]>(shopItemsTosell);
-  const [craftedItem, setCraftedItem] = useState<ShopItem | null>();
+  useEffect(() => {
+    if (sanityPotions.length > 0) {
+      const mapped = sanityPotions.map((item) => ({
+        ...item,
+        amount: 0,
+        id: item.itemID.current,
+      }));
+      setShopSellingItems(mapped);
+    }
+  }, [sanityPotions]);
 
-  // const subTypeOfItems = ingredients[0].subType
-
-  //TODO: need to filter out items that has "craftable": false
-  const attemptCraft = () => {
-    const findMatchingRecipe = itemsDataBase.find((item) => {
-      const ingredientsRecipes = Object.values(item.recipe.ingredients || {});
-      // get current set ingredients in the potionShop UI:
-      const currentIngredients = ingredients.map(
-        (ingredient) => ingredient.amount
-      );
-      return ingredientsRecipes.every(
-        (requiredAmount, index) => currentIngredients[index] === requiredAmount
-      );
-    });
-
-    if (findMatchingRecipe) {
-      const craftedItem = {
-        ...findMatchingRecipe,
-        amount: 1,
-        knowRecipe: true,
-      } as ShopItem;
-
-      setCraftedItem(craftedItem);
-
-      addItem(
-        craftedItem.id,
-        craftedItem.subType as keyof PlayerInventory["items"]
-      );
-      addRecipe(
-        craftedItem.id,
-        craftedItem.subType as keyof PlayerInventory["items"]
-      );
-      setIngredients(shopIngredients);
-    } else {
-      setCraftedItem(null);
+  const attemptCraft = async (item) => {
+    try {
+      await addToInventory(item._id, "potion");
+      setCraftedItem({ ...item, amount: 1 });
+    } catch (err) {
+      console.error("Crafting failed:", err);
     }
   };
-  console.log(sanityIngredients[0]?.src?.asset._ref);
-  // console.log(ingredients)
+
+  const resetCrafting = () => {
+    setIngredients(ingredients.map((item) => ({ ...item, amount: 0 })));
+    setCraftedItem(null);
+  };
+
   return (
     <>
-      {/* <div className="min-h-screen grid justify-center gap-24 items-center"> */}
       <section className="grid gap-16">
         <h1 className="text-center text-3xl absolute top-0 left-0 p-4">
           {shopData.title}
         </h1>
 
-        <div className="min-h-screen flex justify-center items-center gap-8">
-          {sanityIngredients &&
-            sanityIngredients.map((ingredient) => (
-              <div
-                className="bg-obsidian-black p-4"
-                key={ingredient._id}>
-                <p>{ingredient.name}</p>
-                {/* <Image
-                  src={ingredient.src.asset._ref}
-                  alt={ingredient.name}
-                /> */}
-              </div>
-            ))}
-        </div>
-        <CraftSection
-          setIngredients={setIngredients}
-          items={ingredients}
-        />
+        <CraftSection setIngredients={setIngredients} items={ingredients} />
+
         <div className="flex justify-center gap-8">
-          <CraftButton
-            onClick={attemptCraft}
-            isCreateButton={true}
-            shopText={shopData}
-          />
+          <CraftButton onClick={null} isCreateButton shopText={shopData} />
+
           <div>
             <p>
-              {craftedItem ? "successfully created: " + craftedItem.name : ""}
+              {craftedItem ? `Successfully created: ${craftedItem.name}` : ""}
             </p>
             <Image
               className="w-64 h-64 rounded-lg"
               width={300}
               height={300}
               src={
-                craftedItem?.src && ingredients
-                  ? craftedItem?.src
-                  : "/images/potions/empty-potion.webp"
+                craftedItem?.src ?? "/images/potions/empty-potion.webp"
               }
-              alt={craftedItem ? "Image of a " + craftedItem.name : ""}
+              alt={craftedItem ? `Image of a ${craftedItem.name}` : "Empty potion"}
             />
           </div>
-          <CraftButton
-            onClick={() => (
-              setIngredients(shopIngredients), setCraftedItem(null)
-            )}
-            isResetButton={true}
-            shopText={shopData}
-          />
+
+          <CraftButton onClick={resetCrafting} isResetButton shopText={shopData} />
         </div>
       </section>
-      <div className="grid gap-8 w-full">
-        <TradeSection tradeItems={shopItemsTosell} />
 
-        <TradeSection
-          tradeItems={playerItemsTosell}
-          buySection={false}
-        />
+      <div className="grid gap-8 w-full">
+        <TradeSection tradeItems={shopSellingItems} />
+        {/* <TradeSection tradeItems={playerItemsTosell} buySection={false} /> */}
       </div>
 
-      {/* <div id="books">
-          <button id="almanac-button">{potionShopContent.almanacButton}</button>
-          <button id="compendium-button">
-            {potionShopContent.compendiumButton}
-          </button>
-
-          <div id="almanac">
-            <div id="almanac-content" className="almanac-content">
-              <div className="almanac-background"></div>
-            </div>
-          </div>
-
-          <div id="compendium">
-            <div id="compendium-content" className="compendium-content">
-              <div className="compendium-background"></div>
-            </div>
-          </div>
-        </div> */}
       <Image
         src={shopData.images.main}
         alt=""
@@ -177,7 +101,6 @@ export default function Home() {
         width={1920}
         height={1080}
       />
-      {/* </div> */}
     </>
   );
 }

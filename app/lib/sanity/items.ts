@@ -38,7 +38,7 @@ export const allIngredients =
   name,
   description,
   itemID,
-  src,
+    "src": src.asset->url,
   buyPrice,
   sellPrice
 }`);
@@ -48,15 +48,11 @@ export const allPotions =
  _id,
   name,
   itemID,
-  _createdAt,
-  _updatedAt,
-  category,
-  subCategory,
   description,
   durability,
   buyPrice,
   sellPrice,
-  src,
+    "src": src.asset->url,
   potion {
     duration,
     effectCategory,
@@ -72,7 +68,7 @@ export const allPotions =
       durability,
       category,
       subCategory,
-      src,
+        "src": src.asset->url,
       buyPrice,
       sellPrice
     }
