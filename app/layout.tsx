@@ -13,15 +13,15 @@ import { Astloch, Figtree } from "next/font/google";
 import { Map } from "./components/map/Map";
 import { CharacterRecipeBook } from "./components/character/CharacterRecipeBook";
 import { DevCheats } from "./components/cheat/DevCheats";
-// import { SanityLive } from "./lib/sanity/live";
+import { SanityLive } from "./lib/sanity/live";
 import { getCharacter } from "./lib/mongoDB/getCharacter";
 import { CreateCharacter } from "./components/character/CreateCharacter";
+import { SanityDataLoader } from "./lib/sanity/SanityDataLoader";
 import {
-  cacheFetchAllIngredients,
-  cacheFetchAllPotions,
-} from "./lib/sanity/fetchers";
-import { useSanityDataStore } from "./stores/sanityData/sanityDataStore";
-// import { fetchAllIngredients, fetchAllPotions } from "./lib/sanity/live";
+  liveFetchAllIngredients,
+  liveFetchAllPotions,
+} from "./lib/sanity/live";
+import Image from "next/image";
 
 export const figtree = Figtree({
   subsets: ["latin"],
@@ -52,23 +52,18 @@ export default async function RootLayout({
 }>) {
   const character = await getCharacter();
 
-  const ingredients = await cacheFetchAllIngredients();
-  const potions = await cacheFetchAllPotions();
-  
+  // const allPotions = await liveFetchAllPotions();
+  const allIngredients = await liveFetchAllIngredients;
 
-  const store = useSanityDataStore.getState();
-  store.setIngredients(ingredients);
-  store.setPotions(potions);
-
-
+  console.log(allIngredients);
 
   return (
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${astloch.className} bg-[#1f2326] antialiased overflow-x-hidden`}
-        >
+          className={`${astloch.className} bg-[#1f2326] antialiased overflow-x-hidden`}>
           <header className="flex z-999 absolute justify-start text-amber-50 items-center p-4 gap-4 h-16">
+            <SanityDataLoader />
             <SignedOut>
               <SignInButton />
               <SignUpButton />
@@ -85,8 +80,27 @@ export default async function RootLayout({
                 <CharacterRecipeBook />
                 <Map />
                 <MainLayout>
-                  {children}
-                  {/* <SanityLive /> */}
+                  <>{children}</>
+                  <SanityLive />
+                  <div>
+                    {allIngredients.map((item) => {
+                      return (
+                        <div key={item._id}>
+                          <h2>{item.name}</h2>
+                          <Image
+                            src={item.src.asset._ref}
+                            alt={item.name}
+                            width={250}
+                            height={250}
+                          />
+                          <p>Type: {item.itemType?.join(", ")}</p>
+                          <p>Subtype: {item.subType?.join(", ")}</p>
+                          <p>Buy Price: {item.buyPrice}</p>
+                          <p>Sell Price: {item.sellPrice}</p>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </MainLayout>
               </>
             ) : (

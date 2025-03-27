@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "ae4b6f95007478b6",
+        "id": "b61ed061a5cf07d1",
         "type": "tabs",
         "children": [
           {
-            "id": "759f88e0934af35f",
+            "id": "93be331197bf255a",
             "type": "leaf",
             "state": {
               "type": "graph",
@@ -162,14 +162,14 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "759f88e0934af35f",
+  "active": "93be331197bf255a",
   "lastOpenFiles": [
+    "The Luminous Aether.md",
     "Eldoria's Origin.md",
     "The Shattering.md",
     "Untitled.canvas",
     "2025-03-26.md",
     "The Aether Core.md",
-    "The Astral Light.md",
-    "The Luminous Aether.md"
+    "The Astral Light.md"
   ]
 }
