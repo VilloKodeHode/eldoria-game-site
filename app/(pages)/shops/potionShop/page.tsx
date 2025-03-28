@@ -121,6 +121,7 @@ export default function PotionShopPage() {
         recipe: potion.recipe,
         knowRecipe: true,
       });
+      setIngredients((prev) => prev.map((item) => ({ ...item, amount: 0 })));
     } catch (err) {
       console.error("Craft failed:", err);
     }
