@@ -28,7 +28,7 @@ export const CraftSection = ({ setIngredients, items }) => {
                 src={item.src}
                 alt=""
               />
-              <p className="text-center text-2xl text-enchanted-gold font-bold border-b-4 bg-obsidian-black/70 border-lunar-pearl/50 select-none">
+              <p className="text-center text-xl text-enchanted-gold font-bold border-b-4 bg-obsidian-black/70 border-lunar-pearl/50 select-none">
                 {item.name}
               </p>
               <div className="flex flex-col w-full justify-center">
