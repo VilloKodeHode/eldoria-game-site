@@ -7,6 +7,8 @@ import { cacheFetchAllIngredients, cacheFetchAllPotions } from "./fetchers";
 export function SanityDataLoader() {
   const setIngredients = useSanityDataStore((state) => state.setIngredients);
   const setPotions = useSanityDataStore((state) => state.setPotions);
+  const setSanityLoaded = useSanityDataStore((state) => state.setSanityLoaded);
+
 
   useEffect(() => {
     async function fetchAndStore() {
@@ -17,10 +19,11 @@ export function SanityDataLoader() {
 
       setIngredients(ingredients);
       setPotions(potions);
+      setSanityLoaded(true);
     }
 
     fetchAndStore();
-  }, [setIngredients, setPotions]);
+  }, [setIngredients, setPotions, setSanityLoaded]);
 
   return null; // doesn't render anything
 }

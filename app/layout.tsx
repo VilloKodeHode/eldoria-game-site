@@ -17,6 +17,7 @@ import { DevCheats } from "./components/cheat/DevCheats";
 import { getCharacter } from "./lib/mongoDB/getCharacter";
 import { CreateCharacter } from "./components/character/CreateCharacter";
 import { SanityDataLoader } from "./lib/sanity/SanityDataLoader";
+import { PlayerInventoryLoader } from "./lib/mongoDB/PlayerInventoryLoader";
 // import {
 //   liveFetchAllIngredients,
 //   liveFetchAllPotions,
@@ -61,9 +62,9 @@ export default async function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body
-          className={`${astloch.className} bg-[#1f2326] antialiased overflow-x-hidden`}>
-          <header className="flex z-999 absolute justify-start text-amber-50 items-center p-4 gap-4 h-16">
-            <SanityDataLoader />
+          className={`${figtree.className} bg-[#1f2326] antialiased overflow-x-hidden`}>
+          <header className="flex z-999 absolute font-mono justify-start text-amber-50 items-center p-4 gap-4 h-16">
+        
             <SignedOut>
               <SignInButton />
               <SignUpButton />
@@ -73,6 +74,8 @@ export default async function RootLayout({
             </SignedIn>
           </header>
           <SignedIn>
+          <SanityDataLoader />
+          <PlayerInventoryLoader/>
             {character ? (
               <>
                 <DevCheats />

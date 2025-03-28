@@ -11,7 +11,7 @@ import { CraftSection } from "../components/CraftSection";
 import { TradeSection } from "../components/TradeSection";
 import { CraftButton } from "../components/buttons/ShopButtons";
 import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore";
-import { fetchPlayerInventory } from "@/app/lib/mongoDB/fetchPlayerInventory";
+// import { fetchPlayerInventory } from "@/app/lib/mongoDB/fetchPlayerInventory";
 import { PotionShopSkeleton } from "@/app/components/ui/loading/PotionShopSkeleton";
 import { CraftingItem, InventoryItem, ShopItem } from "@/app/interfaces/items";
 
@@ -20,23 +20,24 @@ export default function PotionShopPage() {
   const sanityIngredients = useSanityDataStore((state) => state.ingredients);
   const sanityPotions = useSanityDataStore((state) => state.potions);
 
-  const setInventory = usePlayerInventory((state) => state.setInventory);
-
+  
   const [isLoading, setIsLoading] = useState(true);
+  
+  // 1. Load the inventory once //! not used anymore because of the PlayerInventoryLoader
 
-  // 1. Load the inventory once
-  useEffect(() => {
-    async function loadInventory() {
-      try {
-        const inventory = await fetchPlayerInventory();
-        setInventory(inventory);
-      } catch (err) {
-        console.error("Failed to load inventory:", err);
-      }
-    }
+  // const setInventory = usePlayerInventory((state) => state.setInventory);
+  // useEffect(() => {
+  //   async function loadInventory() {
+  //     try {
+  //       const inventory = await fetchPlayerInventory();
+  //       setInventory(inventory);
+  //     } catch (err) {
+  //       console.error("Failed to load inventory:", err);
+  //     }
+  //   }
 
-    loadInventory();
-  }, [setInventory]);
+  //   loadInventory();
+  // }, [setInventory]);
 
   // 2. When both Sanity parts are ready, we stop loading
   useEffect(() => {
@@ -54,7 +55,6 @@ export default function PotionShopPage() {
       const mapped = sanityIngredients.map((item) => ({
         ...item,
         amount: 0,
-        id: item.itemID.current,
       }));
       setIngredients(mapped);
     }
@@ -65,7 +65,6 @@ export default function PotionShopPage() {
       const mapped = sanityPotions.map((item) => ({
         ...item,
         amount: 0,
-        id: item.itemID.current,
       }));
       setShopSellingItems(mapped);
     }

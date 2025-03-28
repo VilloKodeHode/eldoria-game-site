@@ -15,7 +15,7 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
             return (
               <div
                 className="bg-obsidian-black/70 h-44 grid grid-cols-[150px_1fr]"
-                key={item.id + "shopSellingItem"}>
+                key={item._id + "shopSellingItem"}>
                 <div className="group relative">
                   <Image
                     className="h-full w-full object-cover"
