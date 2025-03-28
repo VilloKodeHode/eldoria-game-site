@@ -6,6 +6,6 @@ export const { sanityFetch, SanityLive } = defineLive({
   client: sanityClient.withConfig({ apiVersion: "vX" }),
 });
 
-export const fetchAllIngredients = await sanityClient.fetch(allIngredients);
+export const liveFetchAllIngredients = await sanityClient.fetch(allIngredients);
 
-export const fetchAllPotions = await sanityClient.fetch(allPotions);
+export const liveFetchAllPotions = await sanityClient.fetch(allPotions);

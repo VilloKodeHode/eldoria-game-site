@@ -11,3 +11,11 @@
   --color-crimson-flame: #ec5d70;
   --color-enchanted-wood: #8b5a2b;
 }
+
+.font-shadow {
+  text-shadow: 2px 2px 5px black;
+}
+
+.scrollbar {
+  scrollbar-width: none;
+}

@@ -38,25 +38,21 @@ export const allIngredients =
   name,
   description,
   itemID,
-  src,
+    "src": src.asset->url,
   buyPrice,
   sellPrice
 }`);
 
 export const allPotions =
   defineQuery(`*[_type == "item" && "potion" in subCategory] {
- _id,
+  _id,
   name,
   itemID,
-  _createdAt,
-  _updatedAt,
-  category,
-  subCategory,
   description,
   durability,
   buyPrice,
   sellPrice,
-  src,
+  "src": src.asset->url,
   potion {
     duration,
     effectCategory,
@@ -67,12 +63,14 @@ export const allPotions =
     amount,
     ingredient->{
       _id,
+      _type,
       name,
       description,
       durability,
-      category,
-      subCategory,
-      src,
+      category[0],
+      subCategory[0],
+      "itemID": itemID.current,
+      "src": src.asset->url,
       buyPrice,
       sellPrice
     }

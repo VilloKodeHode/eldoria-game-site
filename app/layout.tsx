@@ -16,7 +16,12 @@ import { DevCheats } from "./components/cheat/DevCheats";
 // import { SanityLive } from "./lib/sanity/live";
 import { getCharacter } from "./lib/mongoDB/getCharacter";
 import { CreateCharacter } from "./components/character/CreateCharacter";
-// import { fetchAllIngredients, fetchAllPotions } from "./lib/sanity/live";
+import { SanityDataLoader } from "./lib/sanity/SanityDataLoader";
+// import {
+//   liveFetchAllIngredients,
+//   liveFetchAllPotions,
+// } from "./lib/sanity/live";
+// import Image from "next/image";
 
 export const figtree = Figtree({
   subsets: ["latin"],
@@ -46,11 +51,11 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const character = await getCharacter();
-  // const ingredients = await fetchAllIngredients;
-  // const potions = await fetchAllPotions;
-  // console.log(potions);
 
-  // console.log(ingredients);
+  // const allPotions = await liveFetchAllPotions();
+  // const allIngredients = await liveFetchAllIngredients;
+
+  // console.log(allIngredients);
 
   return (
     <ClerkProvider>
@@ -58,6 +63,7 @@ export default async function RootLayout({
         <body
           className={`${astloch.className} bg-[#1f2326] antialiased overflow-x-hidden`}>
           <header className="flex z-999 absolute justify-start text-amber-50 items-center p-4 gap-4 h-16">
+            <SanityDataLoader />
             <SignedOut>
               <SignInButton />
               <SignUpButton />
@@ -74,7 +80,7 @@ export default async function RootLayout({
                 <CharacterRecipeBook />
                 <Map />
                 <MainLayout>
-                  {children}
+                  <>{children}</>
                   {/* <SanityLive /> */}
                 </MainLayout>
               </>
