@@ -7,20 +7,47 @@ import Image from "next/image";
 
 import shopData from "./data/potionShopInfo.json";
 import { useSanityDataStore } from "@/app/stores/sanityData/sanityDataStore";
-import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore";
 import { CraftSection } from "../components/CraftSection";
 import { TradeSection } from "../components/TradeSection";
 import { CraftButton } from "../components/buttons/ShopButtons";
-import { addToInventory } from "@/app/lib/mongoDB/addToInventory";
+import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore";
+import { fetchPlayerInventory } from "@/app/lib/mongoDB/fetchPlayerInventory";
+import { PotionShopSkeleton } from "@/app/components/ui/loading/PotionShopSkeleton";
+import { CraftingItem, InventoryItem, ShopItem } from "@/app/interfaces/items";
 
 export default function PotionShopPage() {
+  const { playerInventory, removeItem, addItem } = usePlayerInventory();
   const sanityIngredients = useSanityDataStore((state) => state.ingredients);
   const sanityPotions = useSanityDataStore((state) => state.potions);
-  const { addItem, addRecipe, playerInventory } = usePlayerInventory();
 
-  const [ingredients, setIngredients] = useState([]);
-  const [shopSellingItems, setShopSellingItems] = useState([]);
-  const [craftedItem, setCraftedItem] = useState(null);
+  const setInventory = usePlayerInventory((state) => state.setInventory);
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  // 1. Load the inventory once
+  useEffect(() => {
+    async function loadInventory() {
+      try {
+        const inventory = await fetchPlayerInventory();
+        setInventory(inventory);
+      } catch (err) {
+        console.error("Failed to load inventory:", err);
+      }
+    }
+
+    loadInventory();
+  }, [setInventory]);
+
+  // 2. When both Sanity parts are ready, we stop loading
+  useEffect(() => {
+    if (sanityIngredients.length > 0 && sanityPotions.length > 0) {
+      setIsLoading(false);
+    }
+  }, [sanityIngredients, sanityPotions]);
+
+  const [ingredients, setIngredients] = useState<CraftingItem[]>([]);
+  const [shopSellingItems, setShopSellingItems] = useState<ShopItem[]>([]);
+  const [craftedItem, setCraftedItem] = useState<InventoryItem | null>(null);
 
   useEffect(() => {
     if (sanityIngredients.length > 0) {
@@ -44,19 +71,68 @@ export default function PotionShopPage() {
     }
   }, [sanityPotions]);
 
-  const attemptCraft = async (item) => {
+  const attemptCraft = async (potion: ShopItem) => {
+    if (!potion.recipe) return;
+
+    // Check if player has all required ingredients
+    const hasAllIngredients = potion.recipe.every((r) => {
+      const invItem = playerInventory.items.find(
+        (i) => i.sanityId === r.ingredient._id
+      );
+      return invItem && invItem.amount >= r.amount;
+    });
+
+    if (!hasAllIngredients) {
+      console.warn("You don't have all the ingredients!");
+      return;
+    }
+
+    // Remove ingredients locally
+    potion.recipe.forEach((r) => {
+      for (let i = 0; i < r.amount; i++) {
+        removeItem(r.ingredient._id, "ingredients", r.amount);
+      }
+    });
+
+    // Add crafted potion to MongoDB
     try {
-      await addToInventory(item._id, "potion");
-      setCraftedItem({ ...item, amount: 1 });
+      const res = await fetch("/api/player/inventory", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          itemId: potion._id,
+          itemType: "potion",
+          amount: 1,
+        }),
+      });
+
+      if (!res.ok) throw new Error("Crafting sync failed");
+
+      // Add locally
+      addItem(potion);
+      setCraftedItem({
+        sanityId: potion._id,
+        amount: 1,
+        type: "potion",
+        name: potion.name,
+        src: potion.src,
+        sellPrice: potion.sellPrice,
+        potion: potion.potion,
+        recipe: potion.recipe,
+        knowRecipe: true,
+      });
     } catch (err) {
-      console.error("Crafting failed:", err);
+      console.error("Craft failed:", err);
     }
   };
-
   const resetCrafting = () => {
     setIngredients(ingredients.map((item) => ({ ...item, amount: 0 })));
     setCraftedItem(null);
   };
+
+  if (isLoading) {
+    return <PotionShopSkeleton />;
+  }
 
   return (
     <>
@@ -65,10 +141,28 @@ export default function PotionShopPage() {
           {shopData.title}
         </h1>
 
-        <CraftSection setIngredients={setIngredients} items={ingredients} />
+        <CraftSection
+          setIngredients={setIngredients}
+          items={ingredients}
+        />
 
         <div className="flex justify-center gap-8">
-          <CraftButton onClick={null} isCreateButton shopText={shopData} />
+          <CraftButton
+            onClick={() => {
+              const chosenPotion = shopSellingItems.find((p) =>
+                p.recipe?.every((r) => {
+                  const used = ingredients.find(
+                    (i) => i._id === r.ingredient._id
+                  );
+                  return used?.amount === r.amount;
+                })
+              );
+              if (chosenPotion) attemptCraft(chosenPotion);
+              else alert("No valid recipe selected.");
+            }}
+            isCreateButton
+            shopText={shopData}
+          />
 
           <div>
             <p>
@@ -78,14 +172,18 @@ export default function PotionShopPage() {
               className="w-64 h-64 rounded-lg"
               width={300}
               height={300}
-              src={
-                craftedItem?.src ?? "/images/potions/empty-potion.webp"
+              src={craftedItem?.src ?? "/images/potions/empty-potion.webp"}
+              alt={
+                craftedItem ? `Image of a ${craftedItem.name}` : "Empty potion"
               }
-              alt={craftedItem ? `Image of a ${craftedItem.name}` : "Empty potion"}
             />
           </div>
 
-          <CraftButton onClick={resetCrafting} isResetButton shopText={shopData} />
+          <CraftButton
+            onClick={resetCrafting}
+            isResetButton
+            shopText={shopData}
+          />
         </div>
       </section>
 

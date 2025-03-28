@@ -4,7 +4,7 @@ import shopData from "../potionShop/data/potionShopInfo.json";
 
 export const TradeSection = ({ tradeItems, buySection = true }) => {
   const { buyItem, sellItem } = usePlayerInventory();
-console.log(tradeItems)
+  console.log(tradeItems);
   return (
     <section className="grid gap-8">
       <h2 className="text-6xl">{buySection ? "Buy" : "Sell"}</h2>
@@ -13,22 +13,26 @@ console.log(tradeItems)
           tradeItems.map((item) => {
             // console.log("potion information: ",item.potion);
             return (
-              
               <div
                 className="bg-obsidian-black/70 h-44 grid grid-cols-[150px_1fr]"
-                key={item.id + "shopSellingItem"}
-              >
-                <Image
-                  className="h-full w-full object-cover"
-                  src={item.src}
-                  alt={`Picture of item you can ${
-                    buySection ? "buy" : "sell"
-                  }:  + ${item.name}`}
-                  width={150}
-                  height={150}
-                />
+                key={item.id + "shopSellingItem"}>
+                <div className="group relative">
+                  <Image
+                    className="h-full w-full object-cover"
+                    src={item.src}
+                    alt={`Picture of item you can ${
+                      buySection ? "buy" : "sell"
+                    }:  + ${item.name}`}
+                    width={150}
+                    height={150}
+                  />
+                  <p className="opacity-0 text-sm p-2 overflow-y-scroll scrollbar font-shadow font-mono h-full bg-obsidian-black/50 top-0 group-hover:opacity-100 transition-opacity w-full absolute">
+                    {item.description}
+                  </p>
+                </div>
+
                 <div className="p-4 flex flex-col gap-1 justify-between">
-                  <h3 className="text-2xl underline underline-offset-8">
+                  <h3 className="text-xl underline underline-offset-8">
                     {item.name}
                   </h3>
                   {/* {item.equippable?.slot ? (
@@ -39,26 +43,57 @@ console.log(tradeItems)
                   ) : (
                     ""
                   )} */}
-                  
-                    {/* <p>Effect:{item.potion.effectCategory[0]} {item.potion.affectedStat[0]}</p> */}
-                  
-                   
-                  
+
+                  {["resistance"].includes(item.potion.effectCategory[0]) ? (
+                    <>
+                      <p>
+                        Effect:{" "}
+                        <span className="capitalize">
+                          {item.potion.affectedStat[0]}
+                        </span>{" "}
+                        {item.potion.effectCategory[0].replace("_", " ")} (+
+                        {item.potion.effectAmount})
+                      </p>
+                    </>
+                  ) : ["acquire", "buff", "restore"].includes(
+                      item.potion.effectCategory[0]
+                    ) ? (
+                    <p>
+                      Effect:{" "}
+                      <span className="capitalize">
+                        {item.potion.effectCategory[0]}
+                      </span>{" "}
+                      {item.potion.affectedStat[0].replace("_", " ")} (+
+                      {item.potion.effectAmount})
+                    </p>
+                  ) : (
+                    <p></p>
+                  )}
+                  <p>
+                    Duration:{" "}
+                    <span className="capitalize">{item.potion.duration}</span>
+                  </p>
+
                   <button
                     className="border-2 border-lunar-pearl/50 text-xl hover:scale-105 origin-center cursor-pointer select-none active:scale-95 p-2 text-enchanted-gold"
                     onClick={async () => {
+                      const sanityId = item._id;
+                      const type = item.subCategory?.[0] ?? "potion";
+
                       if (buySection) {
                         try {
                           await fetch("/api/player/inventory", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({
-                              itemId: item._id, // Sanity ID
-                              itemType: item.subCategory?.[0] || "potion",
+                              itemId: sanityId,
+                              itemType: type,
                               amount: 1,
                             }),
                           });
-                          buyItem(item.id, item.subType); // update local store
+
+                          // Update local UI
+                          buyItem(item.id, item.buyPrice, type);
                         } catch (err) {
                           console.error("Buy failed:", err);
                         }
@@ -68,19 +103,19 @@ console.log(tradeItems)
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({
-                              itemId: item._id,
-                              itemType: item.subCategory?.[0] || "potion",
+                              itemId: sanityId,
                               amount: 1,
-                              gold: item.sellPrice, // Pass gold gain to server
+                              gold: item.sellPrice,
                             }),
                           });
-                          sellItem(item.id, item.subType); // update local store
+
+                          // Update local UI
+                          sellItem(item.id, item.sellPrice);
                         } catch (err) {
                           console.error("Sell failed:", err);
                         }
                       }
-                    }}
-                  >
+                    }}>
                     {buySection
                       ? "Buy: " + item.buyPrice
                       : "Sell: " + item.sellPrice}{" "}

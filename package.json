@@ -11,9 +11,10 @@
   "dependencies": {
     "@clerk/nextjs": "^6.12.6",
     "@sanity/image-url": "^1.1.0",
+    "clsx": "^2.1.1",
     "mongodb": "^6.15.0",
-    "next": "15.2.2",
-    "next-sanity": "^9.9.5",
+    "next": "^15.2.4",
+    "next-sanity": "^9.9.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "zustand": "^5.0.3"
@@ -26,7 +27,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.2.2",
-    "sanity": "^3.80.1",
+    "sanity": "^3.81.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

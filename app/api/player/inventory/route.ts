@@ -3,6 +3,20 @@ import { auth } from "@clerk/nextjs/server";
 import { connectToDatabase } from "@/app/lib/mongoDB/db";
 import { NextRequest, NextResponse } from "next/server";
 
+export async function GET() {
+  const { userId } = await auth();
+  if (!userId)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const db = await connectToDatabase();
+  const player = await db?.collection("players").findOne({ userId });
+
+  if (!player)
+    return NextResponse.json({ error: "Player not found" }, { status: 404 });
+
+  return NextResponse.json(player.inventory);
+}
+
 export async function POST(req: NextRequest) {
   const { userId } = await auth();
   if (!userId)
