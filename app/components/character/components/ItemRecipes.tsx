@@ -12,7 +12,7 @@ export const ItemRecipes = ({ playerInventory }: ItemRecipesProps) => {
   const sanityTypes = {
     potions: sanityData.potions,
     ingredients: sanityData.ingredients,
-    //! Use these when we have more items types:
+        //! Use these when we have more items types:
     // armour: sanityData.armour || [],
     // weapons: sanityData.weapons || [],
     // materials: sanityData.materials || [],
@@ -20,7 +20,7 @@ export const ItemRecipes = ({ playerInventory }: ItemRecipesProps) => {
   };
 
   return (
-    <div className="grid gap-8">
+    <div className="grid gap-10">
       {Object.entries(sanityTypes).map(([type, items]) => {
         const knownRecipes = items.filter((item) =>
           playerInventory.learnedRecipes?.includes(item._id)
@@ -30,36 +30,36 @@ export const ItemRecipes = ({ playerInventory }: ItemRecipesProps) => {
 
         return (
           <div key={type}>
-            <h3 className="text-2xl font-bold text-enchanted-gold mb-4">
+            <h3 className="text-3xl font-bold text-enchanted-gold mb-6 underline decoration-lunar-pearl">
               {type.toUpperCase()}
             </h3>
-            <ul className="grid gap-6">
+            <ul className="grid gap-8">
               {knownRecipes.map((item) => (
-                <li key={item._id}>
-                  <div className="flex flex-col gap-2">
-                    <p className="text-xl text-enchanted-gold">{item.name}</p>
-                    {item.src && (
-                      <Image
-                        className="object-cover rounded"
-                        src={item.src}
-                        alt={item.name ?? "Recipe item"}
-                        width={100}
-                        height={100}
-                      />
-                    )}
+                <li
+                  key={item._id}
+                  className="p-4 border border-lunar-pearl rounded-lg shadow-inner bg-obsidian-black/40">
+                  <div className="flex items-center gap-4 mb-3">
+                    <Image
+                      className="object-cover rounded"
+                      src={item.src}
+                      alt={item.name ?? "Recipe item"}
+                      width={64}
+                      height={64}
+                    />
+                    <p className="text-xl text-enchanted-gold font-semibold">
+                      {item.name}
+                    </p>
                   </div>
-                  <div className="mt-2">
-                    <p className="font-bold text-lunar-pearl">Recipe:</p>
-                    <div className="flex flex-col gap-1">
+
+                  <div>
+                    <p className="text-lunar-pearl mb-1">Ingredients:</p>
+                    <ul className="ml-4 list-disc text-lunar-pearl space-y-1">
                       {item.recipe?.map((r) => (
-                        <div
-                          key={r.ingredient._id}
-                          className="flex justify-between">
-                          <span>{r.ingredient.name}</span>
-                          <span>x{r.amount}</span>
-                        </div>
+                        <li key={r.ingredient._id}>
+                          <span className="font-semibold">{r.ingredient.name}</span> × {r.amount}
+                        </li>
                       ))}
-                    </div>
+                    </ul>
                   </div>
                 </li>
               ))}

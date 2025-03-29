@@ -14,7 +14,11 @@ export async function GET() {
   if (!player)
     return NextResponse.json({ error: "Player not found" }, { status: 404 });
 
-  return NextResponse.json(player.inventory);
+  return NextResponse.json({
+    items: player.inventory?.items ?? [],
+    currency: player.inventory?.currency ?? { gold: 0, gems: 0 },
+    learnedRecipes: player.learnedRecipes ?? [],
+  });
 }
 
 export async function POST(req: NextRequest) {

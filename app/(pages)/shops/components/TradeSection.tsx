@@ -4,7 +4,6 @@ import shopData from "../potionShop/data/potionShopInfo.json";
 
 export const TradeSection = ({ tradeItems, buySection = true }) => {
   const { buyItem, sellItem } = usePlayerInventory();
-  console.log(tradeItems);
   return (
     <section className="grid gap-8">
       <h2 className="text-6xl">{buySection ? "Buy" : "Sell"}</h2>

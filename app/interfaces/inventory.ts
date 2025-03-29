@@ -8,8 +8,8 @@ export interface PlayerInventory {
     gold: number;
     gems: number;
   };
-  items: InventoryItem[]; // Flattened structure for all items
-  learnedRecipes?: string[]; // will give a list of sanityIds
+  items: InventoryItem[]; // Flattened structure for all items currently in inventory
+  learnedRecipes?: string[]; // will return a list of sanityIds (references to items)
 }
 
 // Zustand store structure

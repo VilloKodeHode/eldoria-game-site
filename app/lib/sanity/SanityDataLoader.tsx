@@ -10,6 +10,8 @@ export function SanityDataLoader() {
   const setSanityLoaded = useSanityDataStore((state) => state.setSanityLoaded);
 
 
+
+  
   useEffect(() => {
     async function fetchAndStore() {
       const [ingredients, potions] = await Promise.all([
