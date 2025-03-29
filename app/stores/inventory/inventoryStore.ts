@@ -16,9 +16,11 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
           gems: inventory?.currency?.gems ?? 0,
         },
         items: Array.isArray(inventory?.items) ? inventory.items : [],
+        learnedRecipes: Array.isArray(inventory?.learnedRecipes)
+          ? inventory.learnedRecipes
+          : [], // fallback if missing
       },
     })),
-
   addItem: (item) =>
     set((state) => {
       const existingItem = state.playerInventory.items.find(

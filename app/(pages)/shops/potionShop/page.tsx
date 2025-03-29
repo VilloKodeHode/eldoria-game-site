@@ -20,9 +20,8 @@ export default function PotionShopPage() {
   const sanityIngredients = useSanityDataStore((state) => state.ingredients);
   const sanityPotions = useSanityDataStore((state) => state.potions);
 
-  
   const [isLoading, setIsLoading] = useState(true);
-  
+
   // 1. Load the inventory once //! not used anymore because of the PlayerInventoryLoader
 
   // const setInventory = usePlayerInventory((state) => state.setInventory);
@@ -93,8 +92,8 @@ export default function PotionShopPage() {
       }
     });
 
-    // Add crafted potion to MongoDB
     try {
+      // 1. Add crafted potion to MongoDB
       const res = await fetch("/api/player/inventory", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -107,7 +106,7 @@ export default function PotionShopPage() {
 
       if (!res.ok) throw new Error("Crafting sync failed");
 
-      // Add locally
+      // 2. Add locally
       addItem(potion);
       setCraftedItem({
         sanityId: potion._id,
@@ -120,11 +119,21 @@ export default function PotionShopPage() {
         recipe: potion.recipe,
         knowRecipe: true,
       });
+
+      // 3. Learn recipe
+      await fetch("/api/player/learn-recipe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ itemId: potion._id }),
+      });
+
+      // 4. Reset ingredient UI
       setIngredients((prev) => prev.map((item) => ({ ...item, amount: 0 })));
     } catch (err) {
       console.error("Craft failed:", err);
     }
   };
+
   const resetCrafting = () => {
     setIngredients(ingredients.map((item) => ({ ...item, amount: 0 })));
     setCraftedItem(null);

@@ -9,6 +9,7 @@ export interface PlayerInventory {
     gems: number;
   };
   items: InventoryItem[]; // Flattened structure for all items
+  learnedRecipes?: string[]; // will give a list of sanityIds
 }
 
 // Zustand store structure
