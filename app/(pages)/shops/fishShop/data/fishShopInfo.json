@@ -1,0 +1,16 @@
+{
+  "title": "Fish Shop",
+  "shopMaterialType": "ingredients",
+  "shopType": "fish",
+  "createButton": "Buy",
+  "resetButton": "Sell",
+  "resultText": "Sell your fish",
+  "nothingToSell": "No fish available",
+  "almanacButton": "Almanac",
+  "compendiumButton": "Compendium",
+  "images": {
+    "main": "/images/fishShop/background/fish-shop.png",
+    "almanac": "/images/fishShop/almanac/fish-almanac.webp",
+    "compendium": "/images/fishShop/compendium/fish-compendium.webp"
+  }
+}
