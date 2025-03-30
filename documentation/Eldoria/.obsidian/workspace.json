@@ -11,10 +11,14 @@
             "id": "93be331197bf255a",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "The Luminous Aether.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "The Luminous Aether"
             }
           }
         ]
@@ -164,9 +168,10 @@
   },
   "active": "93be331197bf255a",
   "lastOpenFiles": [
+    "The deities.md",
+    "The Shattering.md",
     "The Luminous Aether.md",
     "Eldoria's Origin.md",
-    "The Shattering.md",
     "Untitled.canvas",
     "2025-03-26.md",
     "The Aether Core.md",
