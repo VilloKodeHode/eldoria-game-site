@@ -90,9 +90,10 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
                             itemId: sanityId,
                             itemType: type,
                             amount: 1,
+                            gold: item.buyPrice,
                           }),
                         });
-                        buyItem(item._id, item.buyPrice, type);
+                        buyItem(item);
                       } catch (err) {
                         console.error("Buy failed:", err);
                       }

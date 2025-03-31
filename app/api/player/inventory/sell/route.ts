@@ -28,15 +28,12 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: "Player not found" }, { status: 404 });
 
   const itemIndex = player.inventory.items.findIndex(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    
     (item: any) => item.sanityId === itemId
   );
 
   if (itemIndex === -1)
-    return NextResponse.json(
-      { error: "Item not in inventory" },
-      { status: 404 }
-    );
+    return NextResponse.json({ error: "Item not in inventory" }, { status: 404 });
 
   const currentAmount = player.inventory.items[itemIndex].amount;
   if (currentAmount < amount)
@@ -45,24 +42,24 @@ export async function POST(req: NextRequest) {
       { status: 400 }
     );
 
-  // Case: Remove item entirely
   if (currentAmount === amount) {
+    // Remove item entirely
     await players.updateOne(
       { userId },
       {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        $pull: { "inventory.items": { sanityId: itemId } } as any,
-        $inc: { "currency.gold": gold },
+        // @ts-expect-error - TS doesn't like nested $pull
+        $pull: { "inventory.items": { sanityId: itemId } },
+        $inc: { "inventory.currency.gold": gold },
       }
     );
   } else {
-    // Case: Reduce amount
+    // Decrease amount
     await players.updateOne(
       { userId, "inventory.items.sanityId": itemId },
       {
         $inc: {
           "inventory.items.$.amount": -amount,
-          "currency.gold": gold,
+          "inventory.currency.gold": gold,
         },
       }
     );

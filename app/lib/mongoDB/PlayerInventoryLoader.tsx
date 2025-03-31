@@ -1,22 +1,21 @@
-"use client"
+"use client";
 
-import { useEffect } from "react"
-import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore"
-import { useSanityDataStore } from "@/app/stores/sanityData/sanityDataStore"
-import { fetchPlayerInventory } from "./fetchPlayerInventory"
+import { useEffect } from "react";
+import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore";
+import { useSanityDataStore } from "@/app/stores/sanityData/sanityDataStore";
+import { fetchPlayerInventory } from "./fetchPlayerInventory";
 
 export function PlayerInventoryLoader() {
-  const setInventory = usePlayerInventory((state) => state.setInventory)
-  const sanityData = useSanityDataStore()
+  const setInventory = usePlayerInventory((state) => state.setInventory);
+  const sanityData = useSanityDataStore();
 
   useEffect(() => {
-    if (!sanityData.sanityLoaded) return // wait for sanity data to load first
+    if (!sanityData.sanityLoaded) return; // wait for sanity data to load first
 
     const loadAndEnrichInventory = async () => {
       try {
-        const playerData = await fetchPlayerInventory()
+        const playerData = await fetchPlayerInventory();
         console.log("🧪 Raw player data:", playerData);
-        const { items, currency, learnedRecipes = [] } = playerData;
 
         const allSanityItems = [
           ...sanityData.ingredients,
@@ -26,42 +25,44 @@ export function PlayerInventoryLoader() {
           // ...sanityData.armor,
           // ...sanityData.materials,
           // ...sanityData.foods,
-        ]
+        ];
 
-        const enrichedItems = items.map((item) => {
-          const sanityItem = allSanityItems.find((s) => s._id === item.sanityId)
-          return sanityItem
+        // Only enrich items from the DB
+        const enrichedItems = playerData.items.map((item) => {
+          const match = allSanityItems.find((s) => s._id === item.sanityId);
+          return match
             ? {
                 ...item,
-                name: sanityItem.name,
-                src: sanityItem.src,
-                sellPrice: sanityItem.sellPrice,
-                recipe: sanityItem.recipe,
-                knowRecipe: !!sanityItem.recipe,
-                ...(sanityItem.potion && { potion: sanityItem.potion }),
+                name: match.name,
+                src: match.src,
+                sellPrice: match.sellPrice,
+                recipe: match.recipe,
+                knowRecipe: !!match.recipe,
+                ...(match.potion && { potion: match.potion }),
               }
-            : item
-        })
+            : item; // fallback to raw if no match
+        });
 
+        // 👇 always trust currency and learnedRecipes from DB
         setInventory({
-          currency,
+          currency: playerData.currency,
           items: enrichedItems,
-          learnedRecipes,
-        })
+          learnedRecipes: playerData.learnedRecipes ?? [],
+        });
 
-        console.log("✅ Player inventory loaded with recipes:", learnedRecipes)
+        console.log("✅ Inventory updated from DB and enriched");
       } catch (err) {
-        console.error("❌ Failed to load and enrich inventory:", err)
+        console.error("❌ Failed to load and enrich inventory:", err);
       }
-    }
+    };
 
-    loadAndEnrichInventory()
+    loadAndEnrichInventory();
   }, [
     sanityData.sanityLoaded,
     setInventory,
     sanityData.ingredients,
     sanityData.potions,
-  ])
+  ]);
 
-  return null
+  return null;
 }

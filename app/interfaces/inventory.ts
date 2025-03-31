@@ -19,7 +19,7 @@ export interface PlayerInventoryStore {
   // Sync actions
   addItem: (item: ShopItem) => void;
   removeItem: (sanityId: string, type: string, amount?: number) => void;
-  buyItem: (sanityId: string, price: number, type: string) => void;
+  buyItem: (item: ShopItem) => void;
   sellItem: (sanityId: string, price: number) => void;
 
   // Optional: extend for equipping later
