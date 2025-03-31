@@ -102,7 +102,7 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
                             amount: 1,
                           }),
                         });
-                        buyItem(item.id, item.buyPrice, type);
+                        buyItem(item._id, item.buyPrice, type);
                       } catch (err) {
                         console.error("Buy failed:", err);
                       }
@@ -117,7 +117,7 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
                             gold: item.sellPrice,
                           }),
                         });
-                        sellItem(item.id, item.sellPrice);
+                        sellItem(item._id, item.sellPrice);
                       } catch (err) {
                         console.error("Sell failed:", err);
                       }
