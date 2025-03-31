@@ -26,10 +26,10 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
             return (
               <div
                 key={item._id}
-                className="bg-obsidian-black/70 p-4 rounded-lg border-2 border-lunar-pearl/50 flex flex-col gap-4"
+                className="bg-obsidian-black/70 p-4 rounded-lg border-2 border-lunar-pearl/50 flex flex-col gap-4 min-h-[252px]"
               >
                 {/* Top: Header, Image, Stats */}
-                <div className="flex justify-between items-start gap-4">
+                <div className="flex justify-between items-start gap-4 ">
                   <div className="flex gap-4">
                     <Image
                       src={item.src}
@@ -56,10 +56,20 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
 
                   <button
                     onClick={() => toggleDetails(item._id)}
-                    className="w-8 h-8 rounded-full border border-lunar-pearl/50 text-enchanted-gold font-bold hover:scale-105 transition cursor-pointer"
+                    className=" hover:scale-105 transition cursor-pointer flex items-center justify-center"
                     aria-label="Toggle Details"
                   >
-                    {isOpen ? "–" : "+"}
+                    <Image
+                      src={
+                        isOpen
+                          ? "/images/potionShop/background/pages-of-potions.webp" // when description is open
+                          : "/images/potionShop/background/book-of-potions.webp" // when it's closed
+                      }
+                      alt={isOpen ? "Hide Details" : "Show Details"}
+                      width={130}
+                      height={130}
+                      className="object-contain"
+                    />
                   </button>
                 </div>
 

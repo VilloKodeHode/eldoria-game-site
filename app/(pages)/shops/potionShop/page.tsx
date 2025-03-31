@@ -1,5 +1,3 @@
-// app/(pages)/shops/potionShop/page.tsx
-
 "use client";
 
 import { useEffect, useState } from "react";
@@ -19,12 +17,14 @@ export default function PotionShopPage() {
   const { playerInventory, removeItem, addItem } = usePlayerInventory();
   const sanityIngredients = useSanityDataStore((state) => state.ingredients);
   const sanityPotions = useSanityDataStore((state) => state.potions);
-
   const setInventory = usePlayerInventory((state) => state.setInventory);
 
   const [isLoading, setIsLoading] = useState(true);
+  const [ingredients, setIngredients] = useState<CraftingItem[]>([]);
+  const [shopSellingItems, setShopSellingItems] = useState<ShopItem[]>([]);
+  const [craftedItem, setCraftedItem] = useState<InventoryItem | null>(null);
 
-  // 1. Load the inventory once
+  // Load inventory once
   useEffect(() => {
     async function loadInventory() {
       try {
@@ -38,17 +38,14 @@ export default function PotionShopPage() {
     loadInventory();
   }, [setInventory]);
 
-  // 2. When both Sanity parts are ready, we stop loading
+  // Wait for Sanity data
   useEffect(() => {
     if (sanityIngredients.length > 0 && sanityPotions.length > 0) {
       setIsLoading(false);
     }
   }, [sanityIngredients, sanityPotions]);
 
-  const [ingredients, setIngredients] = useState<CraftingItem[]>([]);
-  const [shopSellingItems, setShopSellingItems] = useState<ShopItem[]>([]);
-  const [craftedItem, setCraftedItem] = useState<InventoryItem | null>(null);
-
+  // Map ingredients
   useEffect(() => {
     if (sanityIngredients.length > 0) {
       const mapped = sanityIngredients.map((item) => ({
@@ -60,6 +57,7 @@ export default function PotionShopPage() {
     }
   }, [sanityIngredients]);
 
+  // Map potions
   useEffect(() => {
     if (sanityPotions.length > 0) {
       const mapped = sanityPotions.map((item) => ({
@@ -83,18 +81,16 @@ export default function PotionShopPage() {
     });
 
     if (!hasAllIngredients) {
-      console.warn("You don't have all the ingredients!");
+      alert("You don't have all the required ingredients!");
       return;
     }
 
     // Remove ingredients locally
     potion.recipe.forEach((r) => {
-      for (let i = 0; i < r.amount; i++) {
-        removeItem(r.ingredient._id, "ingredients", r.amount);
-      }
+      removeItem(r.ingredient._id, "ingredients", r.amount);
     });
 
-    // Add crafted potion to MongoDB
+    // Save crafted potion to DB
     try {
       const res = await fetch("/api/player/inventory", {
         method: "POST",
@@ -108,7 +104,6 @@ export default function PotionShopPage() {
 
       if (!res.ok) throw new Error("Crafting sync failed");
 
-      // Add locally
       addItem(potion);
       setCraftedItem({
         sanityId: potion._id,
@@ -121,19 +116,20 @@ export default function PotionShopPage() {
         recipe: potion.recipe,
         knowRecipe: true,
       });
+
+      alert(`You successfully crafted ${potion.name}!`);
       setIngredients((prev) => prev.map((item) => ({ ...item, amount: 0 })));
     } catch (err) {
       console.error("Craft failed:", err);
     }
   };
+
   const resetCrafting = () => {
-    setIngredients(ingredients.map((item) => ({ ...item, amount: 0 })));
+    setIngredients((prev) => prev.map((item) => ({ ...item, amount: 0 })));
     setCraftedItem(null);
   };
 
-  if (isLoading) {
-    return <PotionShopSkeleton />;
-  }
+  if (isLoading) return <PotionShopSkeleton />;
 
   return (
     <>
@@ -142,24 +138,28 @@ export default function PotionShopPage() {
           {shopData.title}
         </h1>
 
-        <CraftSection
-          setIngredients={setIngredients}
-          items={ingredients}
-        />
+        <CraftSection setIngredients={setIngredients} items={ingredients} />
 
         <div className="flex justify-center gap-8">
           <CraftButton
             onClick={() => {
-              const chosenPotion = shopSellingItems.find((p) =>
-                p.recipe?.every((r) => {
+              const matchedPotion = shopSellingItems.find((potion) => {
+                if (!potion.recipe) return false;
+
+                return potion.recipe.every((r) => {
                   const used = ingredients.find(
                     (i) => i._id === r.ingredient._id
                   );
                   return used?.amount === r.amount;
-                })
-              );
-              if (chosenPotion) attemptCraft(chosenPotion);
-              else alert("No valid recipe selected.");
+                });
+              });
+
+              if (!matchedPotion) {
+                alert("No valid recipe selected.");
+                return;
+              }
+
+              attemptCraft(matchedPotion);
             }}
             isCreateButton
             shopText={shopData}
@@ -173,9 +173,13 @@ export default function PotionShopPage() {
               className="w-64 h-64 rounded-lg"
               width={300}
               height={300}
-              src={craftedItem?.src ?? "/images/potions/empty-potion.webp"}
+              src={
+                craftedItem?.src ?? "/images/potions/empty-potion.webp"
+              }
               alt={
-                craftedItem ? `Image of a ${craftedItem.name}` : "Empty potion"
+                craftedItem
+                  ? `Image of a ${craftedItem.name}`
+                  : "Empty potion"
               }
             />
           </div>
@@ -190,7 +194,6 @@ export default function PotionShopPage() {
 
       <div className="grid gap-8 w-full">
         <TradeSection tradeItems={shopSellingItems} />
-        {/* <TradeSection tradeItems={playerItemsTosell} buySection={false} /> */}
       </div>
 
       <Image
