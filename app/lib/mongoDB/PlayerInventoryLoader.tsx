@@ -29,16 +29,17 @@ export function PlayerInventoryLoader() {
 
         // Only enrich items from the DB
         const enrichedItems = playerData.items.map((item) => {
-          const match = allSanityItems.find((s) => s._id === item.sanityId);
-          return match
+          const sanityItem = allSanityItems.find((s) => s._id === item.sanityId);
+          return sanityItem
             ? {
                 ...item,
-                name: match.name,
-                src: match.src,
-                sellPrice: match.sellPrice,
-                recipe: match.recipe,
-                knowRecipe: !!match.recipe,
-                ...(match.potion && { potion: match.potion }),
+                name: sanityItem.name,
+                src: sanityItem.src,
+                sellPrice: sanityItem.sellPrice,
+                recipe: sanityItem.recipe,
+                knowRecipe: !!sanityItem.recipe,
+                type: sanityItem.subCategory?.[0] ?? "misc",
+                ...(sanityItem.potion && { potion: sanityItem.potion }),
               }
             : item; // fallback to raw if no match
         });

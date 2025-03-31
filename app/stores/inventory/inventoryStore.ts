@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { PlayerInventoryStore } from "@/app/interfaces/inventory";
-import { InventoryItem, ShopItem } from "@/app/interfaces/items";
+import { InventoryItem } from "@/app/interfaces/items";
 
 export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
   playerInventory: {
@@ -72,19 +72,27 @@ export const usePlayerInventory = create<PlayerInventoryStore>((set) => ({
       };
     }),
 
-  sellItem: (sanityId) =>
-    set((state) => {
-      const filteredItems = state.playerInventory.items.filter(
-        (item) => item.sanityId !== sanityId
-      );
-
-      return {
-        playerInventory: {
-          ...state.playerInventory,
-          items: filteredItems,
-        },
-      };
-    }),
+    sellItem: (sanityId, price) =>
+      set((state) => {
+        const updatedItems = state.playerInventory.items
+          .map((item) =>
+            item.sanityId === sanityId
+              ? { ...item, amount: item.amount - 1 }
+              : item
+          )
+          .filter((item) => item.amount > 0);
+    
+        return {
+          playerInventory: {
+            ...state.playerInventory,
+            items: updatedItems,
+            currency: {
+              ...state.playerInventory.currency,
+              gold: state.playerInventory.currency.gold + price,
+            },
+          },
+        };
+      }),
 
     buyItem: (item) =>
       set((state) => {

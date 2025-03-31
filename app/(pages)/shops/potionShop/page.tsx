@@ -49,6 +49,21 @@ export default function PotionShopPage() {
   const [shopSellingItems, setShopSellingItems] = useState<ShopItem[]>([]);
   const [craftedItem, setCraftedItem] = useState<InventoryItem | null>(null);
 
+  const potionItemsToSell = playerInventory.items
+  .filter((invItem) =>
+    sanityPotions.some((potion) => potion._id === invItem.sanityId)
+  )
+  .map((invItem) => {
+    const potion = sanityPotions.find((p) => p._id === invItem.sanityId);
+    return potion
+      ? {
+          ...potion,
+          amount: invItem.amount,
+        }
+      : null;
+  })
+  .filter(Boolean);
+
   useEffect(() => {
     if (sanityIngredients.length > 0) {
       const mapped = sanityIngredients.map((item) => ({
@@ -139,6 +154,8 @@ export default function PotionShopPage() {
     setCraftedItem(null);
   };
 
+
+
   if (isLoading) {
     return <PotionShopSkeleton />;
   }
@@ -198,7 +215,7 @@ export default function PotionShopPage() {
 
       <div className="grid gap-8 w-full">
         <TradeSection tradeItems={shopSellingItems} />
-        {/* <TradeSection tradeItems={playerItemsTosell} buySection={false} /> */}
+        <TradeSection tradeItems={potionItemsToSell} buySection={false} />
       </div>
 
       <Image

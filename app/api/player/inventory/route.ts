@@ -1,8 +1,24 @@
-// ✅ Updated /api/player/inventory/route.ts (POST handler)
-
 import { auth } from "@clerk/nextjs/server";
 import { connectToDatabase } from "@/app/lib/mongoDB/db";
 import { NextRequest, NextResponse } from "next/server";
+
+export async function GET() {
+  const { userId } = await auth();
+  if (!userId)
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+
+  const db = await connectToDatabase();
+  const player = await db?.collection("players").findOne({ userId });
+
+  if (!player)
+    return NextResponse.json({ error: "Player not found" }, { status: 404 });
+
+  return NextResponse.json({
+    items: player.inventory?.items ?? [],
+    currency: player.currency ?? { gold: 0, gems: 0 }, // ✅ use top-level currency
+    learnedRecipes: player.learnedRecipes ?? [],
+  });
+}
 
 export async function POST(req: NextRequest) {
   const { userId } = await auth();
@@ -28,9 +44,7 @@ export async function POST(req: NextRequest) {
   // 2. Try to increment item if it exists
   const result = await players.updateOne(
     { userId, "inventory.items.sanityId": itemId },
-    {
-      $inc: { "inventory.items.$.amount": amount },
-    }
+    { $inc: { "inventory.items.$.amount": amount } }
   );
 
   // 3. If item not found, push it into array
@@ -49,7 +63,7 @@ export async function POST(req: NextRequest) {
           "inventory.items": newItem,
         },
         $setOnInsert: {
-          currency: { gold: 0, gems: 0 },
+          currency: { gold: 0, gems: 0 }, // in case user is newly created
         },
       },
       { upsert: true }

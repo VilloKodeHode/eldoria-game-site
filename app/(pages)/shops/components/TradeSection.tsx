@@ -6,7 +6,7 @@ import Image from "next/image";
 import shopData from "../potionShop/data/potionShopInfo.json";
 
 export const TradeSection = ({ tradeItems, buySection = true }) => {
-  const { buyItem, sellItem } = usePlayerInventory();
+  const { buyItem, sellItem, playerInventory } = usePlayerInventory();
   const [openDetailsId, setOpenDetailsId] = useState<string | null>(null);
 
   const toggleDetails = (id: string) => {
@@ -17,18 +17,22 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
     <section className="grid gap-8">
       <h2 className="text-6xl">{buySection ? "Buy" : "Sell"}</h2>
 
-      {/* Use grid but make inner cards flexible height */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 items-start">
         {tradeItems.length > 0 ? (
           tradeItems.map((item) => {
             const isOpen = openDetailsId === item._id;
+
+            const inventoryItem = !buySection
+              ? playerInventory.items.find((i) => i.sanityId === item._id)
+              : null;
+
+            const playerAmount = inventoryItem?.amount ?? 0;
 
             return (
               <div
                 key={item._id}
                 className="bg-obsidian-black/70 p-4 rounded-lg border-2 border-lunar-pearl/50 flex flex-col gap-4"
               >
-                {/* Top: Header, Image, Stats */}
                 <div className="flex justify-between items-start gap-4">
                   <div className="flex gap-4">
                     <Image
@@ -39,10 +43,17 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
                       className="rounded-lg object-cover"
                     />
                     <div>
-                      <h3 className="text-xl font-bold text-enchanted-gold">{item.name}</h3>
+                      <h3 className="text-xl font-bold text-enchanted-gold">
+                        {item.name}
+                      </h3>
                       <p className="text-sm text-lunar-pearl">
                         Sell Value: {item.sellPrice ?? 0} gold
                       </p>
+                      {!buySection && (
+                        <p className="text-sm text-lunar-pearl">
+                          You have: {playerAmount}
+                        </p>
+                      )}
                       <p className="text-sm text-lunar-pearl">
                         <strong>Effect:</strong>{" "}
                         {item.potion?.effectCategory[0] ?? "N/A"} –{" "}
@@ -63,7 +74,6 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
                   </button>
                 </div>
 
-                {/* Expandable Description */}
                 <div
                   className={`transition-all duration-300 overflow-hidden ${
                     isOpen ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
@@ -74,13 +84,11 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
                   </p>
                 </div>
 
-                {/* Action Button */}
                 <button
                   className="border-2 border-lunar-pearl/50 text-xl hover:scale-105 origin-center cursor-pointer select-none active:scale-95 p-2 text-enchanted-gold w-full"
                   onClick={async () => {
                     const sanityId = item._id;
                     const type = item.subCategory?.[0] ?? "potion";
-
                     if (buySection) {
                       try {
                         await fetch("/api/player/inventory", {

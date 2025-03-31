@@ -5,10 +5,10 @@ import Image from "next/image";
 import { useState } from "react";
 
 export const CharacterInventory = () => {
-  const { playerInventory, sellItem } = usePlayerInventory();
+  const { playerInventory } = usePlayerInventory();
   const [open, setOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<string | null>(null);
 
-  // Group by type (e.g., potion, weapon, etc.)
   const groupedItems = playerInventory.items.reduce<
     Record<string, typeof playerInventory.items>
   >((acc, item) => {
@@ -17,55 +17,89 @@ export const CharacterInventory = () => {
     return acc;
   }, {});
 
+  const types = Object.keys(groupedItems);
+
   return (
     <>
       <button
         className="fixed cursor-pointer top-0 right-0 z-100 p-4 text-5xl"
-        onClick={() => setOpen(!open)}>
+        onClick={() => setOpen(!open)}
+      >
         📜
       </button>
 
       <div
         className={`${
           open ? "translate-x-0" : "translate-x-full"
-        } transition duration-1000 z-99 bg-obsidian-black text-lunar-pearl grid gap-8 w-full h-full p-8 fixed top-0 right-0`}>
-        <div>
-          <h2>Gold: {playerInventory?.currency?.gold ?? 0} 🟡</h2>
-          <h2>Gems: {playerInventory?.currency?.gems ?? 0} 💎</h2>
+        } transition duration-1000 z-50 bg-obsidian-black text-lunar-pearl w-full h-full fixed top-0 right-0 p-4 md:p-8 overflow-hidden`}
+      >
+        {/* Sticky Header */}
+        <div className="sticky top-0 bg-obsidian-black z-50 pb-4">
+          <div className="flex justify-between items-center mb-2">
+            <div>
+              <h2 className="text-lg">Gold: {playerInventory.currency.gold} 🟡</h2>
+              <h2 className="text-lg">Gems: {playerInventory.currency.gems} 💎</h2>
+            </div>
+            <button
+              className="text-3xl hover:scale-110 transition"
+              onClick={() => setOpen(false)}
+            >
+              ❌
+            </button>
+          </div>
+
+          {/* Tab Navigation */}
+          <div className="flex flex-wrap gap-2 border-b border-lunar-pearl/30 pb-2">
+            {types.map((type) => (
+              <button
+                key={type}
+                className={`px-3 py-1 rounded text-sm border ${
+                  activeTab === type
+                    ? "bg-lunar-pearl text-obsidian-black font-semibold"
+                    : "border-lunar-pearl/30 hover:bg-lunar-pearl/10"
+                }`}
+                onClick={() => setActiveTab(type === activeTab ? null : type)}
+              >
+                {type.toUpperCase()}
+              </button>
+            ))}
+          </div>
         </div>
 
-        <div className="grid gap-8">
-          {Object.entries(groupedItems).map(([type, items]) => (
+        {/* Scrollable Content */}
+        <div className="overflow-y-auto max-h-[calc(100vh-140px)] pr-2 mt-4 grid gap-8">
+          {(activeTab ? [activeTab] : types).map((type) => (
             <div key={type}>
-              <h3>{type.toUpperCase()}</h3>
-              <ul className="grid gap-4">
-                {items.map((item) => (
+              {!activeTab && (
+                <h3 className="text-xl font-semibold border-b border-lunar-pearl/30 mb-2">
+                  {type.toUpperCase()}
+                </h3>
+              )}
+              <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 xl:grid-cols-6 gap-4">
+                {groupedItems[type].map((item) => (
                   <li
                     key={item.sanityId}
-                    className="flex items-center gap-2">
-                    <div className="flex justify-end relative w-12 h-12">
+                    className="flex flex-col items-center gap-1 bg-lunar-pearl/5 p-2 rounded-lg"
+                  >
+                    <div className="relative w-16 h-16">
                       <Image
-                        className="w-full -z-10 h-full absolute top-0"
                         src={item.src ?? "/images/default.webp"}
                         alt={item.name ?? "Inventory item"}
-                        width={50}
-                        height={50}
+                        width={64}
+                        height={64}
+                        className="rounded object-cover w-full h-full"
                       />
-                      <div className="bg-lunar-pearl rounded-full text-obsidian-black h-3.5 relative z-10 p-1 w-3.5">
-                        <span className="text-sm absolute -translate-y-1/2 top-1/2">
-                          {item.amount > 9 ? "9+" : item.amount}
-                        </span>
+                      <div className="absolute bottom-0 right-0 bg-lunar-pearl text-obsidian-black text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                        {item.amount > 99 ? "99+" : item.amount}
                       </div>
                     </div>
-                    <div className="text-xs flex flex-col justify-center gap-2">
-                      <span>{item.name ?? "Unnamed"}</span>
-                      <button
-                        className="cursor-pointer hover:scale-105 transition border-b-2 border-b-enchanted-gold"
-                        onClick={() =>
-                          sellItem(item.sanityId, item.sellPrice || 0)
-                        }>
-                        (Sell: {item.sellPrice ?? 0} Gold)
-                      </button>
+                    <div className="text-xs text-center mt-1">
+                      <p className="truncate w-20" title={item.name}>
+                        {item.name ?? "Unnamed"}
+                      </p>
+                      <p className="italic text-lunar-pearl/60 text-[10px]">
+                        {item.sellPrice ?? 0} 🟡
+                      </p>
                     </div>
                   </li>
                 ))}
