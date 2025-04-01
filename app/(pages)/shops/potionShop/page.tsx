@@ -11,7 +11,6 @@ import { CraftSection } from "../components/CraftSection";
 import { TradeSection } from "../components/TradeSection";
 import { CraftButton } from "../components/buttons/ShopButtons";
 import { usePlayerInventory } from "@/app/stores/inventory/inventoryStore";
-// import { fetchPlayerInventory } from "@/app/lib/mongoDB/fetchPlayerInventory";
 import { PotionShopSkeleton } from "@/app/components/ui/loading/PotionShopSkeleton";
 import { CraftingItem, InventoryItem, ShopItem } from "@/app/interfaces/items";
 
@@ -21,22 +20,6 @@ export default function PotionShopPage() {
   const sanityPotions = useSanityDataStore((state) => state.potions);
 
   const [isLoading, setIsLoading] = useState(true);
-
-  // 1. Load the inventory once //! not used anymore because of the PlayerInventoryLoader
-
-  // const setInventory = usePlayerInventory((state) => state.setInventory);
-  // useEffect(() => {
-  //   async function loadInventory() {
-  //     try {
-  //       const inventory = await fetchPlayerInventory();
-  //       setInventory(inventory);
-  //     } catch (err) {
-  //       console.error("Failed to load inventory:", err);
-  //     }
-  //   }
-
-  //   loadInventory();
-  // }, [setInventory]);
 
   // 2. When both Sanity parts are ready, we stop loading
   useEffect(() => {
@@ -50,19 +33,19 @@ export default function PotionShopPage() {
   const [craftedItem, setCraftedItem] = useState<InventoryItem | null>(null);
 
   const potionItemsToSell = playerInventory.items
-  .filter((invItem) =>
-    sanityPotions.some((potion) => potion._id === invItem.sanityId)
-  )
-  .map((invItem) => {
-    const potion = sanityPotions.find((p) => p._id === invItem.sanityId);
-    return potion
-      ? {
-          ...potion,
-          amount: invItem.amount,
-        }
-      : null;
-  })
-  .filter(Boolean);
+    .filter((invItem) =>
+      sanityPotions.some((potion) => potion._id === invItem.sanityId)
+    )
+    .map((invItem) => {
+      const potion = sanityPotions.find((p) => p._id === invItem.sanityId);
+      return potion
+        ? {
+            ...potion,
+            amount: invItem.amount,
+          }
+        : null;
+    })
+    .filter(Boolean);
 
   useEffect(() => {
     if (sanityIngredients.length > 0) {
@@ -154,8 +137,6 @@ export default function PotionShopPage() {
     setCraftedItem(null);
   };
 
-
-
   if (isLoading) {
     return <PotionShopSkeleton />;
   }
@@ -215,7 +196,10 @@ export default function PotionShopPage() {
 
       <div className="grid gap-8 w-full">
         <TradeSection tradeItems={shopSellingItems} />
-        <TradeSection tradeItems={potionItemsToSell} buySection={false} />
+        <TradeSection
+          tradeItems={potionItemsToSell}
+          buySection={false}
+        />
       </div>
 
       <Image
