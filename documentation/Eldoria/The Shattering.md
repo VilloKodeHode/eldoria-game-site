@@ -1,25 +1,21 @@
-### **The Shattering of the Aether Core**
+### **The Shattering – Birth of the World**
 
-Perfection, however, could not remain still.
+In a single divine moment, the Astral Light shattered the Aether Core. Not in rage, but in radiant understanding. Balance was undone—and from its undoing, Eldoria was born.
 
-To bring forth true creation—worlds teeming with life, complexity, and spirit—the [[The Astral Light]] made the ultimate sacrifice. It **shattered the [[The Aether Core]]**, sending fragments across the void. From the cascade of its destruction arose **Eldoria**, a world born of balance and contradiction.
-
-This act also sundered the Astral Light itself into two guiding forces:
-
-- **Harmony** – the echo of balance and unity.
+- From shards: continents, oceans, and skies took form
     
-- **Chaos** – the pulse of change and challenge.
+- From rupture: gods emerged, born of released resonance
+    
+- From tension: magic surged, wild and unpredictable
     
 
-#### **From the Shards**
+Across the forming world, phenomena bloomed:
 
-Each shard of the Aether Core became a wellspring of power:
-
-- **Vitalis Shards** birthed forests, rivers, and vibrant plains.
+- Shatterlines – Veins of unstable wild Aether
     
-- **Entropis Shards** formed mountains, caverns, and arid lands.
+- Voidrifts – Entropis-born tears in the Veil
     
-- **Aether Lines** stretched between shards, becoming magical leylines that pulse through Eldoria.
+- Elemental Nodes – Vitalis-charged nexuses of power
     
 
-But these gifts came with cost. **Shatterlines**, **Void Rifts**, and **Elemental Nodes** marked the scars left by the Core’s destruction, releasing wild Aether and reshaping the land.
+Eldoria was not shaped by divine hand—it is the consequence of a divine risk.
