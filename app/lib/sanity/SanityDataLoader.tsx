@@ -1,31 +1,58 @@
+// app/lib/sanity/SanityDataLoader.ts
 "use client";
 
-import { useSanityDataStore } from "@/app/stores/sanityData/sanityDataStore";
 import { useEffect } from "react";
-import { cacheFetchAllIngredients, cacheFetchAllPotions } from "./fetchers";
-
-export function SanityDataLoader() {
-  const setIngredients = useSanityDataStore((state) => state.setIngredients);
-  const setPotions = useSanityDataStore((state) => state.setPotions);
-  const setSanityLoaded = useSanityDataStore((state) => state.setSanityLoaded);
+import { useSanityDataStore } from "@/app/stores/sanityData/sanityDataStore";
+import { cacheFetchAllCharacterClasses, cacheFetchAllCharacterRaces, cacheFetchAllIngredients, cacheFetchAllPotions } from "./fetchers";
 
 
+export const SanityDataLoader = () => {
+  const {
+    setIngredients,
+    setPotions,
+    setClasses,
+    setRaces,
+    setSanityLoaded,
+  } = useSanityDataStore();
 
-  
   useEffect(() => {
-    async function fetchAndStore() {
-      const [ingredients, potions] = await Promise.all([
-        cacheFetchAllIngredients(),
-        cacheFetchAllPotions(),
-      ]);
+    const loadData = async () => {
+      try {
+        const [ingredients, potions, classes, races] = await Promise.all([
+          cacheFetchAllIngredients(),
+          cacheFetchAllPotions(),
+          cacheFetchAllCharacterClasses(),
+          cacheFetchAllCharacterRaces(),
+        ]);
 
-      setIngredients(ingredients);
-      setPotions(potions);
-      setSanityLoaded(true);
-    }
+        //! use the console log below to check the fetched data:
+        // console.log("🧪 Fetched Sanity data:", {
+        //   ingredients,
+        //   potions,
+        //   classes,
+        //   races,
+        // });
 
-    fetchAndStore();
-  }, [setIngredients, setPotions, setSanityLoaded]);
+        setIngredients(ingredients);
+        setPotions(potions);
+        setClasses(classes);
+        setRaces(races);
+        setSanityLoaded(true);
 
-  return null; // doesn't render anything
-}
+        console.log("✅ Sanity data loaded");
+      } catch (err) {
+        console.error("❌ Failed to load sanity data:", err);
+      }
+    };
+
+    loadData();
+  }, [
+    setIngredients,
+    setPotions,
+    setClasses,
+    setRaces,
+    setSanityLoaded,
+  ]);
+
+  return null;
+};

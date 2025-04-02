@@ -3,6 +3,8 @@ import { defineQuery } from "next-sanity";
 export const allItems = defineQuery(`*[_type == "item"] {
   _id,
   name,
+  description,
+  durability,
   "itemID": itemID.current,
   "src": src.asset->url,
 
@@ -25,8 +27,11 @@ export const allItems = defineQuery(`*[_type == "item"] {
     ingredient->{
       _id,
       name,
+      description,
+      durability,
       "itemID": itemID.current,
       "src": src.asset->url,
+      category,
       subCategory,
       buyPrice,
       sellPrice

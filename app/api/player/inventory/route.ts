@@ -32,13 +32,15 @@ export async function POST(req: NextRequest) {
   if (!players) return NextResponse.json({ error: "Database connection error" }, { status: 500 });
 
   // 1. Deduct gold from player
-  const updateGoldResult = await players.updateOne(
-    { userId, "currency.gold": { $gte: gold } },
-    { $inc: { "currency.gold": -gold } }
-  );
-
-  if (updateGoldResult.modifiedCount === 0) {
-    return NextResponse.json({ error: "Not enough gold" }, { status: 400 });
+  if (gold > 0) {
+    const updateGoldResult = await players.updateOne(
+      { userId, "currency.gold": { $gte: gold } },
+      { $inc: { "currency.gold": -gold } }
+    );
+  
+    if (updateGoldResult.modifiedCount === 0) {
+      return NextResponse.json({ error: "Not enough gold" }, { status: 400 });
+    }
   }
 
   // 2. Try to increment item if it exists

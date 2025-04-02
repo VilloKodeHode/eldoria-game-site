@@ -7,10 +7,16 @@ import { fetchPlayerInventory } from "./fetchPlayerInventory";
 
 export function PlayerInventoryLoader() {
   const setInventory = usePlayerInventory((state) => state.setInventory);
-  const sanityData = useSanityDataStore();
+  const {
+    sanityLoaded,
+    ingredients,
+    potions,
+    // races,
+    // classes,
+  } = useSanityDataStore();
 
   useEffect(() => {
-    if (!sanityData.sanityLoaded) return; // wait for sanity data to load first
+    if (!sanityLoaded) return;
 
     const loadAndEnrichInventory = async () => {
       try {
@@ -18,16 +24,11 @@ export function PlayerInventoryLoader() {
         console.log("🧪 Raw player data:", playerData);
 
         const allSanityItems = [
-          ...sanityData.ingredients,
-          ...sanityData.potions,
-          // Later you can include:
-          // ...sanityData.weapons,
-          // ...sanityData.armor,
-          // ...sanityData.materials,
-          // ...sanityData.foods,
+          ...ingredients,
+          ...potions,
+          // add more when available
         ];
 
-        // Only enrich items from the DB
         const enrichedItems = playerData.items.map((item) => {
           const sanityItem = allSanityItems.find((s) => s._id === item.sanityId);
           return sanityItem
@@ -41,10 +42,9 @@ export function PlayerInventoryLoader() {
                 type: sanityItem.subCategory?.[0] ?? "misc",
                 ...(sanityItem.potion && { potion: sanityItem.potion }),
               }
-            : item; // fallback to raw if no match
+            : item;
         });
 
-        // 👇 always trust currency and learnedRecipes from DB
         setInventory({
           currency: playerData.currency,
           items: enrichedItems,
@@ -58,12 +58,7 @@ export function PlayerInventoryLoader() {
     };
 
     loadAndEnrichInventory();
-  }, [
-    sanityData.sanityLoaded,
-    setInventory,
-    sanityData.ingredients,
-    sanityData.potions,
-  ]);
+  }, [sanityLoaded, ingredients, potions, setInventory]);
 
   return null;
 }
