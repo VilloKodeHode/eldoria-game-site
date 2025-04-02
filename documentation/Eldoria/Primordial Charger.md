@@ -18,7 +18,7 @@ Massive and volcanic in appearance, their armor crackles with glowing fault-line
 
 ### 💠 Connection to Aetheric Phenomena
 
-Ashfounts & Elemental Nodes. Their rage channels the violent resonance of fire and pure elemental magic. Unlike other classes, their bond to these phenomena fuels their combat directly.
+[[Ashfounts]] & [[Elemental Nodes]]. Their rage channels the violent resonance of fire and pure elemental magic. Unlike other classes, their bond to these phenomena fuels their combat directly.
 
 “Before there was order, there was us—screaming into the void with fists of flame.”
 

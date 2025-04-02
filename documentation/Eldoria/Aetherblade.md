@@ -18,7 +18,7 @@ The Aetherblade appears as a towering, armored figure clad in radiant plate forg
 
 ### 💠 Connection to Aetheric Phenomena
 
-None. Aetherblades draw directly from the Luminous Aether through focused internal will. They are unbound by external phenomena, relying instead on inward harmony to stabilize and channel energy.
+None. Aetherblades draw directly from [[The Luminous Aether]] through focused internal will. They are unbound by external phenomena, relying instead on inward harmony to stabilize and channel energy.
 
 “They do not shape the world’s chaos—they become its stillness.”
 

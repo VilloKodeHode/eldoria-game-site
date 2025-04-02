@@ -9,13 +9,6 @@ In a single divine moment, the Astral Light shattered the Aether Core. Not in ra
 - From tension: magic surged, wild and unpredictable
     
 
-Across the forming world, phenomena bloomed:
-
-- Shatterlines – Veins of unstable wild Aether
-    
-- Voidrifts – Entropis-born tears in the Veil
-    
-- Elemental Nodes – Vitalis-charged nexuses of power
-    
+Across the forming world, [[Aetheric phenomena]] as a result of the chaotic creation of Eldoria.
 
 Eldoria was not shaped by divine hand—it is the consequence of a divine risk.

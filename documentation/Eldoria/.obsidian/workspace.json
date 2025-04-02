@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "b61ed061a5cf07d1",
+        "id": "0953ab2ee3a9994a",
         "type": "tabs",
         "children": [
           {
-            "id": "93be331197bf255a",
+            "id": "f4e5405d15b6fb78",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "markdown",
+              "state": {
+                "file": "Stonekins.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Stonekins"
             }
           }
         ]
@@ -49,7 +53,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "astral sen",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -162,34 +166,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "93be331197bf255a",
+  "active": "f4e5405d15b6fb78",
   "lastOpenFiles": [
+    "Astral Sentinel.md",
+    "Rise of Mortal Races.md",
+    "Aethershield.md",
+    "The Astral Light.md",
+    "Primordial Charger.md",
+    "Riftshroud.md",
+    "Aetheric Sage.md",
+    "Veilcaller.md",
+    "Aetheric Phenomena.md",
+    "Forgewright.md",
+    "Aetherblade.md",
+    "Untitled.canvas",
+    "Eldoria is formed.md",
+    "Shatterlines.md",
+    "The Veil.md",
+    "The Luminous Aether.md",
+    "Luminous Aether.md",
+    "Aetherforged.md",
+    "Veilweavers.md",
+    "Aetheric Sages.md",
+    "Ashfounts.md",
+    "The Shattering.md",
+    "Perspectives on the Shattering.md",
     "Verdwalkers.md",
     "Skyforged.md",
     "Stonekins.md",
-    "Umbrans.md",
-    "Eidralis.md",
-    "Eldrins.md",
-    "Humans.md",
-    "Rise of Mortal Races.md",
-    "Eldoria is formed.md",
-    "Divine Children of the Astral Light.md",
-    "Orathis, The Eternal Root.md",
-    "Sylvara, The Twilight Whisper.md",
-    "Korvex, The Shattered Flame.md",
-    "Celyra, The Veilkeeper.md",
-    "Tharos, The Withering Shadow.md",
-    "Liora, The Radiant Bloom.md",
-    "The Veil.md",
-    "Aetheric Phenomena.md",
-    "Ashfounts.md",
-    "Voidrifts.md",
-    "Elemental Nodes.md",
-    "Shatterlines.md",
-    "Aetherblade.md",
-    "Veilweaver.md",
-    "Riftshroud.md",
-    "Forgewright.md",
-    "Untitled.canvas"
+    "Umbrans.md"
   ]
 }

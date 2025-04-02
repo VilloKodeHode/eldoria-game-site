@@ -1,16 +1,19 @@
 ### **Perspectives on the Shattering**
 
-The truth of the Shattering is fixed—but its meaning is not. Across Eldoria, traditions see it differently:
+The truth of [[The Shattering]] is fixed—but its meaning is not. Across Eldoria, traditions see it differently:
 
-- Eldrin: A sacred sacrifice that allowed free will
+- [[Eldrins]]: A sacred sacrifice that allowed free will
     
-- Umbrans: A tragic breaking that brought pain and potential
+- [[Umbrans]]: A tragic breaking that brought pain and potential
     
-- Skyforged: A fundamental law in the equation of existence
+- [[Skyforged]]: A fundamental law in the equation of existence
     
-- Verdwalkers: A natural act in a greater cycle
+- [[Verdwalkers]]: A natural act in a greater cycle
     
-- Eidralis: A resonance still echoing in all things
+- [[Eidralis]]: A resonance still echoing in all things
+    
+- [[Humans]]: A inevitable event to create life
     
 
-All agree: from the Shattering came choice. And from choice, meaning.
+
+All agree: from [[The Shattering]] came choice. And from choice, meaning.

@@ -18,7 +18,7 @@ Timeless in form, robed in constellations and golden spirals. Their aura is calm
 
 ### 💠 Connection to Aetheric Phenomena
 
-Shatterlines & The Veil. Their insight into echoes and recursion makes them uniquely suited to interact with Shatterlines, while their healing magic manipulates the threads of the Veil.
+[[Shatterlines]] & [[The Veil]]. Their insight into echoes and recursion makes them uniquely suited to interact with Shatterlines, while their healing magic manipulates the threads of the Veil.
 
 “The wound was made in a moment. I find the thread before that moment, and pull.”
 

@@ -18,7 +18,7 @@ Plated in exoskeletal gear and glowing with power conduits, the Forgewright’s 
 
 ### 💠 Connection to Aetheric Phenomena
 
-All Phenomena. Using their mechanized components, Forgewrights synchronize with Ashfounts, Shatterlines, Voidrifts, and Elemental Nodes. Their tools stabilize, amplify, or repurpose wild magic.
+All [[Aetheric Phenomena]]. Using their mechanized components, Forgewrights synchronize with Ashfounts, Shatterlines, Voidrifts, and Elemental Nodes. Their tools stabilize, amplify, or repurpose wild magic.
 
 “Why fear the storm, when you can socket it into a blade?”
 
@@ -26,9 +26,9 @@ All Phenomena. Using their mechanized components, Forgewrights synchronize with 
 
 ### 🦴 Aetheric Adaptation
 
-Forgewrights do not passively adapt to Aether—they convert it. Their mechanical augmentations act as collectors and processors, refining raw Aether into bursts of combat energy and internal fortification.
+Forgewrights passively adapt to Aether, but they are the least naturally attuned among the classes. To compensate, they boost their adaptation by drawing Aether through their mechanical augmentations, which refine raw Aether into a more potent, usable form. This refined energy is then distributed to fortify their internal systems and fuel their arcane machinery.
 
-“My limbs remember the forge. My heart runs on storms.”
+*“My limbs remember the forge. My heart runs on storms.”*
 
 ---
 
