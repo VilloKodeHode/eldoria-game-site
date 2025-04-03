@@ -1,14 +1,9 @@
 ### **The Shattering – Birth of the World**
 
-In a single divine moment, the Astral Light shattered the Aether Core. Not in rage, but in radiant understanding. Balance was undone—and from its undoing, Eldoria was born.
+In a single divine moment, the Astral Light shattered [[The Aether Core]]. Not in rage, but in radiant understanding. Balance was undone—and from its undoing, Eldoria was born.
 
-- From shards: continents, oceans, and skies took form
-    
-- From rupture: gods emerged, born of released resonance
-    
-- From tension: magic surged, wild and unpredictable
-    
+ The planet Eldoria formed from the fallout of the Shattering, infused with Aether, seeded with [[The Shards of Vitalis and Entropis]]. Several Aetheric Phenomena was a result of the chaotic breaking of the core
+   
+The mortal races rose from the residual aether that filled eldoria.
 
-Across the forming world, [[Aetheric phenomena]] as a result of the chaotic creation of Eldoria.
-
-Eldoria was not shaped by divine hand—it is the consequence of a divine risk.
+*Eldoria was not shaped by divine hand—it is the consequence of a divine risk.*

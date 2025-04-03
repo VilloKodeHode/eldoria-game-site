@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-pantheon
+---
 ### Sylvara, The Twilight Whisper
 
 Aspect: Duality – Light and Shadow  
@@ -6,6 +10,7 @@ Myth: Manifested at the boundary of the First Fracture, where light and shadow e
 Symbols: A crescent moon split between opposing sides  
 Worship: Honored at dawn, dusk, and in liminal spaces between decisions, fates, and states of being  
 Followers: Veilweavers, Umbrans, shapeshifters, dreamwalkers, and twilight mystics
+Race: Ancestral [[Umbran]]
 
 "Truth lies not in light, nor in shadow—but in the place they meet."
 

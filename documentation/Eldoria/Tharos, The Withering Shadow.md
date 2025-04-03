@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-pantheon
+---
 ### Tharos, The Withering Shadow
 
 Aspect: Entropis – Decay and Transformation  
@@ -6,6 +10,7 @@ Myth: Emerged with the first ripple of unraveling from the Aether Core’s fract
 Symbols: A skeletal hand cradling a fading flame  
 Worship: Invoked during funerals, rites of endings, release, and necessary destruction  
 Followers: Umbrans, Stonekin, philosophers of decay, soul-tenders
+Race: Ancestral [[Stonekin]]
 
 "All things must end, but through ending, they change."
 

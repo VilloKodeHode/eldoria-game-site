@@ -1,6 +1,12 @@
+---
+tags:
+  - creation
+---
 
 
 ### **The Luminous Aether – The Breath of Existence**
+
+^e92928
 
 Before time, before matter, before thought, there shimmered across the void a vast, golden tide—the Luminous Aether. It is the primal, radiant essence of all existence. Neither deity nor element, it is the canvas upon which all realities are painted. It flows through every soul, stone, breath, and shadow. 
 

@@ -1,4 +1,4 @@
-## 🪓 Stonekin – Wardens of the Deep Earth
+## 🪓 Stonekins – Wardens of the Deep Earth
 
 ### Lore Summary
 

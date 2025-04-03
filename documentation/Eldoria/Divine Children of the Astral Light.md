@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-pantheon
+---
 **
 
 ### **The Divine Children of the Astral Light**

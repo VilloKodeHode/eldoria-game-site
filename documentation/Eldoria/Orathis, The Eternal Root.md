@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-pantheon
+---
 ### Orathis, The Eternal Root
 
 Aspect: Nature – Stability and Continuity  
@@ -6,6 +10,7 @@ Myth: Anchored Eldoria during its chaotic birth, seeding the world’s ley-lines
 Symbols: A tree whose roots and branches form an unbroken circle  
 Worship: Celebrated during harvest festivals, solstices, and at ancient groves. His rites promote legacy and patience.  
 Followers: Verdwalkers, druids, Stonekin, earthcallers, lorekeepers
+Race: Ancestral [[Verdwalker]]
 
 "The tree remembers. The root endures."
 

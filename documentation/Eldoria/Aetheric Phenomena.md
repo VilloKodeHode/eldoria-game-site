@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-phenomena
+---
 ### **The Aetheric Phenomenas**
 
 Together, these **Aetheric Phenomena** shape Eldoria’s geography, mythology, and magic. They are not simply magical curiosities—they are the pulsing heartbeats of the planet’s soul, the eternal echoes of the Shattering, and the elemental truths that underpin all existence.

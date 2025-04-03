@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-pantheon
+---
 ### Liora, The Radiant Bloom
 
 Aspect: Vitalis – Creation and Growth  
@@ -6,6 +10,7 @@ Myth: First emerged from the breath of Vitalis within the Aether Core, born as t
 Symbols: A radiant golden bloom encircled in light  
 Worship: Honored during spring rites, rituals of birth, healing, and times of planting or renewal.  
 Followers: Eldrin, Verdwalkers, herbalists, life mages, and healers
+Race: Ancestral [[Human]]
 
 "Where she walks, the world remembers how to grow."
 

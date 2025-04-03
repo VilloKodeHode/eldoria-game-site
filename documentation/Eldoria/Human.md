@@ -1,3 +1,7 @@
+---
+tags:
+  - races
+---
 ## 🧍 Humans – Bearers of Boundless Potential
 
 ### Lore Summary

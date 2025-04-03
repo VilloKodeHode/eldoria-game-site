@@ -1,3 +1,7 @@
+---
+tags:
+  - races
+---
 ## ⚙️ Skyforged – The Aether-Bound Artifice
 
 ### Lore Summary

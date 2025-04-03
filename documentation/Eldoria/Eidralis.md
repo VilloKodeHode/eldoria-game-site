@@ -1,3 +1,7 @@
+---
+tags:
+  - races
+---
 ## 🪨 Eidralis – The Behemoth-Blooded
 
 ### Lore Summary

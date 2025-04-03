@@ -6,7 +6,43 @@
   "hideUnresolved": false,
   "showOrphans": true,
   "collapse-color-groups": false,
-  "colorGroups": [],
+  "colorGroups": [
+    {
+      "query": "tag:#aetheric-pantheon  ",
+      "color": {
+        "a": 1,
+        "rgb": 5427424
+      }
+    },
+    {
+      "query": "tag:#creation ",
+      "color": {
+        "a": 1,
+        "rgb": 16768256
+      }
+    },
+    {
+      "query": "tag:#races  ",
+      "color": {
+        "a": 1,
+        "rgb": 10080808
+      }
+    },
+    {
+      "query": "tag:#event  ",
+      "color": {
+        "a": 1,
+        "rgb": 12130790
+      }
+    },
+    {
+      "query": "tag:#aetheric-classes  ",
+      "color": {
+        "a": 1,
+        "rgb": 14642480
+      }
+    }
+  ],
   "collapse-display": false,
   "showArrow": false,
   "textFadeMultiplier": 0,
@@ -17,6 +53,6 @@
   "repelStrength": 20,
   "linkStrength": 1,
   "linkDistance": 30,
-  "scale": 0.6316046762907531,
+  "scale": 0.6316046762907598,
   "close": false
 }

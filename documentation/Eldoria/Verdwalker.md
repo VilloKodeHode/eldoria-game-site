@@ -1,3 +1,7 @@
+---
+tags:
+  - races
+---
 ## 🌿 Verdwalkers – Sentinels of the Living Cycle
 
 ### Lore Summary

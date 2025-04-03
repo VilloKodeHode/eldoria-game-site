@@ -1,3 +1,7 @@
+---
+tags:
+  - creation
+---
 ### **The Astral Light – The First Will, the World-Shaper**
 
 The Astral Light did not rise from the Aether—it descended upon it. A radiant consciousness, transcendent and absolute, it is the first will to stir the stillness. Where the Aether shimmered aimlessly, the Astral Light brought order, shape, and design.
@@ -10,3 +14,4 @@ The Astral Light did not rise from the Aether—it descended upon it. A radiant 
     
 
 It is the guiding presence that shaped magic, soul, and symmetry—never interfering, but always watching.
+

@@ -1,3 +1,7 @@
+---
+tags:
+  - races
+---
 ## 🌿 Eldrin – Weavers of the Living Aether
 
 ### Lore Summary

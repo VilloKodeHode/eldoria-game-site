@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-pantheon
+---
 ### Korvex, The Shattered Flame
 
 Aspect: Chaos – Destruction and Uncertainty  
@@ -6,6 +10,7 @@ Myth: Born at the instant of the Shattering; the incarnate chaos and volatile po
 Symbols: A fractured crystal engulfed in erratic flame  
 Worship: Called upon during acts of invention, rebellion, destructive magic, and cataclysmic change  
 Followers: Skyforged, Eidralis, rogue arcanists, rebels, fire-wielders
+Race: Ancestral [[Stonekin]]
 
 "From the broken, fire is born."
 

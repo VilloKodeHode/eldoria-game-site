@@ -27,7 +27,7 @@ They absorb vast quantities of raw Aether to ground instability, serving as anch
 
 ### 🦴 Aetheric Adaptation
 
-Over time, their bones and skin fuse with radiant Aether, forming natural armor that resists entropy and magic. Some believe their unshakable presence is touched by  **[[The Astral Light]]** itself—a guiding echo that chooses vessels of endurance.
+Over time, their bones and skin fuse with radiant Aether, forming natural armor that resists entropy and magic. Some believe their unshakable presence is touched by  **The Astral Light** itself—a guiding echo that chooses vessels of endurance.
 
 “I am not built to bend—I am what keeps others from breaking.”
 
