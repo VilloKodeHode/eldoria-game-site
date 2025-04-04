@@ -1,3 +1,7 @@
+---
+tags:
+  - creation
+---
 ## **Entropis – The Unmaking Flame**
 
 **“All things end—not in cruelty, but in necessity. Through decay, the world reshapes itself.”**

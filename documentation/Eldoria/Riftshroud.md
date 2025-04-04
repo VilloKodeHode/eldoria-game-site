@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-classes
+---
 ## Riftshroud – Shadowdancer of Fractured Realms
 
 "When the light blinds, I walk where it cannot reach."
@@ -18,7 +22,7 @@ The Riftshroud wears layered armor in shades of blackened steel and obsidian clo
 
 ### 💠 Connection to Aetheric Phenomena
 
-[[Voidrifts]]. Riftshrouds are born from and thrive within proximity to Voidrifts. Their powers include phasing, disappearance, and unraveling of space. They perceive the soft tears in reality and move through them.
+Voidrifts. Riftshrouds are born from and thrive within proximity to Voidrifts. Their powers include phasing, disappearance, and unraveling of space. They perceive the soft tears in reality and move through them.
 
 “I do not walk the world—I slip between its failures.”
 

@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-phenomena
+---
 ### The Veil – The Woven Breath of Aether
 
 The Veil is the most intimate expression of The Luminous Aether within the physical world. It is not a plane, nor a barrier, nor a spirit realm. It is the diffused presence of Aether across Eldoria, drifting like a translucent tapestry of golden silk through air, land, water, and soul.

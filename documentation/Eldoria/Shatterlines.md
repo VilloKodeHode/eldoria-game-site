@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-phenomena
+---
 ### Shatterlines – Scars of the Shattering
 
 Born in the violent moment the Aether Core was sundered, Shatterlines are raw scars etched into the very bones of Eldoria. These jagged rifts continue to bleed unstable Aether into the world, crackling with disruption. The elemental force known as **Shatter**—a volatile blend of lightning, disruption, and raw resonance—originates exclusively from these fractures.

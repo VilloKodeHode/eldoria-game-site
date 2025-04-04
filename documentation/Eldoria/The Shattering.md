@@ -1,3 +1,7 @@
+---
+tags:
+  - event
+---
 ### **The Shattering – Birth of the World**
 
 In a single divine moment, the Astral Light shattered [[The Aether Core]]. Not in rage, but in radiant understanding. Balance was undone—and from its undoing, Eldoria was born.

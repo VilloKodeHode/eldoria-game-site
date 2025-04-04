@@ -1,3 +1,7 @@
+---
+tags:
+  - lore
+---
 ### **Perspectives on the Shattering**
 
 The truth of [[The Shattering]] is fixed—but its meaning is not. Across Eldoria, traditions see it differently:

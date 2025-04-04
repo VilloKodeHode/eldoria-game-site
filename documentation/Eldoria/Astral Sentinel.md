@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-classes
+---
 ## Astral Sentinel – Bulwark of the Breach
 
 "I do not strike first. I endure. I remain."

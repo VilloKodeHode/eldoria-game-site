@@ -1,3 +1,7 @@
+---
+tags:
+  - races
+---
 ## 🪓 Stonekins – Wardens of the Deep Earth
 
 ### Lore Summary

@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-classes
+---
 ## Forgewright – Engineer of the Impossible
 
 "If the world is broken, I will reforge it—gear by gear, spark by spark."
@@ -18,7 +22,7 @@ Plated in exoskeletal gear and glowing with power conduits, the Forgewright’s 
 
 ### 💠 Connection to Aetheric Phenomena
 
-All [[Aetheric Phenomena]]. Using their mechanized components, Forgewrights synchronize with Ashfounts, Shatterlines, Voidrifts, and Elemental Nodes. Their tools stabilize, amplify, or repurpose wild magic.
+All Aetheric Phenomena. Using their mechanized components, Forgewrights synchronize with Ashfounts, Shatterlines, Voidrifts, and Elemental Nodes. Their tools stabilize, amplify, or repurpose wild magic.
 
 “Why fear the storm, when you can socket it into a blade?”
 

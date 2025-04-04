@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-phenomena
+---
 ### Voidrifts – Mouths of Entropic Memory
 
 Voidrifts are rips in the fabric of space and time, formed where Entropis saturated the world during the Shattering. They appear as whirling, mist-veiled portals into dimensions where decay, memory, and entropy reign. Voidrifts are the birthplace of **Rime**—an elemental force of existential cold, time stasis, and soul fragmentation.

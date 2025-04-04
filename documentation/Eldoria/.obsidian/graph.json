@@ -41,6 +41,13 @@
         "a": 1,
         "rgb": 14642480
       }
+    },
+    {
+      "query": "tag:#aetheric-phenomena  ",
+      "color": {
+        "a": 1,
+        "rgb": 16711680
+      }
     }
   ],
   "collapse-display": false,
@@ -53,6 +60,6 @@
   "repelStrength": 20,
   "linkStrength": 1,
   "linkDistance": 30,
-  "scale": 0.6316046762907598,
+  "scale": 0.4505081176757931,
   "close": false
 }

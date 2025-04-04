@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-classes
+---
 ## **Veilweaver – Mage of Transcendent Threads**
 
 "To weave the Veil is to speak with the breath of creation."

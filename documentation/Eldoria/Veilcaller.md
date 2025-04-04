@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-classes
+---
 ## Veilcaller – Summoner of Forgotten Echoes
 
 > _"I call not beasts nor demons—I call truth that once had form."_
@@ -18,7 +22,7 @@ Robed in layered, rune-inscribed vestments, the Veilcaller stands within a glowi
 
 ### 💠 Connection to Aetheric Phenomena
 
-**[[The Veil]].** While many call on power from within, Veilcallers extend outward, binding threads from the Veil to form pacts with entities beyond. Their summons also tap into the harmonic flow of Aether.
+**The Veil.** While many call on power from within, Veilcallers extend outward, binding threads from the Veil to form pacts with entities beyond. Their summons also tap into the harmonic flow of Aether.
 
 > _“Between life and memory, I plant a name and watch it rise.”_
 

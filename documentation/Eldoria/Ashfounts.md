@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-phenomena
+---
 ### Ashfounts – Hearts of Sacred Flame
 
 Ashfounts are violent geysers of ancient magic, created where Vitalis and Entropis clashed most intensely. They are the origin of **Ember**—an elemental force of sacred fire, renewal through destruction, and soul-forged flame. Though mostly stable, Ashfounts flare in cycles, unleashing raw magical conflagration.

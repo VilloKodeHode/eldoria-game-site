@@ -1,3 +1,7 @@
+---
+tags:
+  - aetheric-phenomena
+---
 ### Elemental Nodes – Wells of Pure Magic
 
 Elemental Nodes are ancient pillars of luminous Aether that pierce the sky, surrounded by rings of levitating crystal and harmonic resonance. Unlike Shatterlines, these Nodes are stable and neutral—neither Vitalis nor Entropis dominates them. They are the **purest source of elemental forces** like earth, water, and air.
