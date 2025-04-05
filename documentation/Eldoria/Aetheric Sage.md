@@ -16,7 +16,7 @@ Healer, mystic, and soul-mender. Aetheric Sages manipulate time, memory, and int
 
 ### Visual Identity
 
-Timeless in form, robed in constellations and golden spirals. Their aura is calm and continuous, swirling with slow-turning energy. Their sigil is an eye with a spiral at its center—symbol of recursion, fate, and reflection.
+Timeless in form, robed in constellations and golden spirals. Their aura is calm and continuous, swirling with slow-turning energy. Their sigil is an eye with a spiral at its center adorned with the star of Astral—symbol of recursion, fate, and reflection.
 
 ---
 
