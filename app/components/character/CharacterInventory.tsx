@@ -23,29 +23,31 @@ export const CharacterInventory = () => {
     <>
       <button
         className="fixed cursor-pointer top-0 right-0 z-100 p-4 text-5xl"
-        onClick={() => setOpen(!open)}
-      >
-        📜
+        onClick={() => setOpen(!open)}>
+        {open ? "❌" : "📜"}
       </button>
 
       <div
         className={`${
           open ? "translate-x-0" : "translate-x-full"
-        } transition duration-1000 z-50 bg-obsidian-black text-lunar-pearl w-full h-full fixed top-0 right-0 p-4 md:p-8 overflow-hidden`}
-      >
+        } transition duration-1000 z-50 bg-obsidian-black text-lunar-pearl w-full h-full fixed top-0 right-0 p-4 md:p-8 overflow-hidden`}>
         {/* Sticky Header */}
         <div className="sticky top-0 bg-obsidian-black z-50 pb-4">
           <div className="flex justify-between items-center mb-2">
             <div>
-              <h2 className="text-lg">Gold: {playerInventory.currency.gold} 🟡</h2>
-              <h2 className="text-lg">Gems: {playerInventory.currency.gems} 💎</h2>
+              <h2 className="text-lg">
+                Gold: {playerInventory.currency.gold} 🟡
+              </h2>
+              <h2 className="text-lg">
+                Gems: {playerInventory.currency.gems} 💎
+              </h2>
             </div>
-            <button
+            {/* <button
               className="text-3xl hover:scale-110 transition"
               onClick={() => setOpen(false)}
             >
               ❌
-            </button>
+            </button> */}
           </div>
 
           {/* Tab Navigation */}
@@ -58,8 +60,7 @@ export const CharacterInventory = () => {
                     ? "bg-lunar-pearl text-obsidian-black font-semibold"
                     : "border-lunar-pearl/30 hover:bg-lunar-pearl/10"
                 }`}
-                onClick={() => setActiveTab(type === activeTab ? null : type)}
-              >
+                onClick={() => setActiveTab(type === activeTab ? null : type)}>
                 {type.toUpperCase()}
               </button>
             ))}
@@ -79,8 +80,7 @@ export const CharacterInventory = () => {
                 {groupedItems[type].map((item) => (
                   <li
                     key={item.sanityId}
-                    className="flex flex-col items-center gap-1 bg-lunar-pearl/5 p-2 rounded-lg"
-                  >
+                    className="flex flex-col items-center gap-1 bg-lunar-pearl/5 p-2 rounded-lg">
                     <div className="relative w-16 h-16">
                       <Image
                         src={item.src ?? "/images/default.webp"}
@@ -94,7 +94,9 @@ export const CharacterInventory = () => {
                       </div>
                     </div>
                     <div className="text-xs text-center mt-1">
-                      <p className="truncate w-20" title={item.name}>
+                      <p
+                        className="truncate w-20"
+                        title={item.name}>
                         {item.name ?? "Unnamed"}
                       </p>
                       <p className="italic text-lunar-pearl/60 text-[10px]">
