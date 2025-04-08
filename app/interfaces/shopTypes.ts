@@ -1,8 +1,8 @@
 export interface StoreItem {
-  name: string;
-  amount: number;
   id: string;
+  name: string;
   src: string;
+  amount: number;
 }
 
 export interface ShopStore {
