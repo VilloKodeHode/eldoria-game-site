@@ -30,3 +30,22 @@ export const gameContentEntryPointQuery = `
   ${factionFields}
   ${traitFields}
 }`;
+
+
+export const gameContentEntryPointTestQuery = `
+  *[_type == "gameContentEntryPoint"][0]{
+    _id,
+    craftingIngredients[]->{
+      _id,
+      name
+    },
+    potions[]->{
+      _id,
+      name
+    },
+    allClasses[]->{
+      _id,
+      mainTagline
+    }
+  }
+`;

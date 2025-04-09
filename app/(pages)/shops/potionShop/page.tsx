@@ -15,6 +15,10 @@ import { PotionShopSkeleton } from "@/app/components/ui/loading/PotionShopSkelet
 import { CraftingItem, InventoryItem, ShopItem } from "@/app/interfaces/items";
 
 export default function PotionShopPage() {
+
+const sanity = useSanityDataStore();
+  console.log("🧪 Zustand Sanity Data:", sanity);
+
   const { playerInventory, removeItem, addItem } = usePlayerInventory();
   const sanityIngredients = useSanityDataStore((state) => state.ingredients);
   const sanityPotions = useSanityDataStore((state) => state.potions);

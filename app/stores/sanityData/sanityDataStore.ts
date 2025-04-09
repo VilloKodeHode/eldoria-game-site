@@ -14,8 +14,16 @@ export interface SanityItem extends Record<string, unknown> {
 }
 
 interface SanityDataStore {
+  // Game content
   ingredients: ShopItem[];
+  materials: ShopItem[];
+  spices: ShopItem[];
   potions: ShopItem[];
+  foods: ShopItem[];
+  weapons: ShopItem[];
+  armours: ShopItem[];
+  jewelry: ShopItem[];
+
   races: CharacterRace[];
   classes: CharacterClass[];
   lore: LoreEntry[];
@@ -24,11 +32,19 @@ interface SanityDataStore {
   traits: Trait[];
   factions: Faction[];
 
-  setIngredients: (ingredients: ShopItem[]) => void;
-  setPotions: (potions: ShopItem[]) => void;
+  // Setters
+  setIngredients: (items: ShopItem[]) => void;
+  setMaterials: (items: ShopItem[]) => void;
+  setSpices: (items: ShopItem[]) => void;
+  setPotions: (items: ShopItem[]) => void;
+  setFoods: (items: ShopItem[]) => void;
+  setWeapons: (items: ShopItem[]) => void;
+  setArmours: (items: ShopItem[]) => void;
+  setJewelry: (items: ShopItem[]) => void;
+
   setRaces: (races: CharacterRace[]) => void;
   setClasses: (classes: CharacterClass[]) => void;
-  setLore: (entries: LoreEntry[]) => void;
+  setLore: (lore: LoreEntry[]) => void;
   setSkills: (skills: Skill[]) => void;
   setNpcs: (npcs: Npc[]) => void;
   setTraits: (traits: Trait[]) => void;
@@ -40,7 +56,14 @@ interface SanityDataStore {
 
 export const useSanityDataStore = create<SanityDataStore>((set) => ({
   ingredients: [],
+  materials: [],
+  spices: [],
   potions: [],
+  foods: [],
+  weapons: [],
+  armours: [],
+  jewelry: [],
+
   races: [],
   classes: [],
   lore: [],
@@ -51,7 +74,14 @@ export const useSanityDataStore = create<SanityDataStore>((set) => ({
   sanityLoaded: false,
 
   setIngredients: (items) => set({ ingredients: items }),
+  setMaterials: (items) => set({ materials: items }),
+  setSpices: (items) => set({ spices: items }),
   setPotions: (items) => set({ potions: items }),
+  setFoods: (items) => set({ foods: items }),
+  setWeapons: (items) => set({ weapons: items }),
+  setArmours: (items) => set({ armours: items }),
+  setJewelry: (items) => set({ jewelry: items }),
+
   setRaces: (races) => set({ races }),
   setClasses: (classes) => set({ classes }),
   setLore: (lore) => set({ lore }),
@@ -59,5 +89,6 @@ export const useSanityDataStore = create<SanityDataStore>((set) => ({
   setNpcs: (npcs) => set({ npcs }),
   setTraits: (traits) => set({ traits }),
   setFactions: (factions) => set({ factions }),
+
   setSanityLoaded: (loaded) => set({ sanityLoaded: loaded }),
 }));

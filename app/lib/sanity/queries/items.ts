@@ -1,5 +1,16 @@
 import { defineQuery } from "next-sanity";
 
+export const testItemQuery = `
+  *[_type == "item"][0..5]{
+    _id,
+    name,
+    category,
+    subCategory,
+    "src": src.asset->url
+  }
+`;
+
+
 export const allItems = defineQuery(`*[_type == "item"] {
   _id,
   name,

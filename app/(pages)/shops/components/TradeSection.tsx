@@ -55,12 +55,20 @@ export const TradeSection = ({ tradeItems, buySection = true }) => {
                         </p>
                       )}
                       <p className="text-sm text-lunar-pearl">
-                        <strong>Effect:</strong>{" "}
-                        {item.potion?.effectCategory[0] ?? "N/A"} –{" "}
-                        {item.potion?.affectedStat[0] ?? "N/A"} (+{item.potion?.effectAmount})
+                        <strong>Effects:</strong>{" "}
+                        {item.potion?.statEffects?.map((effect, index) => (
+                          <span key={effect._key || index}>
+                            {effect.stat} (+{effect.amount}) for{" "}
+                            {effect.duration} sec
+                            {index < item.potion.statEffects.length - 1 && (
+                              <>,&nbsp;</>
+                            )}
+                          </span>
+                        )) ?? "N/A"}
                       </p>
                       <p className="text-sm text-lunar-pearl">
-                        <strong>Duration:</strong> {item.potion?.duration ?? "Unknown"}
+                        <strong>Duration:</strong>{" "}
+                        {item.potion?.duration ?? "Unknown"}
                       </p>
                     </div>
                   </div>

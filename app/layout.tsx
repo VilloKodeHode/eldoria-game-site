@@ -53,10 +53,6 @@ export default async function RootLayout({
 }>) {
   const character = await getCharacter();
 
-  // const allPotions = await liveFetchAllPotions();
-  // const allIngredients = await liveFetchAllIngredients;
-
-  // console.log(allIngredients);
 
   return (
     <ClerkProvider>
