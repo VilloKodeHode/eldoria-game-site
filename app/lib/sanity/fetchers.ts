@@ -4,16 +4,17 @@ import { sanityClient } from "@/app/lib/sanity/client";
 // import { allClasses, allRaces } from "./queries/characters";
 import { gameContentEntryPointQuery } from "./queries/gameData";
 
-export const cacheFetchGameContentEntryPoint = cache(async () => {
-  return await sanityClient.fetch(
-    gameContentEntryPointQuery,
-    {},
-    {
-      next: { revalidate: 86400 }, // 24 hours cache
-    }
-  );
-});
-
+export const cacheFetchGameContentEntryPoint =
+  // cache
+  async () => {
+    return await sanityClient.fetch(
+      gameContentEntryPointQuery,
+      {},
+      {
+        // next: { revalidate: 86400 }, // 24 hours cache
+      }
+    );
+  };
 
 // export const cacheFetchAllIngredients = cache(async () => {
 //   return await sanityClient.fetch(

@@ -6,7 +6,7 @@ import { ImageRef } from "@/app/interfaces/shared";
 const toImageRef = (url: string | undefined): ImageRef => url ?? "";
 
 // Generic item mapper for most item types
-const mapItem = (item: any): ShopItem => ({
+const mapItem = (item): ShopItem => ({
   _id: item._id,
   name: item.name,
   description: item.description,
@@ -21,7 +21,7 @@ const mapItem = (item: any): ShopItem => ({
 });
 
 // Specialized mappers
-export const mapCharacterClass = (raw: any): CharacterClass => ({
+export const mapCharacterClass = (raw): CharacterClass => ({
   _id: raw._id,
   classCategory: raw.category,
   mainTagline: raw.mainTagline,
@@ -29,7 +29,7 @@ export const mapCharacterClass = (raw: any): CharacterClass => ({
   portrait: toImageRef(raw.portrait),
 });
 
-export const mapCharacterRace = (raw: any): CharacterRace => ({
+export const mapCharacterRace = (raw): CharacterRace => ({
   _id: raw._id,
   raceCategory: raw.category,
   mainTagline: raw.mainTagline,
@@ -40,15 +40,30 @@ export const mapCharacterRace = (raw: any): CharacterRace => ({
 });
 
 // Main mapping function
-export const transformGameContent = (entry: any) => ({
-  ingredients: (entry.craftingIngredients || []).map(mapItem),
-  materials: (entry.craftingMaterials || []).map(mapItem),
-  spices: (entry.craftingSpices || []).map(mapItem),
-  potions: (entry.potions || []).map(mapItem),
-  foods: (entry.foods || []).map(mapItem),
-  weapons: (entry.weapons || []).map(mapItem),
-  armours: (entry.armours || []).map(mapItem),
-  jewelry: (entry.jewelry || []).map(mapItem),
-  classes: (entry.allClasses || []).map(mapCharacterClass),
-  races: (entry.allRaces || []).map(mapCharacterRace),
-});
+export const transformGameContent = (entry) => {
+  if (!entry) {
+    throw new Error(
+      "gameContentEntryPoint is null. Make sure the document exists in Sanity."
+    );
+  }
+
+  return {
+    ingredients: (entry.craftingIngredients || []).map(mapItem),
+    materials: (entry.craftingMaterials || []).map(mapItem),
+    spices: (entry.craftingSpices || []).map(mapItem),
+    potions: (entry.potions || []).map(mapItem),
+    foods: (entry.foods || []).map(mapItem),
+    weapons: (entry.weapons || []).map(mapItem),
+    armours: (entry.armours || []).map(mapItem),
+    jewelry: (entry.jewelry || []).map(mapItem),
+
+    classes: (entry.allClasses || []).map(mapCharacterClass),
+    races: (entry.allRaces || []).map(mapCharacterRace),
+
+    lore: entry.allLore || [],
+    skills: entry.allSkills || [],
+    npcs: entry.allNPCs || [],
+    traits: entry.allTraits || [],
+    factions: entry.allFactions || [],
+  };
+};

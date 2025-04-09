@@ -18,6 +18,7 @@ import { getCharacter } from "./lib/mongoDB/getCharacter";
 import { CreateCharacter } from "./components/character/CreateCharacter";
 import { SanityDataLoader } from "./lib/sanity/SanityDataLoader";
 import { PlayerInventoryLoader } from "./lib/mongoDB/PlayerInventoryLoader";
+import { sanityClient } from "./lib/sanity/client";
 // import {
 //   liveFetchAllIngredients,
 //   liveFetchAllPotions,
