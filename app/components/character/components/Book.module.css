@@ -1,0 +1,1067 @@
+.bookContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  gap: 10px; /* Reduced from 30px */
+}
+
+.book {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 800px; /* Reduced from 900px */
+  height: 500px; /* Reduced from 600px */
+}
+
+/* Closed book styles */
+.closed {
+  transform: rotateX(0deg) rotateY(0deg) scale(0.6);
+  background: #8b4513;
+  border-radius: 8px 25px 25px 8px;
+  box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3),
+    inset 0 0 30px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  border-left: 8px solid #2b1810;
+  width: 700px;
+  height: 900px;
+  animation: floatBook 3s ease-in-out infinite;
+}
+
+.cover {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #8b4513 0%, #a0522d 30%, #8b4513 100%);
+  border-radius: 0 20px 20px 0;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffd700;
+  text-align: center;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.4);
+}
+
+.cover h1 {
+  font-size: 52px;
+  margin-bottom: 40px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+  line-height: 1.3;
+  letter-spacing: 1px;
+  padding: 0 30px;
+}
+
+.cover h2 {
+  font-size: 38px;
+  color: #deb887;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-style: italic;
+  line-height: 1.3;
+}
+
+.open {
+  display: flex;
+  transform: rotateX(25deg) scale(1);
+  background: linear-gradient(
+    to right,
+    #654321 0%,
+    #8b4513 47%,
+    #2b1810 48%,
+    #2b1810 52%,
+    #8b4513 53%,
+    #654321 100%
+  );
+  gap: 2px;
+}
+
+/* Add closing animation class */
+.closing {
+  transform: rotateX(0deg) rotateY(0deg) scale(0.3);
+  animation: none;
+}
+
+.animating {
+  transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.open .cover h1 {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.open .cover h2 {
+  font-size: 32px;
+}
+
+.spine {
+  position: absolute;
+  left: -60px;
+  width: 60px;
+  height: 100%;
+  background: linear-gradient(to right, #543210 0%, #8b4513 40%, #654321 100%);
+  border-radius: 4px 0 0 4px;
+  box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.3),
+    -2px 0 5px rgba(0, 0, 0, 0.2);
+  /* Remove any text-related properties */
+  display: block;
+}
+
+/* Remove any spine text styles if they exist */
+.spine h3,
+.spine h4,
+.spine * {
+  display: none;
+}
+
+/* Add raised bands to the spine */
+.spine::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 80px,
+    rgba(218, 165, 32, 0.2) 80px,
+    rgba(218, 165, 32, 0.2) 85px,
+    transparent 85px,
+    transparent 100px
+  );
+}
+
+/* Add decorative pattern */
+.spine::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 120px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(218, 165, 32, 0.3) 20%,
+    rgba(218, 165, 32, 0.3) 80%,
+    transparent 100%
+  );
+  background-image: radial-gradient(
+    circle at center,
+    rgba(218, 165, 32, 0.4) 2px,
+    transparent 3px
+  );
+  background-size: 10px 10px;
+  background-repeat: repeat-y;
+  opacity: 0.7;
+}
+
+/* Add top and bottom caps */
+.spineCap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(to right, #432109 0%, #654321 100%);
+}
+
+.spineCapTop {
+  composes: spineCap;
+  top: 0;
+  border-radius: 4px 0 0 0;
+  border-bottom: 1px solid rgba(218, 165, 32, 0.3);
+}
+
+.spineCapBottom {
+  composes: spineCap;
+  bottom: 0;
+  border-radius: 0 0 0 4px;
+  border-top: 1px solid rgba(218, 165, 32, 0.3);
+}
+
+/* Base page styles */
+.page {
+  position: relative;
+  transform-style: preserve-3d;
+  backface-visibility: visible; /* changed from hidden */
+  transition: transform 1.2s ease;
+  background: #fff5e6;
+  color: #000000;
+  width: calc(50% - 1px);
+  height: 100%;
+  padding: 25px; /* Reduced from 35px */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  overflow: hidden;
+}
+
+.pageInner {
+  width: 100%;
+  height: 100%;
+  backface-visibility: visible; /* make content always visible */
+  transform-style: preserve-3d;
+  transition: opacity 0.3s;
+}
+
+/* Left page specific styles */
+.leftPage {
+  transform-origin: right center; /* Right edge for left page */
+  left: 0;
+}
+
+/* Right page specific styles */
+.rightPage {
+  transform-origin: left center; /* Left edge for right page */
+  right: 0;
+}
+
+/* Flipping animations for left page */
+.leftPage.flipping {
+  animation: leftPageFlip 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+  z-index: 100;
+}
+
+.leftPage.flipping-reverse {
+  animation: leftPageFlipReverse 1.2s cubic-bezier(0.645, 0.045, 0.355, 1)
+    forwards;
+  z-index: 100;
+}
+
+/* Flipping animations for right page */
+.rightPage.flipping {
+  animation: rightPageFlip 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+  z-index: 100;
+}
+
+.rightPage.flipping-reverse {
+  animation: rightPageFlipReverse 1.2s cubic-bezier(0.645, 0.045, 0.355, 1)
+    forwards;
+  z-index: 100;
+}
+
+@keyframes leftPageFlip {
+  0% {
+    transform: rotateY(0);
+    z-index: 100;
+  }
+  20% {
+    transform: rotateY(20deg);
+    z-index: 100;
+  }
+  100% {
+    transform: rotateY(180deg);
+    z-index: 99;
+  }
+}
+
+@keyframes leftPageFlipReverse {
+  0% {
+    transform: rotateY(180deg);
+    z-index: 99;
+  }
+  80% {
+    transform: rotateY(20deg);
+    z-index: 100;
+  }
+  100% {
+    transform: rotateY(0);
+    z-index: 100;
+  }
+}
+
+@keyframes rightPageFlip {
+  0% {
+    transform: rotateY(0);
+    z-index: 100;
+  }
+  20% {
+    transform: rotateY(-20deg);
+    z-index: 100;
+  }
+  100% {
+    transform: rotateY(-180deg);
+    z-index: 99;
+  }
+}
+
+@keyframes rightPageFlipReverse {
+  0% {
+    transform: rotateY(-180deg);
+    z-index: 99;
+  }
+  80% {
+    transform: rotateY(-20deg);
+    z-index: 100;
+  }
+  100% {
+    transform: rotateY(0);
+    z-index: 100;
+  }
+}
+
+/* Remove hover effects */
+.leftPage:hover,
+.rightPage:hover {
+  transform: none;
+}
+
+.titlePage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+}
+
+.titlePage h1 {
+  font-size: 60px;
+  margin-bottom: 40px;
+  color: #2b1810;
+}
+
+.titlePage h2 {
+  font-size: 36px;
+  margin-bottom: 60px;
+  font-style: italic;
+  color: #654321;
+}
+
+.publishingInfo {
+  margin-top: 100px;
+  font-size: 20px;
+  color: #666;
+}
+
+.pageNumber {
+  position: absolute;
+  bottom: 60px;
+  font-family: "Crimson Text", serif;
+  font-size: 24px;
+  color: #666;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in forwards;
+  animation-delay: 1.4s;
+  transition: opacity 0.3s ease;
+}
+
+.leftPage .pageNumber {
+  left: 80px;
+}
+
+.rightPage .pageNumber {
+  right: 80px;
+}
+
+/* Move close button outside the book */
+.closeButton {
+  position: absolute;
+  bottom: 55px; /* Reduced from 100px to move button lower */
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  z-index: 1000;
+  opacity: 1; /* Changed from 0 */
+  transition: all 0.3s ease; /* Quick transition for hover effects only */
+  padding: 10px 20px;
+  background: rgba(139, 69, 19, 0.8);
+  color: #fff5e6;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+.closeButton:hover {
+  background: rgba(139, 69, 19, 1);
+}
+
+/* Navigation buttons */
+.pageButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(139, 69, 19, 0.8);
+  color: #fff5e6;
+  border: none;
+  padding: 15px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  opacity: 0.8;
+}
+
+.pageButton:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.pageButton:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: translateY(-50%) scale(1);
+}
+
+.prevButton {
+  left: -60px;
+}
+
+.nextButton {
+  right: -60px;
+}
+
+/* Animation Keyframes */
+@keyframes floatBook {
+  0%,
+  100% {
+    transform: translateY(0) rotateY(0);
+  }
+  50% {
+    transform: translateY(-10px) rotateY(5deg);
+  }
+}
+
+@keyframes openBook {
+  0% {
+    transform: rotateX(-10deg) rotateY(0) scale(0.6);
+  }
+  100% {
+    transform: rotateX(25deg) rotateY(0) scale(1);
+  }
+}
+
+@keyframes closeBook {
+  0% {
+    transform: rotateX(25deg) rotateY(0) scale(1);
+  }
+  100% {
+    transform: rotateX(0) rotateY(0) scale(0.6);
+  }
+}
+
+/* Apply animations */
+.book.open {
+  animation: openBook 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+.book.closing {
+  animation: closeBook 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Page shadow effect during flip */
+.leftPage.flipping::after,
+.rightPage.flipping::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.05)
+  );
+  opacity: 0;
+  animation: shadowEffect 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  pointer-events: none;
+}
+
+@keyframes shadowEffect {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Page edge lighting effect */
+.leftPage.flipping::before,
+.rightPage.flipping::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0.5)
+  );
+  opacity: 0;
+  animation: edgeLighting 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  pointer-events: none;
+}
+
+@keyframes edgeLighting {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+/* Remove the shimmer effect by removing the ::after pseudo-element */
+.cover::after {
+  display: none;
+}
+
+.emptyPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  color: #999;
+  font-style: italic;
+}
+
+.page-content {
+  height: 100%;
+  overflow-y: auto;
+  padding-right: 20px;
+}
+
+.page-content h2 {
+  font-size: 24px;
+  color: #2b1810;
+  margin-bottom: 20px;
+  font-family: "Crimson Text", serif;
+}
+
+.page-content p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+/* Add these new styles while keeping all existing ones */
+
+.bookContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 40px;
+  perspective: 1500px;
+}
+
+/* Add turning page overlay */
+.flipping::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff5e6;
+  backface-visibility: hidden;
+  transform-origin: left;
+  animation: turnPage 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  border-radius: 0 5px 5px 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes turnPage {
+  0% {
+    transform: rotateY(0);
+    background: linear-gradient(to right, #fff5e6 0%, #f5e6d3 100%);
+  }
+  50% {
+    transform: rotateY(-90deg);
+    background: linear-gradient(to right, #fff5e6 0%, #e6d3c1 100%);
+    box-shadow: 40px 0 40px rgba(0, 0, 0, 0.2),
+      0 0 40px rgba(0, 0, 0, 0.1) inset;
+  }
+  100% {
+    transform: rotateY(-180deg);
+    background: linear-gradient(to right, #fff5e6 0%, #f5e6d3 100%);
+  }
+}
+
+/* Add page edge shadow */
+.flipping::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0) 20%
+  );
+  animation: shadowMove 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  pointer-events: none;
+  z-index: 9;
+}
+
+@keyframes shadowMove {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Add these new styles while keeping all existing ones */
+
+.flipping {
+  animation: pageFlipAnimation 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  transform-origin: left;
+  position: relative;
+}
+
+@keyframes pageFlipAnimation {
+  0% {
+    transform: rotateY(0deg);
+    z-index: 5;
+  }
+  20% {
+    transform: rotateY(-40deg);
+    z-index: 5;
+  }
+  40% {
+    transform: rotateY(-80deg);
+    z-index: 5;
+  }
+  60% {
+    transform: rotateY(-120deg);
+    z-index: 5;
+  }
+  80% {
+    transform: rotateY(-160deg);
+    z-index: 5;
+  }
+  100% {
+    transform: rotateY(-180deg);
+    z-index: 4;
+  }
+}
+
+/* Page shadow effect */
+.flipping::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.05)
+  );
+  z-index: 2;
+  animation: shadowAnimation 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+@keyframes shadowAnimation {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Page curl effect */
+.flipping::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.05));
+  transform-origin: left;
+  animation: curlAnimation 0.6s cubic-bezier(0.645, 0.045, 0.355, 1);
+  pointer-events: none;
+}
+
+@keyframes curlAnimation {
+  0% {
+    transform: rotateY(0) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    transform: rotateY(-90deg) translateX(-10px);
+    opacity: 1;
+  }
+  100% {
+    transform: rotateY(-180deg) translateX(0);
+    opacity: 0;
+  }
+}
+
+/* Add page content transition */
+.page > * {
+  backface-visibility: hidden;
+  transition: opacity 0.3s;
+}
+
+.flipping > * {
+  animation: contentFade 0.6s ease-in-out;
+}
+
+@keyframes contentFade {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Update bookmark styles with smaller gaps */
+.bookmarks {
+  position: absolute;
+  right: -30px;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px; /* Reduced from 10px to 2px */
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.bookmark {
+  position: relative;
+  width: 30px;
+  height: 70px;
+  background: var(--bookmark-color, #e74c3c);
+  border-radius: 0 5px 5px 0;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 11px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  pointer-events: auto;
+  transform-origin: left center;
+}
+
+.bookmark:hover {
+  transform: translateX(5px);
+}
+
+/* Update bookmark positions for 5 bookmarks */
+.bookmark:nth-child(1) {
+  top: 10px;
+} /* Chapter 1 */
+.bookmark:nth-child(2) {
+  top: 12px;
+} /* Chapter 2 */
+.bookmark:nth-child(3) {
+  top: 14px;
+} /* Chapter 3 */
+.bookmark:nth-child(4) {
+  top: 16px;
+} /* Chapter 4 */
+.bookmark:nth-child(5) {
+  top: 18px;
+} /* Chapter 5 */
+
+/* Right to left flip (for next page) */
+.flipRightToLeft {
+  animation: flipRightToLeft 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+  z-index: 100;
+}
+
+/* Left to right flip (for previous page) */
+.flipLeftToRight {
+  animation: flipLeftToRight 1.2s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
+  z-index: 100;
+}
+
+@keyframes flipRightToLeft {
+  0% {
+    transform: rotateY(0);
+    z-index: 100;
+  }
+  100% {
+    transform: rotateY(-180deg);
+    z-index: 99;
+  }
+}
+
+@keyframes flipLeftToRight {
+  0% {
+    transform: rotateY(0);
+    z-index: 100;
+  }
+  100% {
+    transform: rotateY(180deg); /* Positive angle for right flip */
+    z-index: 99;
+  }
+}
+
+/* Page shadow during flip */
+.flipRightToLeft::after,
+.flipLeftToRight::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.2),
+    rgba(0, 0, 0, 0.05)
+  );
+  opacity: 0;
+  animation: shadowEffect 1.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+  pointer-events: none;
+}
+
+@keyframes shadowEffect {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Add keyboard controls hint */
+.keyboardControls {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  background: rgba(139, 69, 19, 0.1);
+  border-radius: 10px;
+  z-index: 1000;
+}
+
+.keyboardKey {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  background: #fff;
+  border: 1px solid #8b4513;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #8b4513;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.keyboardAction {
+  font-size: 14px;
+  color: #8b4513;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+/* Add a subtle shadow in the middle */
+.leftPage::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.03),
+    rgba(0, 0, 0, 0.08)
+  );
+}
+
+.rightPage::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.03),
+    rgba(0, 0, 0, 0.08)
+  );
+}
+
+/* Key controls showcase styles */
+.keyControls {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: rgba(139, 69, 19, 0.1);
+  border-radius: 10px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+.keyGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #8b4513;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.keyGroup:hover {
+  background: rgba(139, 69, 19, 0.1);
+}
+
+.keyGroup:active {
+  transform: scale(0.95);
+}
+
+.keyBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border: 2px solid #8b4513;
+  border-radius: 6px;
+  font-weight: bold;
+  color: #8b4513;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+/* Add hover effects */
+.keyGroup:hover .keyBox {
+  background: #8b4513;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+/* Add disabled state */
+.keyGroup.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.keyGroup.disabled:hover {
+  background: none;
+}
+
+.keyGroup.disabled:hover .keyBox {
+  background: #fff;
+  color: #8b4513;
+  transform: none;
+}
+
+.keyGroup span {
+  font-weight: 500;
+  color: #5d4037;
+  user-select: none; /* Prevent text selection */
+}
+
+/* Add active state */
+.keyGroup:active .keyBox {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Add fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Update close button margin for spacing */
+.closeButton {
+  margin-bottom: 15px;
+}
+
+/* Update main container in app/page.tsx */
+.main {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.pageContent {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.hideContent {
+  opacity: 0;
+  pointer-events: none; /* Prevent interaction with hidden content */
+}
