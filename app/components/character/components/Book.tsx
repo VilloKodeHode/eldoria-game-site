@@ -18,10 +18,12 @@ export interface BookProps {
   title: string;
   author: string;
   pages: Page[];
+  bookmarks?: Bookmark[];
   width?: number;
   height?: number;
-  bookmarks?: Bookmark[];
+  onPageChange?: (pageNumber: number) => void; // 👈 Add this line
 }
+
 
 export const Book: React.FC<BookProps> = ({
   title,
