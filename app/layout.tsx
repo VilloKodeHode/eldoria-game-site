@@ -23,6 +23,7 @@ import { PlayerInventoryLoader } from "./lib/mongoDB/PlayerInventoryLoader";
 //   liveFetchAllPotions,
 // } from "./lib/sanity/live";
 // import Image from "next/image";
+import { StartScreen } from "./components/ui/loading/startscreen/StartScreen"; // juster etter filplassering
 
 export const figtree = Figtree({
   subsets: ["latin"],
@@ -61,9 +62,9 @@ export default async function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body
-          className={`${figtree.className} bg-[#1f2326] antialiased overflow-x-hidden`}>
-          <header className="flex z-999 absolute font-mono justify-start text-amber-50 items-center p-4 gap-4 h-16">
+      <body className={`${figtree.className} bg-[#1f2326] antialiased overflow-x-hidden`}>
+        <StartScreen /> {/* Magisk silketråd-animasjon */}
+        <header className="flex z-999 absolute font-mono justify-start text-amber-50 items-center p-4 gap-4 h-16">
         
             <SignedOut>
               <SignInButton />
