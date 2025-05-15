@@ -1,47 +1,55 @@
 :root {
-  --glow-blue: #5d9cec;
-  --glow-green: #2be23a;
-  --glow-red: #ec5d70;
-  --gold: #fefeb7;
+  --glow-blue: #5d9cec;   /* Blå glødfarge til drop-shadow */
+  --glow-green: #2be23a;  /* Grønn glødfarge til drop-shadow */
+  --glow-red: #ec5d70;    /* Rød glødfarge til drop-shadow */
+  --gold: #fefeb7;        /* Gullfarge som hovedstrekfarge */
 }
 
 .container {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background: radial-gradient(circle at center, #0b0f18 0%, #0a0c14 100%);
-  overflow: hidden;
+  position: absolute;     /* Plasseres relativt til nærmeste posisjonerte forelder */
+  inset: 0;               /* Topp, høyre, bunn og venstre = 0 for full skjerm */
+  z-index: 0;             /* Legger containeren under alt annet innhold */
+  background:
+    radial-gradient(
+      circle at center,
+      #0b0f18 0%,         /* Mørk blålig farge i midten */
+      #0a0c14 100%        /* Litt mørkere kant */
+    );
+  overflow: hidden;       /* Skjuler alt som stikker utenfor */
 }
 
 .svg {
-  width: 100%;
-  height: 100%;
+  width: 100%;            /* Fyller hele bredden av container */
+  height: 100%;           /* Fyller hele høyden av container */
 }
 
 .thread {
-  fill: none;
-  stroke: var(--gold);
-  stroke-width: 1.5;
-  opacity: 0.85;
-  stroke-linecap: round;
+  fill: none;             /* Ingen fyllfarge på stien */
+  stroke: var(--gold);    /* Bruker gullfargen som strekfarge */
+  stroke-width: 1.5;      /* Tjukkelse på strekene */
+  opacity: 0.85;          /* Litt gjennomsiktighet for mykere utseende */
+  stroke-linecap: round;  /* Runde ender på strekene */
   filter:
-    drop-shadow(0 0 6px var(--gold))
-    drop-shadow(0 0 12px var(--glow-blue))
-    drop-shadow(0 0 16px var(--glow-green))
-    drop-shadow(0 0 20px var(--glow-red));
-  mix-blend-mode: screen;
+    drop-shadow(0 0 6px var(--gold))    /* Første glød rundt streken */
+    drop-shadow(0 0 12px var(--glow-blue))   /* Blå glød */
+    drop-shadow(0 0 16px var(--glow-green))  /* Grønn glød */
+    drop-shadow(0 0 20px var(--glow-red));   /* Rød glød */
+  mix-blend-mode: screen; /* Lyser gjennom mørkt bakgrunnslag */
 }
+
 .canvas {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
+  position: absolute;     /* Dekker hele skjermen, liggende bak alt */
+  inset: 0;               /* Topp, høyre, bunn og venstre = 0 */
+  z-index: 0;             /* Samme nivå som .container */
   background:
-    radial-gradient(circle at center, #0a0d17 0%, #070a11 80%, #020306 100%),
-    url('/stars.png'); /* 👉 legg denne i /public */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+    radial-gradient(
+      circle at center,
+      #0a0d17 0%,         /* Mørk bakgrunnsfarge i midten */
+      #070a11 80%,        /* Nesten svart mot kantene */
+      #020306 100%        /* Fullt svart i ytterkant */
+    ),
+    url('/stars.png');    /* Stjerner som bakgrunnsimage; legg filen i /public */
+  background-size: cover;    /* Bildet dekker hele området */
+  background-repeat: no-repeat; /* Ingen gjentakelse */
+  background-position: center;  /* Sentrerer bildet */
 }
-
-
-
