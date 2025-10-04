@@ -4,17 +4,24 @@
     "type": "split",
     "children": [
       {
-        "id": "42a10b2902ff00e0",
+        "id": "5bb00e229a2d94de",
         "type": "tabs",
         "children": [
           {
-            "id": "10c0398c2dab8af1",
+            "id": "f4d82e02ebe63928",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Graph view"
+              "type": "canvas",
+              "state": {
+                "file": "Game features.canvas",
+                "viewState": {
+                  "x": 267.6811445442213,
+                  "y": 295.3385128087097,
+                  "zoom": -0.668920140165261
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "Game features"
             }
           }
         ]
@@ -75,7 +82,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "9a9352b622afeb8b",
@@ -154,6 +161,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "bases:Create new base": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -162,34 +170,39 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "10c0398c2dab8af1",
+  "active": "f4d82e02ebe63928",
   "lastOpenFiles": [
-    "Korvex, The Shattered Flame.md",
-    "Mortal Races.md",
-    "Forgewright.md",
-    "Verdwalker.md",
-    "Human.md",
-    "Umbran.md",
-    "Skyforged.md",
-    "Eidralis.md",
-    "Stonekin.md",
-    "Eldrin.md",
-    "Riftshroud.md",
-    "Veilweaver.md",
-    "Aetherblade.md",
-    "Astral Sentinel.md",
-    "Aetheric Sage.md",
-    "Primordial Charger.md",
-    "Perspectives on the Shattering.md",
-    "The Shattering.md",
-    "Entropis.md",
-    "Vitalis.md",
-    "The Aether Core.md",
-    "Shatterlines.md",
-    "Elemental Nodes.md",
-    "Voidrifts.md",
-    "Ashfounts.md",
-    "The Veil.md",
-    "Untitled.canvas"
+    "Game features.canvas",
+    "Game Lore/Sylvara, The Twilight Whisper.md",
+    "Untitled.base",
+    "Game Lore/Perspectives on the Shattering.md",
+    "Game Lore/The Luminous Aether.md",
+    "Game Lore/Liora, The Radiant Bloom.md",
+    "Game Lore/Celyra, The Veilkeeper.md",
+    "Game Lore/Korvex, The Shattered Flame.md",
+    "Game Lore/Aetherblade.md",
+    "Game Lore",
+    "Game Lore/Riftshroud.md",
+    "Game Lore/Primordial Charger.md",
+    "Game Lore/Orathis, The Eternal Root.md",
+    "Game Lore/Mortal Races.md",
+    "Game Lore/Mortal Aetheric Classes.md",
+    "Untitled 4.base",
+    "Untitled 3.base",
+    "Untitled 2.base",
+    "Untitled 1.base",
+    "Game Lore/Ashfounts.md",
+    "Game Lore/Aetheric Phenomena.md",
+    "Game Lore/Forgewright.md",
+    "Game Lore/Verdwalker.md",
+    "Game Lore/Human.md",
+    "Game Lore/Umbran.md",
+    "Game Lore/Skyforged.md",
+    "Game Lore/Eidralis.md",
+    "Game Lore/Stonekin.md",
+    "Game Lore/Eldrin.md",
+    "Game Lore/Veilweaver.md",
+    "Game Lore/Astral Sentinel.md",
+    "Game Lore/Aetheric Sage.md"
   ]
 }
