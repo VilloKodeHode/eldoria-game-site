@@ -1,7 +1,5 @@
 ---
 tags:
-  - creation
+  - embodiment
 ---
-[[Vitalis]]
-
 [[Entropis]]

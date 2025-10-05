@@ -6,9 +6,11 @@ tags:
 
 ### **The Divine Children of the Astral Light**
 
-When the [[The Astral Light]] shattered the Aether Core to release Vitalis and Entropis into motion, its act of cosmic rupture echoed across the metaphysical fabric of the world. From those echoes, consciousness crystallized. Forces once abstract became self-aware. Thus, the divine pantheon of Eldoria was born—not forged nor chosen, but manifested.
+When [[The Astral Light]] shattered the Aether Core and set Vitalis and Entropis into motion, its brilliance fractured into countless echoes. Within those echoes, awareness awoke—shards of purpose given thought.
 
-These are not gods in the mortal sense, but cosmic archetypes given form. They are the embodiment of principles shaped by the resonance of the Shattering. Each represents a facet of reality as it struggles toward meaning.
+From the reverberation of creation itself, the **Divine Children** emerged: beings not born, but _realized_. Each was a crystallized will of the cosmos—where once there were only forces, now stood sentient archetypes.
+
+They are not gods in mortal form, but living laws given voice. Each embodies a truth forged in the moment of the Shattering: the eternal struggle of balance seeking meaning through existence.
 
 **
 
@@ -23,12 +25,13 @@ The greater deites:
 
 The lesser deites:
 
-**[[Liora, The Radiant Bloom]]**
+**[[Lior, The Radiant Bloom]]**
 
 **[[Korvex, The Shattered Flame]]**
 
 **[[Sylvara, The Twilight Whisper]]**
 
+[[Zyria, Master of the Forgeheart engines]]
 
 These deities are not fixed in doctrine or dogma. They are shaped by the regions that revere them and the mortals who reflect their nature. They walk through dream, vision, and rite—not to be worshipped from afar, but to be lived through.
 

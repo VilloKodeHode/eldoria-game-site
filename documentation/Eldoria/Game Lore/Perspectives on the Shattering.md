@@ -1,6 +1,7 @@
 ---
 tags:
   - lore
+  - aetheric-phenomena
 ---
 ### **Perspectives on the Shattering**
 
