@@ -92,7 +92,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -238,7 +238,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a9da332035c72f11",
+  "active": "d98be9730970b91f",
   "lastOpenFiles": [
     "Decay.md",
     "Memory.md",
