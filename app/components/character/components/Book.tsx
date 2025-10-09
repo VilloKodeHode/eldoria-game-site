@@ -18,10 +18,12 @@ export interface BookProps {
   title: string;
   author: string;
   pages: Page[];
+  bookmarks?: Bookmark[];
   width?: number;
   height?: number;
-  bookmarks?: Bookmark[];
+  onPageChange?: (pageNumber: number) => void; // 👈 Add this line
 }
+
 
 export const Book: React.FC<BookProps> = ({
   title,
@@ -270,7 +272,7 @@ export const Book: React.FC<BookProps> = ({
 
         {/* Page nav buttons */}
         <>
-          <button
+          {/* <button
             className={`${styles.pageButton} ${styles.prevButton}`}
             onClick={() => turnPage('prev')}
             disabled={currentSpread === 0 || isFlipping}
@@ -283,7 +285,7 @@ export const Book: React.FC<BookProps> = ({
             disabled={currentSpread >= totalSpreads - 1 || isFlipping}
           >
             →
-          </button>
+          </button> */}
         </>
       </div>
 
@@ -299,3 +301,4 @@ export const Book: React.FC<BookProps> = ({
 };
 
 export default Book;
+/* */

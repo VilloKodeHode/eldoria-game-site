@@ -21,7 +21,8 @@
   transform: rotateX(0deg) rotateY(0deg) scale(0.6);
   background: #8b4513;
   border-radius: 8px 25px 25px 8px;
-  box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.3),
+  box-shadow:
+    -5px 5px 15px rgba(0, 0, 0, 0.3),
     inset 0 0 30px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   border-left: 8px solid #2b1810;
@@ -43,7 +44,9 @@
   align-items: center;
   color: #ffd700;
   text-align: center;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), inset 0 0 50px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    5px 5px 15px rgba(0, 0, 0, 0.2),
+    inset 0 0 50px rgba(0, 0, 0, 0.4);
 }
 
 .cover h1 {
@@ -105,7 +108,8 @@
   height: 100%;
   background: linear-gradient(to right, #543210 0%, #8b4513 40%, #654321 100%);
   border-radius: 4px 0 0 4px;
-  box-shadow: inset -5px 0 10px rgba(0, 0, 0, 0.3),
+  box-shadow:
+    inset -5px 0 10px rgba(0, 0, 0, 0.3),
     -2px 0 5px rgba(0, 0, 0, 0.2);
   /* Remove any text-related properties */
   display: block;
@@ -197,7 +201,9 @@
   width: calc(50% - 1px);
   height: 100%;
   padding: 25px; /* Reduced from 35px */
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.2),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
   overflow: hidden;
 }
 
@@ -363,7 +369,7 @@
 /* Move close button outside the book */
 .closeButton {
   position: absolute;
-  bottom: 55px; /* Reduced from 100px to move button lower */
+  bottom: 70px; /* Reduced from 100px to move button lower */
   left: 50%;
   transform: translateX(-50%);
   margin: 0;
@@ -582,7 +588,9 @@
   backface-visibility: hidden;
   transform-origin: left;
   animation: turnPage 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+  box-shadow:
+    0 0 20px rgba(0, 0, 0, 0.2),
+    0 0 40px rgba(0, 0, 0, 0.1) inset;
   border-radius: 0 5px 5px 0;
   pointer-events: none;
   z-index: 10;
@@ -596,7 +604,8 @@
   50% {
     transform: rotateY(-90deg);
     background: linear-gradient(to right, #fff5e6 0%, #e6d3c1 100%);
-    box-shadow: 40px 0 40px rgba(0, 0, 0, 0.2),
+    box-shadow:
+      40px 0 40px rgba(0, 0, 0, 0.2),
       0 0 40px rgba(0, 0, 0, 0.1) inset;
   }
   100% {
@@ -945,12 +954,12 @@
 
 /* Key controls showcase styles */
 .keyControls {
-  margin-top: 20px;
+  margin-top: 30px;
   display: flex;
-  gap: 20px;
+  gap: 10px;
   justify-content: center;
   align-items: center;
-  padding: 15px;
+  padding: 13px;
   background: rgba(139, 69, 19, 0.1);
   border-radius: 10px;
   animation: fadeIn 0.3s ease-in;

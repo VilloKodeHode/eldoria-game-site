@@ -8,7 +8,7 @@ Together, these **Aetheric Phenomena** shape Eldoria’s geography, mythology, a
 
 > _"To walk the world of Eldoria is to walk through its memory—alive, burning, frozen, and fractured."
 
-**[[The Veil]]** – The metaphysical medium that overlays reality; manipulated by spellcasters to access Aether.
+**[[Game Lore/The Veil]]** – The metaphysical medium that overlays reality; manipulated by spellcasters to access Aether.
     
  **[[Shatterlines]]** – Rifts of volatile Aetheric discharge birthed from the Shattering; origin of the Shatter element.
     

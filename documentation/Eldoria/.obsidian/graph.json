@@ -48,6 +48,13 @@
         "a": 1,
         "rgb": 16711680
       }
+    },
+    {
+      "query": "tag:#embodiment  ",
+      "color": {
+        "a": 1,
+        "rgb": 16711880
+      }
     }
   ],
   "collapse-display": false,
@@ -60,6 +67,6 @@
   "repelStrength": 20,
   "linkStrength": 1,
   "linkDistance": 30,
-  "scale": 0.885498954315064,
+  "scale": 0.2583458339168472,
   "close": false
 }
