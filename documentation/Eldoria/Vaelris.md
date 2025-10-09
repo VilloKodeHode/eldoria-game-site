@@ -61,7 +61,7 @@ It is said that every thunderclap is his laughter, and every flash of lightning 
 
 > “I am the break that makes you whole.”
 
-### The nature of Cinderys
+### The nature of Vaelris
 
 Vaelris is passionate, sorrowful, and absolute. To see as he does is agony, for he beholds all things stripped of illusion. Yet within his storms lies compassion—the fierce mercy of enlightenment. He loves fiercely but without comfort; he teaches through fracture, not shelter.
 

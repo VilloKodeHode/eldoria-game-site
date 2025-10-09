@@ -7,7 +7,7 @@ tags:
 #### "He who moves beyond—ever toward what lies past the last horizon."
 ### Synapsis
 
-The Boundless is one of the [[Embodiment of principles]]: the personified embodiment of expansion, transformation through journey, and eternal becoming. Where Harmony holds, Chaos changes, and Dream reveals what might be, the Boundless becomes. He is the unceasing movement of Vitalis—the force that carries rivers to sea, roots into stone, and thought into action. He urges all things to outgrow their boundaries, not in rebellion, but in joyful momentum. He is the breath of first flight, the pull of starlight, and the quiet voice that says: "go farther".
+The Boundless is one of the [[Embodiment of principles]]: the personified embodiment of expansion, transformation through journey, and eternal becoming. Where Harmony holds, Chaos changes, and Dream reveals what might be, the Boundless becomes. He is the unceasing movement of [[Vitalis]]—the force that carries rivers to sea, roots into stone, and thought into action. He urges all things to outgrow their boundaries, not in rebellion, but in joyful momentum. He is the breath of first flight, the pull of starlight, and the quiet voice that says: "go farther".
 
 ### Appearence
 
