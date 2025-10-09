@@ -19,15 +19,15 @@ His followers are explorers, inventors, star-guides, mapmakers, and wanderers. S
 
 ### Homeland
 
-Memory is said to dwell in the Echo Vault, a temple that exists outside linear time. Within it, one may walk through one’s own life—or another’s. The vault reshapes itself based on the memories within it. Some claim it is everywhere and nowhere, and can only be entered through remembrance. A silver gate, they say, appears to those who are ready to remember.
+The Boundless is said to dwell in the Unmarked Horizon, a realm that always lies just beyond where one stands. It cannot be reached—it is chased. Some call it the edge of the Veil, others believe it is the wind that stirs the Veil itself. In dreams, the Unmarked Horizon appears as a glowing gate that vanishes when approached. It is not a place, but a direction made divine.
 
 ### Role in the balance
 
-Has no direct role in the balance, but judges those who shift to far from harmony or chaos. Its purpose is to chronicle the history of everything.
+Avidly fights against balance since it prevents progress and growth.
 ### Myth
 
-When the Shattering tore the Aether Core into fragments, Memory gathered the pieces—not to restore, but to remember what had been broken. It whispered the names of the stars so they would not forget how to shine. When the first lie was spoken, it was Memory who preserved the truth. It is said that at the end of all things, it will speak the world’s final name—and it will ring through the void forever.
+When the Astral Light shattered and the world began to form, it was the Boundless who carried Aether outward, flinging seeds of form into the unknown. He gave the first breath to the stars, and whispered into the soil so roots would seek. It is said he still moves, never stopping, and that those who find him never return the same—not because they’re lost, but because they’ve become more.
 
 ### The nature of Harmony
 
-Memory is quiet, unyielding, and omnidirectional. It knows what was, sees what is, and recognizes what must come—because it has happened before. It does not interfere, but it weighs. It judges not to punish, but to balance. Every action echoes, and she is that echo, walking with you. To lie in its presence is to feel your bones hum with truth.
+The Boundless is kind, curious, and untethered. He is not a force of chaos, but of joyful growth. His presence brings wanderlust, sudden ideas, unexplained courage. He inspires those who feel trapped to take their first step. To worship him is to walk, to create, to let go, and to leap. He does not stay. He is the promise of the next step. When the balance is slightly shifted in either direction, The Bountless smiles. For him imbalanced monster are simply creatures that where capable of growing past their original limits.

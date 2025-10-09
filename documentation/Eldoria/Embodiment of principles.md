@@ -8,7 +8,7 @@ tags:
 
 [[Harmony]] - Vitalis
 [[Chaos]] - Entropis
-[[The Veil]] - Aether
+[[Veil]] - Aether
 ## The embodiments
 
 [[Dream]] - Aether, the veil

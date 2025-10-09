@@ -8,7 +8,7 @@ tags:
 
 ### Synapsis
 
-Decay is of of the [[Embodiment of principles]]. Often mistaken as a cause of misery and destruction, but in truth is a principle of liberation through return. It embodies the sacred process by which all things—no matter how grand or beautiful—must one day break down and return to source. Its touch is slow, inevitable, and merciful. Through it, the old is undone, the broken finds rest, and the buried gives rise to new life. It is the graceful end, and in its wake, the world breathes again.
+Decay is one of the [[Embodiment of principles]]. Often mistaken as a cause of misery and destruction, but in truth is a principle of liberation through return. It embodies the sacred process by which all things—no matter how grand or beautiful—must one day break down and return to source. Its touch is slow, inevitable, and merciful. Through it, the old is undone, the broken finds rest, and the buried gives rise to new life. It is the graceful end, and in its wake, the world breathes again.
 
 ### Appearence
 

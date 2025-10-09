@@ -7,30 +7,53 @@ tags:
 
 #### "The ever-burning fracture—the storm of unmaking, everseeker of what lies beyond the form."
 
-### Synapsis
+### Synopsis
 
-Chaos is one of The Three Great Principles of the [[Embodiment of principles]], formed in the wake of the Shattering. Where Harmony arose from the stabilizing resonance of the Astral Light, Chaos coalesced from the divine momentum of [[Entropis]] — not as decay, but as transformation incarnate. She is not destruction for its own sake, but the sacred unraveling that clears the path for renewal. In her wake, old forms break, stagnant truths fall, and hidden realities are made visible. To follow Chaos is not to end the world — but to accept that nothing true can remain unchanged.
+Chaos is one of The Three Great Principles of the [[Embodiment of principles]], borned in the wake of the Shattering. Where **Harmony** emerged from the resonant stillness of the Astral Light, **Chaos** was shaped from the momentum of **[[Entropis]]**—not as simple decay, but as **transformation incarnate**. 
 
+She is the sacred unbinding that clears the way for renewal, the dissolution through which new truth is born. In her presence, old forms crumble, stagnant truths fracture, and hidden realities are unveiled.
+
+To follow Chaos is not to seek destruction—but to **accept that nothing living remains unchanged.**
 ### Appearence
 
-Chaos appears as a veiled figure of flowing entropy, its form constantly shifting between fluid shadow, golden fire, and windblown ash. Her features are hinted at but never revealed, always on the verge of becoming something else. Sometimes it is cloaked in fractal geometry, sometimes in a storm of petals or broken glass. Its eyes, when seen, are radiant with aetherlight refracted through ruin. Where it treads, reality softens—and what is hidden beneath begins to emerge.
+Chaos manifests as a **veiled figure woven from entropy itself**, her body an ever-shifting dance of shadow, golden fire, and drifting ash.  
+Her form changes from fractal geometry to storms of petals, from ribbons of smoke to shards of broken glass.  
+Her eyes—when they appear—shine with **aetherlight refracted through ruin**.
+
+Where Chaos walks, reality softens. Truths buried beneath form begin to surface, and the veil of certainty trembles.
 
 ### Views on Chaos in Culture and Society
 
-In most cultures Chaos is revered as "the mother of change", the bringer of truth through dissolution. She is honored by reformers, seers, wild mages, and philosophers who embrace change. Some call her liberator, some curse her as the undoing of kings and gods. The faithful do not worship her in temples—they burn them down to see what lies beneath. Yet even Harmony’s most rigid followers understand her necessity. Without Chaos, there would be no growth—only stillness, and silence.
+Across Eldoria’s many civilizations, Chaos is both **feared and adored**.  
+To most, she is _the Mother of Change_, the **liberator through dissolution**. Reformers, philosophers, and wild mages honor her name; tyrants and zealots curse it.
+
+Her faithful do not build temples—they **burn them down** to reveal what lies beneath. Yet even Harmony’s most devout followers whisper her praises, knowing that without her hand, **creation would stagnate into silence**.
 
 ### Homeland
 
-Chaos is said to reside in the Hollow Spiral, a metaphysical plane where nothing holds its shape for long. It is a realm of echoing chants, shifting paths, and reborn stars. It is not a place of suffering, but of becoming—a sanctuary for those who are ready to be unmade and remade. At its center lies the Cradle of Embers, where every transformation begins again.
+Chaos dwells within the **Hollow Spiral**, a metaphysical realm where nothing holds shape for long.  
+There, shifting landscapes sing with transformation—mountains breathe, stars are reborn, and time folds upon itself.  
+At the spiral’s center burns the **Cradle of Embers**, where every form ends—and every new becoming begins.
 
 ### Role in the balance
 
-A pure balance give no space for growth. Chaos' main goal is to keep the scales unbalanced for the sake of progress and growth.
+Perfect equilibrium breeds stillness.  
+Chaos ensures that the scales of existence never remain still for long, **infusing imbalance as the spark of evolution**.  
+Through her touch, the cosmos continues to move, learn, and grow.
 
 ### Myth
 
-When the Astral Light shattered the Aether Core, its radiant balance ruptured. Harmony formed from what held together—but Chaos formed from what let go. It is said that Chaos sang the first unraveling, unbinding the woven threads of the Aether and scattering them into form. Her song is the world's heartbeat—destruction followed by beauty, collapse followed by birth. She did not choose this role. She is the breath between endings and beginnings.
+When the **Astral Light shattered the Aether Core**, its perfect balance ruptured.  
+From what held together arose **Harmony**, and from what let go—**Chaos**.
+
+It is said that **Chaos sang the First Unraveling**, her voice scattering the bound Aether threads into the shapes of worlds. Her melody became the heartbeat of existence: **destruction followed by beauty, collapse followed by birth**.
+
+She did not choose this role—she **is** the breath between endings and beginnings.
 
 ### The nature of Chaos
 
-Chaos is compassionate in her cruelty, and terrible in her mercy. She embodies the liberating mercy of impermanence. She cannot lie, for lies require stasis. She speaks in riddles, dances through contradiction, and offers only one promise: that what you are now is not what you must remain. Those who resist her may shatter. Those who embrace her may be reborn—not as they were, but as they are meant to be.
+Chaos is compassionate in her cruelty, and terrible in her mercy. She is the **liberating truth of impermanence**, the reminder that to live is to transform. 
+
+She cannot lie, for lies demand stillness. She speaks in riddles and contradiction, her every word a mirror cracking to reveal a deeper self.
+
+Those who resist her **shatter**, yet those who embrace her **are remade—not as they were, but as they are meant to be.**
