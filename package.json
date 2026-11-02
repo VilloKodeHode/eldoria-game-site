@@ -13,7 +13,7 @@
     "@sanity/image-url": "^1.1.0",
     "clsx": "^2.1.1",
     "mongodb": "^6.15.0",
-    "next": "15.2.8",
+    "next": "^15.5.28",
     "next-sanity": "^9.9.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -26,9 +26,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "15.2.2",
+    "eslint-config-next": "^15.5.28",
     "sanity": "^3.81.0",
     "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "overrides": {
+    "sharp": "^0.35.5"
   }
 }
